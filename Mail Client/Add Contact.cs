@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Mail_Client
+{
+    public partial class Add_Contact : Form
+    {
+        public Add_Contact()
+        {
+            InitializeComponent();
+        }
+
+        private void Form2_Add_Email_ID_Load(object sender, EventArgs e)
+        {
+            System.Drawing.Color y = Color.FromArgb(31, 65, 119);
+            
+            label_email_id.ForeColor = y;
+            
+            button_add_mail_id.FlatAppearance.BorderColor = y;
+            button_add_mail_id.ForeColor = y;
+            
+            button_exit.FlatAppearance.BorderColor = y;
+            button_exit.ForeColor = y;
+            
+            textBox_email_id.ForeColor = y;
+        }
+
+        private void button_add_mail_id_Click(object sender, EventArgs e)
+        {
+            //FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\__All Mail IDs.txt";
+            //FunctionCollection.WriteInFileFromTextBox(textBox_email_id.Text);
+            MessageBox.Show("Mail Id Added Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            textBox_email_id.Clear();
+        }
+
+        private void button_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
