@@ -15,8 +15,6 @@
 
 # Build results
 [Dd]ebug/
-!*/bin/[Dd]ebug/Data/*
-!*/bin/[Dd]ebug/client_secret.json
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
