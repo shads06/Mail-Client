@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="send_mail_menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="quickMenuToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -683,6 +680,331 @@
         AElFTkSuQmCC
 </value>
   </data>
+  <metadata name="label_to.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="comboBox_to.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_edit_group_list.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label_subject.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="textBox_subject.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label_content.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="richTextBox_content.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_send_mail.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_clear.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_exit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="checkedListBox_Edit_Recipients.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_Save_Edit_List.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_Close_Editing.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="progressBar1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="textBox_From_Email_ID.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="panel_Side_Menu.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_Exit_App.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="button_Exit_App.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAsMAAALDAE/QCLIAAABoklEQVRIS71VvU7DMBD2i/C/
+        kwQqRl4BRiQQO4wVqAheAeG46tCVAYRKY1PUpYUVqRsjC2NVHqCA1EoQ7hynONSENEn5pE9NL7nvrPP9
+        kDiscLbkcHZieezeEvQFOAzIemizhXu83CgvqM+To1A/WwSBuuPRT0cwP5bBNzUIPK/c42Hf0F044fuY
+        0B+0PPrmcHdHyZhhc/fI5DwJbcEOlFwUeHKTQxpCereVbACZc5WW/QfhXzw/piL6yiAee3XqlTklTwjk
+        7jqMXn3q+GmBvqGOzdmVFJelqFVLXgFQU1YW1vnICFxrVPz1ZjUV0VfXwqIh2DC6MWe2CXaobty8O/eL
+        nWYqoq+uBdnpYoChbsztDgIO/iMA6+nGLCnaMKZoqpdMWwRHrm7Ms0yBJYLzfCqNJtjHaFzAn1r4Ir8A
+        7qUUR2BLy3kOL7IMu71w2AnaL4jTGSUfAJfFd/SM9NwtJRuFxcuHRodJyFlRyZmBy0LOc5NzLGn/15P/
+        BN4+zvNESx+rBS509dadVe7JgZev9nQbuxJ+B5LymbbguRTZXGMg5AswsjKanEIkHgAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <metadata name="button_About.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="button_About.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAsMAAALDAE/QCLIAAABoklEQVRIS71VvU7DMBD2i/C/
+        kwQqRl4BRiQQO4wVqAheAeG46tCVAYRKY1PUpYUVqRsjC2NVHqCA1EoQ7hynONSENEn5pE9NL7nvrPP9
+        kDiscLbkcHZieezeEvQFOAzIemizhXu83CgvqM+To1A/WwSBuuPRT0cwP5bBNzUIPK/c42Hf0F044fuY
+        0B+0PPrmcHdHyZhhc/fI5DwJbcEOlFwUeHKTQxpCereVbACZc5WW/QfhXzw/piL6yiAee3XqlTklTwjk
+        7jqMXn3q+GmBvqGOzdmVFJelqFVLXgFQU1YW1vnICFxrVPz1ZjUV0VfXwqIh2DC6MWe2CXaobty8O/eL
+        nWYqoq+uBdnpYoChbsztDgIO/iMA6+nGLCnaMKZoqpdMWwRHrm7Ms0yBJYLzfCqNJtjHaFzAn1r4Ir8A
+        7qUUR2BLy3kOL7IMu71w2AnaL4jTGSUfAJfFd/SM9NwtJRuFxcuHRodJyFlRyZmBy0LOc5NzLGn/15P/
+        BN4+zvNESx+rBS509dadVe7JgZev9nQbuxJ+B5LymbbguRTZXGMg5AswsjKanEIkHgAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <metadata name="panel_Logo_Symbol.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label5.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label6.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label7.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label8.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_ViewGroupSideMenuButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="button_ViewGroupSideMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAsMAAALDAE/QCLIAAABoklEQVRIS71VvU7DMBD2i/C/
+        kwQqRl4BRiQQO4wVqAheAeG46tCVAYRKY1PUpYUVqRsjC2NVHqCA1EoQ7hynONSENEn5pE9NL7nvrPP9
+        kDiscLbkcHZieezeEvQFOAzIemizhXu83CgvqM+To1A/WwSBuuPRT0cwP5bBNzUIPK/c42Hf0F044fuY
+        0B+0PPrmcHdHyZhhc/fI5DwJbcEOlFwUeHKTQxpCereVbACZc5WW/QfhXzw/piL6yiAee3XqlTklTwjk
+        7jqMXn3q+GmBvqGOzdmVFJelqFVLXgFQU1YW1vnICFxrVPz1ZjUV0VfXwqIh2DC6MWe2CXaobty8O/eL
+        nWYqoq+uBdnpYoChbsztDgIO/iMA6+nGLCnaMKZoqpdMWwRHrm7Ms0yBJYLzfCqNJtjHaFzAn1r4Ir8A
+        7qUUR2BLy3kOL7IMu71w2AnaL4jTGSUfAJfFd/SM9NwtJRuFxcuHRodJyFlRyZmBy0LOc5NzLGn/15P/
+        BN4+zvNESx+rBS509dadVe7JgZev9nQbuxJ+B5LymbbguRTZXGMg5AswsjKanEIkHgAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <metadata name="button_CreateGroupSideMenuButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="button_CreateGroupSideMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAsMAAALDAE/QCLIAAABoklEQVRIS71VvU7DMBD2i/C/
+        kwQqRl4BRiQQO4wVqAheAeG46tCVAYRKY1PUpYUVqRsjC2NVHqCA1EoQ7hynONSENEn5pE9NL7nvrPP9
+        kDiscLbkcHZieezeEvQFOAzIemizhXu83CgvqM+To1A/WwSBuuPRT0cwP5bBNzUIPK/c42Hf0F044fuY
+        0B+0PPrmcHdHyZhhc/fI5DwJbcEOlFwUeHKTQxpCereVbACZc5WW/QfhXzw/piL6yiAee3XqlTklTwjk
+        7jqMXn3q+GmBvqGOzdmVFJelqFVLXgFQU1YW1vnICFxrVPz1ZjUV0VfXwqIh2DC6MWe2CXaobty8O/eL
+        nWYqoq+uBdnpYoChbsztDgIO/iMA6+nGLCnaMKZoqpdMWwRHrm7Ms0yBJYLzfCqNJtjHaFzAn1r4Ir8A
+        7qUUR2BLy3kOL7IMu71w2AnaL4jTGSUfAJfFd/SM9NwtJRuFxcuHRodJyFlRyZmBy0LOc5NzLGn/15P/
+        BN4+zvNESx+rBS509dadVe7JgZev9nQbuxJ+B5LymbbguRTZXGMg5AswsjKanEIkHgAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <metadata name="button_SendMailSideMenuButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="button_SendMailSideMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAsMAAALDAE/QCLIAAADNElEQVRIS5WW7UtTURzH15/Q
+        A0TR6ygiov8i6kX/gJha5AsjH9jutjJioW4qGIUljTEGouXDuXeT+UAT79NKt5lu9AS2uRGWZKUYLi21
+        X+ec3Xvdw/W2vvBl7J57Pt/febjnXpOR7PzwKUbkHIzACdhfzBLaxr+/GZFdMkvsBG4zMzw6odxevhiB
+        Pc1I7CgjcVCGd8wS57slomNKdwMBHMDV3aBV6sMMjNasIntZIekIwy0S59TvXKYF9AdP21WFWChcwU1y
+        U7Psh6dxHoYSgqEfRicotH3QA+7HnWATWPrfLHC7FoG7qGBzwlNyVp0WAs9kEv90Mh2Hrr4eeFFZCdMV
+        FTDczOyFSNy3Jn7kiILHASIbIg3EpDo9YLGTox5I2HNw1fkheLq7Kdwq+M+r8PyAcHhccyw2VRgQ80Pm
+        SRVk3Ncheb++IGTwrl1hoa3GlwOHTBaJ7dQL2NcE7q6CxYEmWI+2QnbeCckHDVqAUFOtsSwid82EF2RW
+        LyASmSxxPOSDNK489awJfsy1UzjxuuyA1/YrEMbr4eh2aSy8o/rJAv/UCyhxjKOVpwfMBfCV6RZ4/6ga
+        0j2V0NV9Dyw80lh4R8Xx9tyDE+utweyEl1ae7G+A9VnXHnymFeY9tZDEba5eZwGcWkCf9g1QvbQ4Bxlv
+        La6cTEuHBl+LOjV4e6+rFE5MAswCyuZfLB7BwsIb2N3ZhmwSafDVSBt88NUZw7HpFO23yKrXVleAaGuR
+        y1WuwNN4PVwGcGK8Q/vIFHXkXyweQTa7QQN+bW7AzuZ3+Cz6YNFdDZExryGcmpxLVhmdy7+YP4K376Iw
+        E3tFA1Qtp/AWxvBUaq4QVmR8XGza5OBB+jTjP8/VBjWA7PtAkIV6qwMEIQQ8Pw7B4CCMjw1BIiHTe/KB
+        JRbZhxROxMiBM/972C0YjgB9tYXYwwo+J6uI6kjjbTkAXt4PveKIodtG+3TAueMav1ovKNhC4bOjRa9T
+        uabvApmtUXD6witfS05CPYCR8fO0yojokoIxlk1iT+KXfkAPVGzypWGRkMc+GTiqdC9fNEjk7uCwKQxb
+        zm0EMjr0kXx1WCR/oyXsP67criOT6S/RY6hAL/dm5wAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="button_AddMultipleContactsSideMenuButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="button_AddMultipleContactsSideMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAsMAAALDAE/QCLIAAABoklEQVRIS71VvU7DMBD2i/C/
+        kwQqRl4BRiQQO4wVqAheAeG46tCVAYRKY1PUpYUVqRsjC2NVHqCA1EoQ7hynONSENEn5pE9NL7nvrPP9
+        kDiscLbkcHZieezeEvQFOAzIemizhXu83CgvqM+To1A/WwSBuuPRT0cwP5bBNzUIPK/c42Hf0F044fuY
+        0B+0PPrmcHdHyZhhc/fI5DwJbcEOlFwUeHKTQxpCereVbACZc5WW/QfhXzw/piL6yiAee3XqlTklTwjk
+        7jqMXn3q+GmBvqGOzdmVFJelqFVLXgFQU1YW1vnICFxrVPz1ZjUV0VfXwqIh2DC6MWe2CXaobty8O/eL
+        nWYqoq+uBdnpYoChbsztDgIO/iMA6+nGLCnaMKZoqpdMWwRHrm7Ms0yBJYLzfCqNJtjHaFzAn1r4Ir8A
+        7qUUR2BLy3kOL7IMu71w2AnaL4jTGSUfAJfFd/SM9NwtJRuFxcuHRodJyFlRyZmBy0LOc5NzLGn/15P/
+        BN4+zvNESx+rBS509dadVe7JgZev9nQbuxJ+B5LymbbguRTZXGMg5AswsjKanEIkHgAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <metadata name="button_dashboard.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="button_dashboard.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAsMAAALDAE/QCLIAAADg0lEQVRIS8VVV2gVQRRdxQ9F
+        /xXEYBdB/BELqMSuu7Mxii0RRCNCdt7qs6KC5SmWzM6+xNgFS2yoH1GMFWzYUD9soFFECUgssYC9YNT1
+        3HkTffveC8EfvXDYndl7z517Zuau8d/N8Vm3iLQWAgccj12ISPMiF6yce9bSQsF6abe/t4iw+znSuhSR
+        LCA4klVzYV4B+WVHmFURwX7SPJfmbdczbR3WsMViscZcWnEicAR7Tquf5ue04zKnOyoYiXEuj7MehcWD
+        WjvSdFUyWoTH9kyOZTfVNJmNyEkKHbCNx3Pb4F1g9S/VXBKQ/B2eG2euyW3LPVaUqMg6P7t4bDNNl24I
+        EJpgiZJIVRAmTgUlosq4sAtU1ZLt03Rhc8SIPnoVO6ZLsy+Cv6SS1QdI9cOVbDSXbAWNXWmO0bR/DBt6
+        BglezCFZPPYslaQhIP4DL2HtUc0D7pn3jcBopKkhzeqcjsrRsxbXrSITNh9cHlRc3BW4vp3xO1WPxU2l
+        d9dnAzQ9EvhWVDkUD+uIcp+Gg1gQLR4VnLt+OKize1U3gvnr80M+BJyoz/M2WK2wD7VI5Gt6w8Cx3E7y
+        uHGzc2pQbOu04HHNQ039x968fxX4e+eGfAm4gAPpbkSEeVrTqwTHkfEml/awZOfFWwqCh9V3NWW6vX5b
+        E6wsc0MJINMUyHwUe3JX00Mij52ANDdSExB2HotrunS7eudMyFeB9sCzjkCRSk1PR5SV0ZnnwuqaGpCa
+        4NaDy9iPiqD2e209CezBpAZwVtMbBs7wLPrIi1h76FeTHJCaYM3+hWr+89ePaQmwyK/RVXktsfpv2OgS
+        TY8KvOFdlINnLcCz7jYrbCpfFjx5UfUbYvcsNf+oujI4cWX/bz8CtN8NeSbp9yGaPmGqFeOCRcW4rEy9
+        p2GYnwo91ok2Fx33EfU1TZ0wJOifcLQ2O745iMpMJ6kfuFh5OI2L1Niz8jVt2EBeSg44TXOoRJys18kk
+        mQDdP3LPnkCgnoR/xiFNl26xWHYTlFqhggVbFy21s9CK12L8NpmUQLeWWsMMOaIDxkuIHMmuRWLjWmi6
+        zJZIwjYmiMzHKHtG4UrWGu2kN8kAookkZ7Q0p6Vq0ZLdI1/6jc71hzbXNA2bK8yhdPlUIurz6JJ0/SHd
+        KdpIvH+nb2ret8brsL837ts9QbRc3U6PXaekkOIk5gR0zw615X9vhvELLSJ2iFI6a28AAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <metadata name="panel_active.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_authorize.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label_Form_Email_ID.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="panel_Send_Mail.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="panel_Dashboard_Chart.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="chart1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="panel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_Year.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_6_Months.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_Month.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_15_Days.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_Week.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_Day.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="panel_Add_Contacts.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="progressBar2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label_Groups_Name.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="textBox_Groups_Name.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_Close.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_Add_Bulk_Email_IDs.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="richTextBox_Bulk_Email_IDs.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label_Enter_Bulk_Email_IDs.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="panel_Create_Group.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label_Select_Group_Name.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="comboBox_Group_Name.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button_Create_Group.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="checkedListBox_New_Group_ID_Collection.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="checkedListBox_Group_Email_IDs.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="textBox_Group_Name.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label_Enter_Group_Name.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="panel_View_Group.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridView_Group_Email_IDs_Collection.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Email_ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="comboBox_Group_Names.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="button2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="label_Select_Group.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAEBAAAAEAIABoBAAAZgAAAAAAAAABACAA+QoAAM4EAAAwMAAAAQAgAKglAADHDwAAICAAAAEA

@@ -26,6 +26,9 @@ namespace Mail_Client
 {
     public partial class Send_Mail : Form
     {
+        Button button_name;
+        bool click = true;
+
         // If modifying these scopes, delete your previously saved credentials
         // at ~/.credentials/gmail-dotnet-quickstart.json
         static string[] Scopes = { GmailService.Scope.GmailReadonly, GmailService.Scope.GmailCompose, GmailService.Scope.GmailLabels };
@@ -51,8 +54,52 @@ namespace Mail_Client
             
         }
 
+        private void fillChart()
+        {
+            chart1.Series["Mail"].Points.Clear();
+
+            //AddXY value in chart1 in series named as Salary  
+            chart1.Series["Mail"].Points.AddXY("February", "2000");
+            chart1.Series["Mail"].Points.AddXY("March", "800");
+            chart1.Series["Mail"].Points.AddXY("April", "400");
+            chart1.Series["Mail"].Points.AddXY("May", "100");
+            chart1.Series["Mail"].Points.AddXY("June", "900");
+            chart1.Series["Mail"].Points.AddXY("July", "900");
+            //chart title  
+           // chart1.Titles.Add("Mail Chart");
+          
+        }  
+
+        void Load_Email_ID_In_Create_Group_ComboBox()
+        {
+            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+
+            FunctionCollection.LoadDataFromFileInComboBox(comboBox_Group_Name);
+            FunctionCollection.LoadDataFromFileInComboBox(comboBox_Group_Names);
+
+            comboBox_Group_Name.SelectedIndex = 0;
+            comboBox_Group_Names.SelectedIndex = 0;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            button_dashboard.BackColor = Color.FromArgb(60, 65, 68);
+            button_name = button_dashboard;
+
+            fillChart();
+            button_Day.FlatAppearance.BorderSize = 1;
+
+            Load_Email_ID_In_Create_Group_ComboBox();
+
+            
+            panel_Send_Mail.Hide();
+            panel_Add_Contacts.Hide();
+            panel_Create_Group.Hide();
+            panel_View_Group.Hide();
+
+            panel_active.Height = button_dashboard.Height;
+            panel_active.Top = button_dashboard.Top;
+            
             System.Windows.Forms.Label l1 = new System.Windows.Forms.Label();
             l1.Text = "Application is Loading. Please Wait ...";
             l1.AutoSize = true;
@@ -97,7 +144,10 @@ namespace Mail_Client
             System.Drawing.Color y = Color.FromArgb(31, 65, 119);
             //label_step1.ForeColor = y;
             //label_step2.ForeColor = y;
-            label_to.ForeColor = y;
+            
+            //Commented following code when re-design GUI
+            /*
+             * label_to.ForeColor = y;
             label_subject.ForeColor = y;
             label_content.ForeColor = y;
             
@@ -123,6 +173,8 @@ namespace Mail_Client
             textBox_subject.ForeColor = y;
             
             richTextBox_content.ForeColor = y;
+            */
+            //Design Comment Ended Above
 
             System.Drawing.Color x = Color.FromArgb(140, 197, 67);
             //menuStrip1.BackColor = x;
@@ -526,6 +578,383 @@ namespace Mail_Client
         {
             About A = new About();
             A.ShowDialog();
+        }
+
+        private void button_dashboard_Click(object sender, EventArgs e)
+        {
+            panel_Send_Mail.Hide();
+            panel_Add_Contacts.Hide();
+            panel_Create_Group.Hide();
+            panel_View_Group.Hide();
+
+            panel_Dashboard_Chart.Show();
+
+            panel_active.Height = button_dashboard.Height;
+            panel_active.Top = button_dashboard.Top;
+
+            Back_Color_Changer(button_dashboard, button_name);
+            button_name = button_dashboard;
+        }
+
+        private void Back_Color_Changer(object sender, object previous)
+        {
+            (sender as Button).BackColor = Color.FromArgb(60, 65, 68);
+            (previous as Button).BackColor = Color.FromArgb(41, 44, 45);
+        }
+
+        private void button_SendMailSideMenuButton_Click(object sender, EventArgs e)
+        {
+            panel_Dashboard_Chart.Hide();
+            panel_Add_Contacts.Hide();
+            panel_Create_Group.Hide();
+            panel_View_Group.Hide();
+
+            panel_Send_Mail.Show();
+            panel_Send_Mail.Top = button_dashboard.Top;
+            
+            panel_active.Height = button_SendMailSideMenuButton.Height;
+            panel_active.Top = button_SendMailSideMenuButton.Top;
+
+            Back_Color_Changer(button_SendMailSideMenuButton, button_name);
+            button_name = button_SendMailSideMenuButton;
+            
+        }
+
+        private void button_AddMultipleContactsSideMenuButton_Click(object sender, EventArgs e)
+        {
+            panel_Dashboard_Chart.Hide();
+            panel_Send_Mail.Hide();
+            panel_Create_Group.Hide();
+            panel_View_Group.Hide();
+
+            panel_Add_Contacts.Show();
+            panel_Add_Contacts.Top = button_dashboard.Top;
+
+            panel_active.Height = button_AddMultipleContactsSideMenuButton.Height;
+            panel_active.Top = button_AddMultipleContactsSideMenuButton.Top;
+
+            Back_Color_Changer(button_AddMultipleContactsSideMenuButton, button_name);
+            button_name = button_AddMultipleContactsSideMenuButton;
+        }
+
+        private void button_CreateGroupSideMenuButton_Click(object sender, EventArgs e)
+        {
+            panel_Dashboard_Chart.Hide();
+            panel_Send_Mail.Hide();
+            panel_Add_Contacts.Hide();
+            panel_View_Group.Hide();
+
+            panel_Create_Group.Show();
+            panel_Create_Group.Top = button_dashboard.Top;
+
+            panel_active.Height = button_CreateGroupSideMenuButton.Height;
+            panel_active.Top = button_CreateGroupSideMenuButton.Top;
+
+            Back_Color_Changer(button_CreateGroupSideMenuButton, button_name);
+            button_name = button_CreateGroupSideMenuButton;
+        }
+
+        private void button_ViewGroupSideMenuButton_Click(object sender, EventArgs e)
+        {
+            panel_Dashboard_Chart.Hide();
+            panel_Send_Mail.Hide();
+            panel_Add_Contacts.Hide();
+            panel_Create_Group.Hide();
+
+            panel_View_Group.Show();
+            panel_View_Group.Top = button_dashboard.Top;
+            
+            panel_active.Height = button_ViewGroupSideMenuButton.Height;
+            panel_active.Top = button_ViewGroupSideMenuButton.Top;
+
+            Back_Color_Changer(button_ViewGroupSideMenuButton, button_name);
+            button_name = button_ViewGroupSideMenuButton;
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button_Exit_App_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button_About_Click(object sender, EventArgs e)
+        {
+            About AB = new About();
+            AB.ShowDialog();
+            panel_active.Height = button_About.Height;
+            panel_active.Top = button_About.Top;
+        }
+
+        private void panel_Send_Mail_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox_Bulk_Email_IDs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel_Create_Group_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_Day_Click(object sender, EventArgs e)
+        {
+            button_Day.FlatAppearance.BorderSize = 1;
+            button_Week.FlatAppearance.BorderSize = 0;
+            button_15_Days.FlatAppearance.BorderSize = 0;
+            button_Month.FlatAppearance.BorderSize = 0;
+            button_6_Months.FlatAppearance.BorderSize = 0;
+            button_Year.FlatAppearance.BorderSize = 0;
+            fillChart();
+        }
+
+        private void button_Week_Click(object sender, EventArgs e)
+        {
+            button_Day.FlatAppearance.BorderSize = 0;
+            button_Week.FlatAppearance.BorderSize = 1;
+            button_15_Days.FlatAppearance.BorderSize = 0;
+            button_Month.FlatAppearance.BorderSize = 0;
+            button_6_Months.FlatAppearance.BorderSize = 0;
+            button_Year.FlatAppearance.BorderSize = 0;
+        }
+
+        private void button_15_Days_Click(object sender, EventArgs e)
+        {
+            button_Day.FlatAppearance.BorderSize = 0;
+            button_Week.FlatAppearance.BorderSize = 0;
+            button_15_Days.FlatAppearance.BorderSize = 1;
+            button_Month.FlatAppearance.BorderSize = 0;
+            button_6_Months.FlatAppearance.BorderSize = 0;
+            button_Year.FlatAppearance.BorderSize = 0;
+        }
+
+        private void button_Month_Click(object sender, EventArgs e)
+        {
+            button_Day.FlatAppearance.BorderSize = 0;
+            button_Week.FlatAppearance.BorderSize = 0;
+            button_15_Days.FlatAppearance.BorderSize = 0;
+            button_Month.FlatAppearance.BorderSize = 1;
+            button_6_Months.FlatAppearance.BorderSize = 0;
+            button_Year.FlatAppearance.BorderSize = 0;
+        }
+
+        private void button_6_Months_Click(object sender, EventArgs e)
+        {
+            button_Day.FlatAppearance.BorderSize = 0;
+            button_Week.FlatAppearance.BorderSize = 0;
+            button_15_Days.FlatAppearance.BorderSize = 0;
+            button_Month.FlatAppearance.BorderSize = 0;
+            button_6_Months.FlatAppearance.BorderSize = 1;
+            button_Year.FlatAppearance.BorderSize = 0;
+        }
+
+        private void button_Year_Click(object sender, EventArgs e)
+        {
+            button_Day.FlatAppearance.BorderSize = 0;
+            button_Week.FlatAppearance.BorderSize = 0;
+            button_15_Days.FlatAppearance.BorderSize = 0;
+            button_Month.FlatAppearance.BorderSize = 0;
+            button_6_Months.FlatAppearance.BorderSize = 0;
+            button_Year.FlatAppearance.BorderSize = 1;
+        }
+
+        private void panel_Dashboard_Chart_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBox_Group_Name_SelectedValueChanged(object sender, EventArgs e)
+        {
+            checkedListBox_Group_Email_IDs.Items.Clear();
+
+            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_Group_Name.SelectedItem.ToString() + ".txt";
+
+            //Open the file to read from.
+            using (StreamReader sr = File.OpenText(FunctionCollection.path))
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    // Writing In CheckedListBox
+                    checkedListBox_Group_Email_IDs.Items.Add(s);
+
+                    if (checkedListBox_New_Group_ID_Collection.Items.Contains(s))
+                    {
+                        click = false;
+                        // checkedListBox_Group_Email_IDs.SetSelected(checkedListBox_New_Group_ID_Collection.Items.IndexOf(s), true);    No need of this code
+                        checkedListBox_Group_Email_IDs.SetItemChecked(checkedListBox_Group_Email_IDs.Items.IndexOf(s), true);
+                    }
+                }
+            }
+        }
+
+        private void checkedListBox_Group_Email_IDs_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (click == true)
+            {
+                bool value = checkedListBox_New_Group_ID_Collection.Items.Contains(checkedListBox_Group_Email_IDs.SelectedItem);
+
+                if (value == true)
+                {
+                    checkedListBox_New_Group_ID_Collection.Items.Remove(checkedListBox_Group_Email_IDs.SelectedItem);
+                }
+                else
+                {
+                    if (checkedListBox_New_Group_ID_Collection.Items.Count < 89)
+                    {
+                        checkedListBox_New_Group_ID_Collection.Items.Add(checkedListBox_Group_Email_IDs.SelectedItem);
+                        checkedListBox_New_Group_ID_Collection.SetItemChecked(checkedListBox_New_Group_ID_Collection.Items.IndexOf(checkedListBox_Group_Email_IDs.SelectedItem), true);
+                    }
+                    else
+                        MessageBox.Show("Group ID limit exceeds. You can add only UPTO 90 Email IDs in one Group.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+                click = true;
+        }
+
+        private void button_Create_Group_Click(object sender, EventArgs e)
+        {
+            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+
+            FunctionCollection.WriteInFileFromTextBox(textBox_Group_Name.Text);
+
+            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Group_Name.Text + ".txt";
+
+            FunctionCollection.WriteInFileFromCheckListBox(checkedListBox_Group_Email_IDs.CheckedItems);
+
+            MessageBox.Show("Group Created Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            comboBox_Group_Name.Items.Add(textBox_Group_Name.Text);
+            checkedListBox_New_Group_ID_Collection.Items.Clear();
+            textBox_Group_Name.Clear();
+        }
+
+        private void textBox_Group_Name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            char[] str = Path.GetInvalidFileNameChars();
+
+            for (int counter = 0; counter < str.Length; counter++)
+            {
+                if (ch == str[counter] && ch != 8)
+                {
+                    e.Handled = true;
+                    MessageBox.Show("Name is Invalid");
+                }
+            }
+        }
+
+        private void textBox_Groups_Name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            char[] str = Path.GetInvalidFileNameChars();
+
+            for (int counter = 0; counter < str.Length; counter++)
+            {
+                if (ch == str[counter] && ch != 8)
+                {
+                    e.Handled = true;
+                    MessageBox.Show("Sorry");
+                }
+            }
+        }
+
+        private void button_Add_Bulk_Email_IDs_Click(object sender, EventArgs e)
+        {
+            string path = null;
+            int counter = 0;
+            int counter2 = 0;
+            string[] Mail_IDs_Collection = richTextBox_Bulk_Email_IDs.Lines;
+            int Total_Email_IDs = Mail_IDs_Collection.Length;
+            int Total_Group = 0;
+            int Mail_ID_Number = 0;
+            bool Is_Last_Group_Have_Less_Than_90_Emails;
+            progressBar1.Maximum = Total_Email_IDs - 1;
+
+            if (Total_Email_IDs % 90 == 0)
+            {
+                Total_Group = Total_Email_IDs / 90;
+                Is_Last_Group_Have_Less_Than_90_Emails = false;
+            }
+            else
+            {
+                Total_Group = (Total_Email_IDs / 90) + 1;
+                Is_Last_Group_Have_Less_Than_90_Emails = true;
+            }
+
+            for (counter = 1; counter <= Total_Group; counter++)
+            {
+                if (counter == Total_Group && Is_Last_Group_Have_Less_Than_90_Emails)
+                {
+                    path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Groups_Name.Text + " " + counter.ToString() + "_(Contains " + (Total_Email_IDs - Mail_ID_Number).ToString() + " Mail IDs).txt";
+
+                    FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+
+                    FunctionCollection.WriteInFileFromTextBox(textBox_Groups_Name.Text + " " + counter.ToString() + "_(Contains " + (Total_Email_IDs - Mail_ID_Number).ToString() + " Mail IDs)");
+                }
+                else
+                {
+                    path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Groups_Name.Text + " " + counter.ToString() + ".txt";
+
+                    FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+
+                    FunctionCollection.WriteInFileFromTextBox(textBox_Groups_Name.Text + " " + counter.ToString());
+                }
+
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    for (counter2 = 1; counter2 <= 90; counter2++)
+                    {
+                        sw.WriteLine(Mail_IDs_Collection[Mail_ID_Number]);
+                        Mail_ID_Number++;
+
+                        progressBar1.PerformStep();
+                        if (Mail_ID_Number == Total_Email_IDs)
+                            break;
+                    }
+                }
+            }
+
+            MessageBox.Show("All Mail Ids Added Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            textBox_Groups_Name.Clear();
+            richTextBox_Bulk_Email_IDs.Clear();
+            progressBar1.Value = 0;
+        }
+
+        private void comboBox_Group_Names_SelectedValueChanged(object sender, EventArgs e)
+        {
+            dataGridView_Group_Email_IDs_Collection.Rows.Clear();
+            string path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_Group_Name.SelectedItem.ToString() + ".txt";
+
+            //Open the file to read from.
+            using (StreamReader sr = File.OpenText(path))
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    dataGridView_Group_Email_IDs_Collection.Rows.Add(s);
+                }
+            }
         }
 
 
