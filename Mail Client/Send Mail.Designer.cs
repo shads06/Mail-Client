@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Send_Mail));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.quickMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addEmailIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBulkEmailIDsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +52,6 @@
             this.richTextBox_content = new System.Windows.Forms.RichTextBox();
             this.button_send_mail = new System.Windows.Forms.Button();
             this.button_clear = new System.Windows.Forms.Button();
-            this.button_exit = new System.Windows.Forms.Button();
             this.checkedListBox_Edit_Recipients = new System.Windows.Forms.CheckedListBox();
             this.button_Save_Edit_List = new System.Windows.Forms.Button();
             this.button_Close_Editing = new System.Windows.Forms.Button();
@@ -77,11 +78,11 @@
             this.label_Form_Email_ID = new System.Windows.Forms.Label();
             this.panel_Send_Mail = new System.Windows.Forms.Panel();
             this.panel_Dashboard_Chart = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button_Close_Application = new System.Windows.Forms.Button();
+            this.button_Restore = new System.Windows.Forms.Button();
+            this.button_Minimize = new System.Windows.Forms.Button();
             this.button_Year = new System.Windows.Forms.Button();
             this.button_6_Months = new System.Windows.Forms.Button();
             this.button_Month = new System.Windows.Forms.Button();
@@ -90,13 +91,12 @@
             this.button_Day = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel_Add_Contacts = new System.Windows.Forms.Panel();
+            this.label_Enter_Bulk_Email_IDs = new System.Windows.Forms.Label();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.label_Groups_Name = new System.Windows.Forms.Label();
             this.textBox_Groups_Name = new System.Windows.Forms.TextBox();
-            this.button_Close = new System.Windows.Forms.Button();
             this.button_Add_Bulk_Email_IDs = new System.Windows.Forms.Button();
             this.richTextBox_Bulk_Email_IDs = new System.Windows.Forms.RichTextBox();
-            this.label_Enter_Bulk_Email_IDs = new System.Windows.Forms.Label();
             this.panel_Create_Group = new System.Windows.Forms.Panel();
             this.label_Select_Group_Name = new System.Windows.Forms.Label();
             this.comboBox_Group_Name = new System.Windows.Forms.ComboBox();
@@ -109,7 +109,6 @@
             this.dataGridView_Group_Email_IDs_Collection = new System.Windows.Forms.DataGridView();
             this.Email_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox_Group_Names = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.label_Select_Group = new System.Windows.Forms.Label();
             this.panel_Side_Menu.SuspendLayout();
             this.panel_Logo_Symbol.SuspendLayout();
@@ -204,13 +203,13 @@
             // 
             // comboBox_to
             // 
-            this.comboBox_to.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.comboBox_to.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.comboBox_to.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox_to.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_to.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox_to.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.comboBox_to.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.comboBox_to.FormattingEnabled = true;
-            this.comboBox_to.Location = new System.Drawing.Point(131, 73);
+            this.comboBox_to.Location = new System.Drawing.Point(136, 73);
             this.comboBox_to.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_to.Name = "comboBox_to";
             this.comboBox_to.Size = new System.Drawing.Size(482, 29);
@@ -221,12 +220,13 @@
             // 
             // button_edit_group_list
             // 
-            this.button_edit_group_list.BackColor = System.Drawing.Color.Transparent;
+            this.button_edit_group_list.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
+            this.button_edit_group_list.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_edit_group_list.FlatAppearance.BorderColor = System.Drawing.Color.SlateGray;
             this.button_edit_group_list.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.button_edit_group_list.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_edit_group_list.ForeColor = System.Drawing.Color.White;
-            this.button_edit_group_list.Location = new System.Drawing.Point(622, 72);
+            this.button_edit_group_list.Location = new System.Drawing.Point(627, 73);
             this.button_edit_group_list.Margin = new System.Windows.Forms.Padding(4);
             this.button_edit_group_list.Name = "button_edit_group_list";
             this.button_edit_group_list.Size = new System.Drawing.Size(132, 31);
@@ -251,9 +251,9 @@
             // 
             this.textBox_subject.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBox_subject.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox_subject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.textBox_subject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.textBox_subject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_subject.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.textBox_subject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.textBox_subject.Location = new System.Drawing.Point(136, 129);
             this.textBox_subject.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_subject.Name = "textBox_subject";
@@ -275,10 +275,10 @@
             // richTextBox_content
             // 
             this.richTextBox_content.AutoWordSelection = true;
-            this.richTextBox_content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.richTextBox_content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.richTextBox_content.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox_content.EnableAutoDragDrop = true;
-            this.richTextBox_content.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.richTextBox_content.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.richTextBox_content.Location = new System.Drawing.Point(136, 177);
             this.richTextBox_content.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_content.Name = "richTextBox_content";
@@ -289,15 +289,16 @@
             // 
             // button_send_mail
             // 
-            this.button_send_mail.BackColor = System.Drawing.Color.Transparent;
+            this.button_send_mail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
+            this.button_send_mail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_send_mail.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
             this.button_send_mail.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.button_send_mail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_send_mail.ForeColor = System.Drawing.Color.White;
-            this.button_send_mail.Location = new System.Drawing.Point(136, 501);
+            this.button_send_mail.Location = new System.Drawing.Point(136, 507);
             this.button_send_mail.Margin = new System.Windows.Forms.Padding(4);
             this.button_send_mail.Name = "button_send_mail";
-            this.button_send_mail.Size = new System.Drawing.Size(100, 28);
+            this.button_send_mail.Size = new System.Drawing.Size(100, 36);
             this.button_send_mail.TabIndex = 11;
             this.button_send_mail.Text = "Send Mail";
             this.button_send_mail.UseVisualStyleBackColor = false;
@@ -305,46 +306,30 @@
             // 
             // button_clear
             // 
-            this.button_clear.BackColor = System.Drawing.Color.Transparent;
+            this.button_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
+            this.button_clear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_clear.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
             this.button_clear.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.button_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_clear.ForeColor = System.Drawing.Color.White;
-            this.button_clear.Location = new System.Drawing.Point(269, 502);
+            this.button_clear.Location = new System.Drawing.Point(272, 507);
             this.button_clear.Margin = new System.Windows.Forms.Padding(4);
             this.button_clear.Name = "button_clear";
-            this.button_clear.Size = new System.Drawing.Size(100, 28);
+            this.button_clear.Size = new System.Drawing.Size(100, 36);
             this.button_clear.TabIndex = 12;
             this.button_clear.Text = "Clear";
             this.button_clear.UseVisualStyleBackColor = false;
             this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
             // 
-            // button_exit
-            // 
-            this.button_exit.BackColor = System.Drawing.Color.Transparent;
-            this.button_exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_exit.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
-            this.button_exit.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.button_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_exit.ForeColor = System.Drawing.Color.White;
-            this.button_exit.Location = new System.Drawing.Point(400, 503);
-            this.button_exit.Margin = new System.Windows.Forms.Padding(4);
-            this.button_exit.Name = "button_exit";
-            this.button_exit.Size = new System.Drawing.Size(100, 28);
-            this.button_exit.TabIndex = 13;
-            this.button_exit.Text = "Exit";
-            this.button_exit.UseVisualStyleBackColor = false;
-            this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
-            // 
             // checkedListBox_Edit_Recipients
             // 
-            this.checkedListBox_Edit_Recipients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.checkedListBox_Edit_Recipients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.checkedListBox_Edit_Recipients.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBox_Edit_Recipients.CheckOnClick = true;
             this.checkedListBox_Edit_Recipients.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkedListBox_Edit_Recipients.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.checkedListBox_Edit_Recipients.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.checkedListBox_Edit_Recipients.FormattingEnabled = true;
-            this.checkedListBox_Edit_Recipients.Location = new System.Drawing.Point(766, 83);
+            this.checkedListBox_Edit_Recipients.Location = new System.Drawing.Point(766, 97);
             this.checkedListBox_Edit_Recipients.Name = "checkedListBox_Edit_Recipients";
             this.checkedListBox_Edit_Recipients.Size = new System.Drawing.Size(263, 398);
             this.checkedListBox_Edit_Recipients.Sorted = true;
@@ -356,16 +341,17 @@
             // 
             // button_Save_Edit_List
             // 
-            this.button_Save_Edit_List.BackColor = System.Drawing.Color.Transparent;
+            this.button_Save_Edit_List.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
+            this.button_Save_Edit_List.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_Save_Edit_List.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Save_Edit_List.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
             this.button_Save_Edit_List.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.button_Save_Edit_List.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Save_Edit_List.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button_Save_Edit_List.Location = new System.Drawing.Point(766, 500);
+            this.button_Save_Edit_List.Location = new System.Drawing.Point(766, 507);
             this.button_Save_Edit_List.Margin = new System.Windows.Forms.Padding(4);
             this.button_Save_Edit_List.Name = "button_Save_Edit_List";
-            this.button_Save_Edit_List.Size = new System.Drawing.Size(100, 28);
+            this.button_Save_Edit_List.Size = new System.Drawing.Size(100, 36);
             this.button_Save_Edit_List.TabIndex = 16;
             this.button_Save_Edit_List.Text = "Save Editted List (Temporary)";
             this.button_Save_Edit_List.UseVisualStyleBackColor = false;
@@ -374,16 +360,17 @@
             // 
             // button_Close_Editing
             // 
-            this.button_Close_Editing.BackColor = System.Drawing.Color.Transparent;
+            this.button_Close_Editing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
+            this.button_Close_Editing.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_Close_Editing.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Close_Editing.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
             this.button_Close_Editing.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.button_Close_Editing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Close_Editing.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button_Close_Editing.Location = new System.Drawing.Point(929, 500);
+            this.button_Close_Editing.Location = new System.Drawing.Point(929, 507);
             this.button_Close_Editing.Margin = new System.Windows.Forms.Padding(4);
             this.button_Close_Editing.Name = "button_Close_Editing";
-            this.button_Close_Editing.Size = new System.Drawing.Size(100, 28);
+            this.button_Close_Editing.Size = new System.Drawing.Size(100, 36);
             this.button_Close_Editing.TabIndex = 17;
             this.button_Close_Editing.Text = "Close Editing (Editing Without Saving)";
             this.button_Close_Editing.UseVisualStyleBackColor = false;
@@ -393,10 +380,10 @@
             // progressBar1
             // 
             this.progressBar1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.progressBar1.Location = new System.Drawing.Point(538, 502);
+            this.progressBar1.Location = new System.Drawing.Point(538, 507);
             this.progressBar1.Maximum = 50;
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(221, 28);
+            this.progressBar1.Size = new System.Drawing.Size(221, 23);
             this.progressBar1.Step = 1;
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 18;
@@ -406,10 +393,10 @@
             // 
             this.textBox_From_Email_ID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBox_From_Email_ID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox_From_Email_ID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.textBox_From_Email_ID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.textBox_From_Email_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_From_Email_ID.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.textBox_From_Email_ID.Location = new System.Drawing.Point(131, 31);
+            this.textBox_From_Email_ID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
+            this.textBox_From_Email_ID.Location = new System.Drawing.Point(136, 29);
             this.textBox_From_Email_ID.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_From_Email_ID.Name = "textBox_From_Email_ID";
             this.textBox_From_Email_ID.Size = new System.Drawing.Size(623, 27);
@@ -417,7 +404,7 @@
             // 
             // panel_Side_Menu
             // 
-            this.panel_Side_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(45)))));
+            this.panel_Side_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(100)))));
             this.panel_Side_Menu.Controls.Add(this.button_Exit_App);
             this.panel_Side_Menu.Controls.Add(this.button_About);
             this.panel_Side_Menu.Controls.Add(this.panel_Logo_Symbol);
@@ -429,21 +416,22 @@
             this.panel_Side_Menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_Side_Menu.Location = new System.Drawing.Point(0, 0);
             this.panel_Side_Menu.Name = "panel_Side_Menu";
-            this.panel_Side_Menu.Size = new System.Drawing.Size(200, 768);
+            this.panel_Side_Menu.Size = new System.Drawing.Size(200, 750);
             this.panel_Side_Menu.TabIndex = 21;
             // 
             // button_Exit_App
             // 
             this.button_Exit_App.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_Exit_App.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_Exit_App.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Exit_App.FlatAppearance.BorderSize = 0;
             this.button_Exit_App.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Exit_App.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Exit_App.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Exit_App.ForeColor = System.Drawing.Color.White;
             this.button_Exit_App.Image = ((System.Drawing.Image)(resources.GetObject("button_Exit_App.Image")));
-            this.button_Exit_App.Location = new System.Drawing.Point(3, 648);
+            this.button_Exit_App.Location = new System.Drawing.Point(0, 675);
             this.button_Exit_App.Name = "button_Exit_App";
-            this.button_Exit_App.Size = new System.Drawing.Size(194, 81);
+            this.button_Exit_App.Size = new System.Drawing.Size(197, 81);
             this.button_Exit_App.TabIndex = 0;
             this.button_Exit_App.Text = "Exit";
             this.button_Exit_App.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -454,14 +442,15 @@
             // button_About
             // 
             this.button_About.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_About.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_About.FlatAppearance.BorderSize = 0;
             this.button_About.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_About.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_About.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_About.ForeColor = System.Drawing.Color.White;
             this.button_About.Image = ((System.Drawing.Image)(resources.GetObject("button_About.Image")));
-            this.button_About.Location = new System.Drawing.Point(6, 554);
+            this.button_About.Location = new System.Drawing.Point(3, 578);
             this.button_About.Name = "button_About";
-            this.button_About.Size = new System.Drawing.Size(194, 81);
+            this.button_About.Size = new System.Drawing.Size(197, 81);
             this.button_About.TabIndex = 0;
             this.button_About.Text = "About";
             this.button_About.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -471,7 +460,7 @@
             // 
             // panel_Logo_Symbol
             // 
-            this.panel_Logo_Symbol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(51)))));
+            this.panel_Logo_Symbol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.panel_Logo_Symbol.Controls.Add(this.label3);
             this.panel_Logo_Symbol.Controls.Add(this.label1);
             this.panel_Logo_Symbol.Controls.Add(this.label4);
@@ -489,7 +478,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe WP SemiLight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(51, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 37);
@@ -500,7 +489,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe WP SemiLight", 66F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(-23, -12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 116);
@@ -511,7 +500,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe WP SemiLight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(74, 34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 37);
@@ -522,7 +511,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe WP SemiLight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(98, 43);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 37);
@@ -533,7 +522,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe WP SemiLight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(121, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 37);
@@ -544,7 +533,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe WP SemiLight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(142, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 37);
@@ -555,7 +544,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe WP SemiLight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(166, 37);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 37);
@@ -565,14 +554,15 @@
             // button_ViewGroupSideMenuButton
             // 
             this.button_ViewGroupSideMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_ViewGroupSideMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_ViewGroupSideMenuButton.FlatAppearance.BorderSize = 0;
             this.button_ViewGroupSideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_ViewGroupSideMenuButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ViewGroupSideMenuButton.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_ViewGroupSideMenuButton.ForeColor = System.Drawing.Color.White;
             this.button_ViewGroupSideMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("button_ViewGroupSideMenuButton.Image")));
-            this.button_ViewGroupSideMenuButton.Location = new System.Drawing.Point(2, 460);
+            this.button_ViewGroupSideMenuButton.Location = new System.Drawing.Point(-1, 481);
             this.button_ViewGroupSideMenuButton.Name = "button_ViewGroupSideMenuButton";
-            this.button_ViewGroupSideMenuButton.Size = new System.Drawing.Size(194, 81);
+            this.button_ViewGroupSideMenuButton.Size = new System.Drawing.Size(197, 81);
             this.button_ViewGroupSideMenuButton.TabIndex = 0;
             this.button_ViewGroupSideMenuButton.Text = "View Group";
             this.button_ViewGroupSideMenuButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -583,14 +573,15 @@
             // button_CreateGroupSideMenuButton
             // 
             this.button_CreateGroupSideMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_CreateGroupSideMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_CreateGroupSideMenuButton.FlatAppearance.BorderSize = 0;
             this.button_CreateGroupSideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_CreateGroupSideMenuButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_CreateGroupSideMenuButton.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_CreateGroupSideMenuButton.ForeColor = System.Drawing.Color.White;
             this.button_CreateGroupSideMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("button_CreateGroupSideMenuButton.Image")));
-            this.button_CreateGroupSideMenuButton.Location = new System.Drawing.Point(2, 366);
+            this.button_CreateGroupSideMenuButton.Location = new System.Drawing.Point(-1, 384);
             this.button_CreateGroupSideMenuButton.Name = "button_CreateGroupSideMenuButton";
-            this.button_CreateGroupSideMenuButton.Size = new System.Drawing.Size(194, 81);
+            this.button_CreateGroupSideMenuButton.Size = new System.Drawing.Size(197, 81);
             this.button_CreateGroupSideMenuButton.TabIndex = 0;
             this.button_CreateGroupSideMenuButton.Text = "Create Group";
             this.button_CreateGroupSideMenuButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -601,14 +592,15 @@
             // button_SendMailSideMenuButton
             // 
             this.button_SendMailSideMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_SendMailSideMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_SendMailSideMenuButton.FlatAppearance.BorderSize = 0;
             this.button_SendMailSideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_SendMailSideMenuButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_SendMailSideMenuButton.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_SendMailSideMenuButton.ForeColor = System.Drawing.Color.White;
             this.button_SendMailSideMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("button_SendMailSideMenuButton.Image")));
-            this.button_SendMailSideMenuButton.Location = new System.Drawing.Point(3, 178);
+            this.button_SendMailSideMenuButton.Location = new System.Drawing.Point(0, 190);
             this.button_SendMailSideMenuButton.Name = "button_SendMailSideMenuButton";
-            this.button_SendMailSideMenuButton.Size = new System.Drawing.Size(194, 81);
+            this.button_SendMailSideMenuButton.Size = new System.Drawing.Size(197, 81);
             this.button_SendMailSideMenuButton.TabIndex = 0;
             this.button_SendMailSideMenuButton.Text = "Compose";
             this.button_SendMailSideMenuButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -619,14 +611,15 @@
             // button_AddMultipleContactsSideMenuButton
             // 
             this.button_AddMultipleContactsSideMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_AddMultipleContactsSideMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_AddMultipleContactsSideMenuButton.FlatAppearance.BorderSize = 0;
             this.button_AddMultipleContactsSideMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_AddMultipleContactsSideMenuButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_AddMultipleContactsSideMenuButton.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_AddMultipleContactsSideMenuButton.ForeColor = System.Drawing.Color.White;
             this.button_AddMultipleContactsSideMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("button_AddMultipleContactsSideMenuButton.Image")));
-            this.button_AddMultipleContactsSideMenuButton.Location = new System.Drawing.Point(2, 272);
+            this.button_AddMultipleContactsSideMenuButton.Location = new System.Drawing.Point(-1, 287);
             this.button_AddMultipleContactsSideMenuButton.Name = "button_AddMultipleContactsSideMenuButton";
-            this.button_AddMultipleContactsSideMenuButton.Size = new System.Drawing.Size(194, 81);
+            this.button_AddMultipleContactsSideMenuButton.Size = new System.Drawing.Size(197, 81);
             this.button_AddMultipleContactsSideMenuButton.TabIndex = 0;
             this.button_AddMultipleContactsSideMenuButton.Text = "Add Contacts";
             this.button_AddMultipleContactsSideMenuButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -637,14 +630,15 @@
             // button_dashboard
             // 
             this.button_dashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_dashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_dashboard.FlatAppearance.BorderSize = 0;
             this.button_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_dashboard.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_dashboard.ForeColor = System.Drawing.Color.White;
+            this.button_dashboard.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_dashboard.ForeColor = System.Drawing.Color.Black;
             this.button_dashboard.Image = ((System.Drawing.Image)(resources.GetObject("button_dashboard.Image")));
-            this.button_dashboard.Location = new System.Drawing.Point(3, 84);
+            this.button_dashboard.Location = new System.Drawing.Point(0, 93);
             this.button_dashboard.Name = "button_dashboard";
-            this.button_dashboard.Size = new System.Drawing.Size(194, 81);
+            this.button_dashboard.Size = new System.Drawing.Size(197, 81);
             this.button_dashboard.TabIndex = 0;
             this.button_dashboard.Text = "Dashboard";
             this.button_dashboard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -654,7 +648,7 @@
             // 
             // panel_active
             // 
-            this.panel_active.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(51)))));
+            this.panel_active.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.panel_active.Location = new System.Drawing.Point(200, 99);
             this.panel_active.Name = "panel_active";
             this.panel_active.Size = new System.Drawing.Size(7, 100);
@@ -662,16 +656,17 @@
             // 
             // button_authorize
             // 
-            this.button_authorize.BackColor = System.Drawing.Color.Transparent;
+            this.button_authorize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
+            this.button_authorize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_authorize.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
             this.button_authorize.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.button_authorize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_authorize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_authorize.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button_authorize.Location = new System.Drawing.Point(822, 4);
+            this.button_authorize.Location = new System.Drawing.Point(766, 27);
             this.button_authorize.Margin = new System.Windows.Forms.Padding(4);
             this.button_authorize.Name = "button_authorize";
-            this.button_authorize.Size = new System.Drawing.Size(146, 76);
+            this.button_authorize.Size = new System.Drawing.Size(263, 66);
             this.button_authorize.TabIndex = 2;
             this.button_authorize.Text = "Re-Authorize";
             this.button_authorize.UseVisualStyleBackColor = false;
@@ -691,11 +686,11 @@
             // 
             // panel_Send_Mail
             // 
+            this.panel_Send_Mail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
             this.panel_Send_Mail.Controls.Add(this.button_edit_group_list);
             this.panel_Send_Mail.Controls.Add(this.comboBox_to);
             this.panel_Send_Mail.Controls.Add(this.button_send_mail);
             this.panel_Send_Mail.Controls.Add(this.button_clear);
-            this.panel_Send_Mail.Controls.Add(this.button_exit);
             this.panel_Send_Mail.Controls.Add(this.progressBar1);
             this.panel_Send_Mail.Controls.Add(this.button_authorize);
             this.panel_Send_Mail.Controls.Add(this.button_Close_Editing);
@@ -709,20 +704,21 @@
             this.panel_Send_Mail.Controls.Add(this.label_content);
             this.panel_Send_Mail.Controls.Add(this.richTextBox_content);
             this.panel_Send_Mail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel_Send_Mail.Location = new System.Drawing.Point(206, 27);
+            this.panel_Send_Mail.ForeColor = System.Drawing.Color.White;
+            this.panel_Send_Mail.Location = new System.Drawing.Point(217, 93);
             this.panel_Send_Mail.Name = "panel_Send_Mail";
-            this.panel_Send_Mail.Size = new System.Drawing.Size(1058, 541);
+            this.panel_Send_Mail.Size = new System.Drawing.Size(1039, 558);
             this.panel_Send_Mail.TabIndex = 24;
             this.panel_Send_Mail.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Send_Mail_Paint);
             // 
             // panel_Dashboard_Chart
             // 
-            this.panel_Dashboard_Chart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.panel_Dashboard_Chart.Controls.Add(this.chart1);
-            this.panel_Dashboard_Chart.Controls.Add(this.button4);
-            this.panel_Dashboard_Chart.Controls.Add(this.button3);
-            this.panel_Dashboard_Chart.Controls.Add(this.button1);
+            this.panel_Dashboard_Chart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
             this.panel_Dashboard_Chart.Controls.Add(this.panel1);
+            this.panel_Dashboard_Chart.Controls.Add(this.chart1);
+            this.panel_Dashboard_Chart.Controls.Add(this.button_Close_Application);
+            this.panel_Dashboard_Chart.Controls.Add(this.button_Restore);
+            this.panel_Dashboard_Chart.Controls.Add(this.button_Minimize);
             this.panel_Dashboard_Chart.Controls.Add(this.button_Year);
             this.panel_Dashboard_Chart.Controls.Add(this.button_6_Months);
             this.panel_Dashboard_Chart.Controls.Add(this.button_Month);
@@ -730,11 +726,21 @@
             this.panel_Dashboard_Chart.Controls.Add(this.button_Week);
             this.panel_Dashboard_Chart.Controls.Add(this.button_Day);
             this.panel_Dashboard_Chart.Controls.Add(this.label2);
+            this.panel_Dashboard_Chart.ForeColor = System.Drawing.Color.White;
             this.panel_Dashboard_Chart.Location = new System.Drawing.Point(200, 0);
             this.panel_Dashboard_Chart.Name = "panel_Dashboard_Chart";
-            this.panel_Dashboard_Chart.Size = new System.Drawing.Size(1160, 768);
+            this.panel_Dashboard_Chart.Size = new System.Drawing.Size(1160, 750);
             this.panel_Dashboard_Chart.TabIndex = 21;
             this.panel_Dashboard_Chart.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Dashboard_Chart_Paint);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 463);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1160, 287);
+            this.panel1.TabIndex = 3;
             // 
             // chart1
             // 
@@ -742,17 +748,17 @@
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             this.chart1.BorderlineWidth = 2;
-            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea1.AxisY2.LineColor = System.Drawing.Color.DimGray;
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            chartArea1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            chartArea1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea1.Name = "TotalMail";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(55, 73);
+            chartArea2.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea2.AxisY2.LineColor = System.Drawing.Color.DimGray;
+            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            chartArea2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            chartArea2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            chartArea2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea2.Name = "TotalMail";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(55, 65);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
@@ -760,62 +766,57 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
         System.Drawing.Color.Olive,
         System.Drawing.Color.MediumAquamarine};
-            series1.ChartArea = "TotalMail";
-            series1.Legend = "Legend1";
-            series1.Name = "Mail";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(996, 303);
+            series2.ChartArea = "TotalMail";
+            series2.Legend = "Legend1";
+            series2.Name = "Mail";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(1020, 303);
             this.chart1.TabIndex = 2;
             // 
-            // button4
+            // button_Close_Application
             // 
-            this.button4.AutoSize = true;
-            this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(1132, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(27, 28);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "X";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button_Close_Application.AutoSize = true;
+            this.button_Close_Application.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_Close_Application.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_Close_Application.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Close_Application.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Close_Application.ForeColor = System.Drawing.Color.White;
+            this.button_Close_Application.Location = new System.Drawing.Point(1132, 0);
+            this.button_Close_Application.Name = "button_Close_Application";
+            this.button_Close_Application.Size = new System.Drawing.Size(27, 28);
+            this.button_Close_Application.TabIndex = 4;
+            this.button_Close_Application.Text = "X";
+            this.button_Close_Application.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // button_Restore
             // 
-            this.button3.AutoSize = true;
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1105, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(26, 28);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "+";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_Restore.AutoSize = true;
+            this.button_Restore.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_Restore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_Restore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Restore.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Restore.ForeColor = System.Drawing.Color.White;
+            this.button_Restore.Location = new System.Drawing.Point(1105, 0);
+            this.button_Restore.Name = "button_Restore";
+            this.button_Restore.Size = new System.Drawing.Size(26, 28);
+            this.button_Restore.TabIndex = 4;
+            this.button_Restore.Text = "+";
+            this.button_Restore.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // button_Minimize
             // 
-            this.button1.AutoSize = true;
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1080, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 28);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "-";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.panel1.Location = new System.Drawing.Point(2, 382);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1140, 772);
-            this.panel1.TabIndex = 3;
+            this.button_Minimize.AutoSize = true;
+            this.button_Minimize.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_Minimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Minimize.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Minimize.ForeColor = System.Drawing.Color.White;
+            this.button_Minimize.Location = new System.Drawing.Point(1080, 0);
+            this.button_Minimize.Name = "button_Minimize";
+            this.button_Minimize.Size = new System.Drawing.Size(24, 28);
+            this.button_Minimize.TabIndex = 4;
+            this.button_Minimize.Text = "-";
+            this.button_Minimize.UseVisualStyleBackColor = true;
             // 
             // button_Year
             // 
@@ -911,23 +912,33 @@
             // 
             // panel_Add_Contacts
             // 
+            this.panel_Add_Contacts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
+            this.panel_Add_Contacts.Controls.Add(this.label_Enter_Bulk_Email_IDs);
             this.panel_Add_Contacts.Controls.Add(this.progressBar2);
             this.panel_Add_Contacts.Controls.Add(this.label_Groups_Name);
             this.panel_Add_Contacts.Controls.Add(this.textBox_Groups_Name);
-            this.panel_Add_Contacts.Controls.Add(this.button_Close);
             this.panel_Add_Contacts.Controls.Add(this.button_Add_Bulk_Email_IDs);
             this.panel_Add_Contacts.Controls.Add(this.richTextBox_Bulk_Email_IDs);
-            this.panel_Add_Contacts.Controls.Add(this.label_Enter_Bulk_Email_IDs);
-            this.panel_Add_Contacts.Location = new System.Drawing.Point(210, 31);
+            this.panel_Add_Contacts.Location = new System.Drawing.Point(225, 93);
             this.panel_Add_Contacts.Name = "panel_Add_Contacts";
-            this.panel_Add_Contacts.Size = new System.Drawing.Size(1025, 683);
+            this.panel_Add_Contacts.Size = new System.Drawing.Size(1013, 489);
             this.panel_Add_Contacts.TabIndex = 21;
+            // 
+            // label_Enter_Bulk_Email_IDs
+            // 
+            this.label_Enter_Bulk_Email_IDs.AutoSize = true;
+            this.label_Enter_Bulk_Email_IDs.Location = new System.Drawing.Point(12, 12);
+            this.label_Enter_Bulk_Email_IDs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Enter_Bulk_Email_IDs.Name = "label_Enter_Bulk_Email_IDs";
+            this.label_Enter_Bulk_Email_IDs.Size = new System.Drawing.Size(78, 21);
+            this.label_Enter_Bulk_Email_IDs.TabIndex = 7;
+            this.label_Enter_Bulk_Email_IDs.Text = "Email IDs";
             // 
             // progressBar2
             // 
-            this.progressBar2.Location = new System.Drawing.Point(183, 466);
+            this.progressBar2.Location = new System.Drawing.Point(343, 431);
             this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(355, 23);
+            this.progressBar2.Size = new System.Drawing.Size(195, 28);
             this.progressBar2.Step = 1;
             this.progressBar2.TabIndex = 13;
             // 
@@ -943,10 +954,10 @@
             // 
             // textBox_Groups_Name
             // 
-            this.textBox_Groups_Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.textBox_Groups_Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.textBox_Groups_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_Groups_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Groups_Name.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.textBox_Groups_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.textBox_Groups_Name.Location = new System.Drawing.Point(183, 400);
             this.textBox_Groups_Name.Margin = new System.Windows.Forms.Padding(5);
             this.textBox_Groups_Name.Name = "textBox_Groups_Name";
@@ -954,23 +965,10 @@
             this.textBox_Groups_Name.TabIndex = 11;
             this.textBox_Groups_Name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Groups_Name_KeyPress);
             // 
-            // button_Close
-            // 
-            this.button_Close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.button_Close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Close.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button_Close.Location = new System.Drawing.Point(345, 431);
-            this.button_Close.Margin = new System.Windows.Forms.Padding(4);
-            this.button_Close.Name = "button_Close";
-            this.button_Close.Size = new System.Drawing.Size(100, 28);
-            this.button_Close.TabIndex = 10;
-            this.button_Close.Text = "Close";
-            this.button_Close.UseVisualStyleBackColor = false;
-            // 
             // button_Add_Bulk_Email_IDs
             // 
-            this.button_Add_Bulk_Email_IDs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.button_Add_Bulk_Email_IDs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
+            this.button_Add_Bulk_Email_IDs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_Add_Bulk_Email_IDs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Add_Bulk_Email_IDs.ForeColor = System.Drawing.Color.DodgerBlue;
             this.button_Add_Bulk_Email_IDs.Location = new System.Drawing.Point(183, 431);
@@ -984,9 +982,9 @@
             // 
             // richTextBox_Bulk_Email_IDs
             // 
-            this.richTextBox_Bulk_Email_IDs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.richTextBox_Bulk_Email_IDs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.richTextBox_Bulk_Email_IDs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox_Bulk_Email_IDs.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.richTextBox_Bulk_Email_IDs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.richTextBox_Bulk_Email_IDs.Location = new System.Drawing.Point(183, 12);
             this.richTextBox_Bulk_Email_IDs.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_Bulk_Email_IDs.Name = "richTextBox_Bulk_Email_IDs";
@@ -997,18 +995,9 @@
             this.richTextBox_Bulk_Email_IDs.WordWrap = false;
             this.richTextBox_Bulk_Email_IDs.TextChanged += new System.EventHandler(this.richTextBox_Bulk_Email_IDs_TextChanged);
             // 
-            // label_Enter_Bulk_Email_IDs
-            // 
-            this.label_Enter_Bulk_Email_IDs.AutoSize = true;
-            this.label_Enter_Bulk_Email_IDs.Location = new System.Drawing.Point(12, 12);
-            this.label_Enter_Bulk_Email_IDs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_Enter_Bulk_Email_IDs.Name = "label_Enter_Bulk_Email_IDs";
-            this.label_Enter_Bulk_Email_IDs.Size = new System.Drawing.Size(78, 21);
-            this.label_Enter_Bulk_Email_IDs.TabIndex = 7;
-            this.label_Enter_Bulk_Email_IDs.Text = "Email IDs";
-            // 
             // panel_Create_Group
             // 
+            this.panel_Create_Group.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
             this.panel_Create_Group.Controls.Add(this.label_Select_Group_Name);
             this.panel_Create_Group.Controls.Add(this.comboBox_Group_Name);
             this.panel_Create_Group.Controls.Add(this.button_Create_Group);
@@ -1016,9 +1005,9 @@
             this.panel_Create_Group.Controls.Add(this.checkedListBox_Group_Email_IDs);
             this.panel_Create_Group.Controls.Add(this.textBox_Group_Name);
             this.panel_Create_Group.Controls.Add(this.label_Enter_Group_Name);
-            this.panel_Create_Group.Location = new System.Drawing.Point(209, 27);
+            this.panel_Create_Group.Location = new System.Drawing.Point(213, 94);
             this.panel_Create_Group.Name = "panel_Create_Group";
-            this.panel_Create_Group.Size = new System.Drawing.Size(1026, 687);
+            this.panel_Create_Group.Size = new System.Drawing.Size(1018, 529);
             this.panel_Create_Group.TabIndex = 1;
             this.panel_Create_Group.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Create_Group_Paint);
             // 
@@ -1034,11 +1023,11 @@
             // 
             // comboBox_Group_Name
             // 
-            this.comboBox_Group_Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.comboBox_Group_Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.comboBox_Group_Name.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox_Group_Name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Group_Name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox_Group_Name.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.comboBox_Group_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.comboBox_Group_Name.FormattingEnabled = true;
             this.comboBox_Group_Name.Location = new System.Drawing.Point(674, 16);
             this.comboBox_Group_Name.Margin = new System.Windows.Forms.Padding(4);
@@ -1050,10 +1039,10 @@
             // 
             // button_Create_Group
             // 
-            this.button_Create_Group.BackColor = System.Drawing.Color.Transparent;
+            this.button_Create_Group.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
             this.button_Create_Group.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Create_Group.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button_Create_Group.Location = new System.Drawing.Point(183, 478);
+            this.button_Create_Group.Location = new System.Drawing.Point(183, 470);
             this.button_Create_Group.Margin = new System.Windows.Forms.Padding(4);
             this.button_Create_Group.Name = "button_Create_Group";
             this.button_Create_Group.Size = new System.Drawing.Size(167, 53);
@@ -1064,11 +1053,11 @@
             // 
             // checkedListBox_New_Group_ID_Collection
             // 
-            this.checkedListBox_New_Group_ID_Collection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.checkedListBox_New_Group_ID_Collection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.checkedListBox_New_Group_ID_Collection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBox_New_Group_ID_Collection.CheckOnClick = true;
             this.checkedListBox_New_Group_ID_Collection.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkedListBox_New_Group_ID_Collection.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.checkedListBox_New_Group_ID_Collection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.checkedListBox_New_Group_ID_Collection.FormattingEnabled = true;
             this.checkedListBox_New_Group_ID_Collection.HorizontalScrollbar = true;
             this.checkedListBox_New_Group_ID_Collection.Location = new System.Drawing.Point(183, 47);
@@ -1081,11 +1070,11 @@
             // 
             // checkedListBox_Group_Email_IDs
             // 
-            this.checkedListBox_Group_Email_IDs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.checkedListBox_Group_Email_IDs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.checkedListBox_Group_Email_IDs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBox_Group_Email_IDs.CheckOnClick = true;
             this.checkedListBox_Group_Email_IDs.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkedListBox_Group_Email_IDs.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.checkedListBox_Group_Email_IDs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.checkedListBox_Group_Email_IDs.FormattingEnabled = true;
             this.checkedListBox_Group_Email_IDs.HorizontalScrollbar = true;
             this.checkedListBox_Group_Email_IDs.Location = new System.Drawing.Point(674, 49);
@@ -1099,9 +1088,9 @@
             // 
             // textBox_Group_Name
             // 
-            this.textBox_Group_Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.textBox_Group_Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.textBox_Group_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_Group_Name.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.textBox_Group_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.textBox_Group_Name.Location = new System.Drawing.Point(183, 15);
             this.textBox_Group_Name.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Group_Name.Name = "textBox_Group_Name";
@@ -1121,38 +1110,59 @@
             // 
             // panel_View_Group
             // 
+            this.panel_View_Group.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
             this.panel_View_Group.Controls.Add(this.dataGridView_Group_Email_IDs_Collection);
             this.panel_View_Group.Controls.Add(this.comboBox_Group_Names);
-            this.panel_View_Group.Controls.Add(this.button2);
             this.panel_View_Group.Controls.Add(this.label_Select_Group);
-            this.panel_View_Group.Location = new System.Drawing.Point(210, 27);
+            this.panel_View_Group.ForeColor = System.Drawing.Color.Black;
+            this.panel_View_Group.Location = new System.Drawing.Point(206, 93);
             this.panel_View_Group.Name = "panel_View_Group";
-            this.panel_View_Group.Size = new System.Drawing.Size(802, 684);
+            this.panel_View_Group.Size = new System.Drawing.Size(805, 511);
             this.panel_View_Group.TabIndex = 15;
             // 
             // dataGridView_Group_Email_IDs_Collection
             // 
             this.dataGridView_Group_Email_IDs_Collection.AllowUserToAddRows = false;
             this.dataGridView_Group_Email_IDs_Collection.AllowUserToDeleteRows = false;
-            this.dataGridView_Group_Email_IDs_Collection.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.dataGridView_Group_Email_IDs_Collection.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
+            this.dataGridView_Group_Email_IDs_Collection.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Group_Email_IDs_Collection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView_Group_Email_IDs_Collection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Group_Email_IDs_Collection.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Email_ID});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Beige;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Group_Email_IDs_Collection.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView_Group_Email_IDs_Collection.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.dataGridView_Group_Email_IDs_Collection.Location = new System.Drawing.Point(45, 73);
             this.dataGridView_Group_Email_IDs_Collection.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_Group_Email_IDs_Collection.Name = "dataGridView_Group_Email_IDs_Collection";
             this.dataGridView_Group_Email_IDs_Collection.ReadOnly = true;
-            this.dataGridView_Group_Email_IDs_Collection.Size = new System.Drawing.Size(753, 422);
+            this.dataGridView_Group_Email_IDs_Collection.RowTemplate.Height = 40;
+            this.dataGridView_Group_Email_IDs_Collection.Size = new System.Drawing.Size(272, 422);
             this.dataGridView_Group_Email_IDs_Collection.TabIndex = 5;
             // 
             // Email_ID
             // 
             this.Email_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            this.Email_ID.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            this.Email_ID.DefaultCellStyle = dataGridViewCellStyle5;
             this.Email_ID.HeaderText = "Email ID";
             this.Email_ID.Name = "Email_ID";
             this.Email_ID.ReadOnly = true;
@@ -1163,9 +1173,10 @@
             // 
             this.comboBox_Group_Names.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBox_Group_Names.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_Group_Names.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.comboBox_Group_Names.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(106)))), ((int)(((byte)(134)))));
             this.comboBox_Group_Names.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Group_Names.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_Group_Names.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(166)))), ((int)(((byte)(2)))));
             this.comboBox_Group_Names.FormattingEnabled = true;
             this.comboBox_Group_Names.Location = new System.Drawing.Point(173, 27);
             this.comboBox_Group_Names.Margin = new System.Windows.Forms.Padding(4);
@@ -1175,22 +1186,10 @@
             this.comboBox_Group_Names.TabIndex = 4;
             this.comboBox_Group_Names.SelectedValueChanged += new System.EventHandler(this.comboBox_Group_Names_SelectedValueChanged);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button2.Location = new System.Drawing.Point(409, 502);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Close";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // label_Select_Group
             // 
             this.label_Select_Group.AutoSize = true;
+            this.label_Select_Group.ForeColor = System.Drawing.Color.White;
             this.label_Select_Group.Location = new System.Drawing.Point(41, 36);
             this.label_Select_Group.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Select_Group.Name = "label_Select_Group";
@@ -1204,18 +1203,18 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(41)))), ((int)(((byte)(81)))));
             this.CancelButton = this.button_Exit_App;
-            this.ClientSize = new System.Drawing.Size(1343, 733);
+            this.ClientSize = new System.Drawing.Size(1360, 750);
             this.Controls.Add(this.panel_active);
             this.Controls.Add(this.panel_Side_Menu);
-            this.Controls.Add(this.panel_Send_Mail);
             this.Controls.Add(this.panel_Dashboard_Chart);
             this.Controls.Add(this.panel_View_Group);
-            this.Controls.Add(this.panel_Create_Group);
             this.Controls.Add(this.panel_Add_Contacts);
+            this.Controls.Add(this.panel_Send_Mail);
+            this.Controls.Add(this.panel_Create_Group);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1262,7 +1261,6 @@
         private System.Windows.Forms.RichTextBox richTextBox_content;
         private System.Windows.Forms.Button button_send_mail;
         private System.Windows.Forms.Button button_clear;
-        private System.Windows.Forms.Button button_exit;
         private System.Windows.Forms.CheckedListBox checkedListBox_Edit_Recipients;
         private System.Windows.Forms.Button button_Save_Edit_List;
         private System.Windows.Forms.Button button_Close_Editing;
@@ -1289,7 +1287,6 @@
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.Label label_Groups_Name;
         private System.Windows.Forms.TextBox textBox_Groups_Name;
-        private System.Windows.Forms.Button button_Close;
         private System.Windows.Forms.Button button_Add_Bulk_Email_IDs;
         private System.Windows.Forms.RichTextBox richTextBox_Bulk_Email_IDs;
         private System.Windows.Forms.Label label_Enter_Bulk_Email_IDs;
@@ -1305,7 +1302,6 @@
         private System.Windows.Forms.DataGridView dataGridView_Group_Email_IDs_Collection;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email_ID;
         private System.Windows.Forms.ComboBox comboBox_Group_Names;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label_Select_Group;
         private System.Windows.Forms.Button button_Day;
         private System.Windows.Forms.Button button_15_Days;
@@ -1315,9 +1311,9 @@
         private System.Windows.Forms.Button button_Year;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button_Minimize;
+        private System.Windows.Forms.Button button_Close_Application;
+        private System.Windows.Forms.Button button_Restore;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

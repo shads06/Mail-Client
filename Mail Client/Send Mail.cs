@@ -81,14 +81,33 @@ namespace Mail_Client
             comboBox_Group_Names.SelectedIndex = 0;
         }
 
+        void data_Grid_View_Style()
+        {
+            dataGridView_Group_Email_IDs_Collection.BorderStyle = BorderStyle.None;
+            dataGridView_Group_Email_IDs_Collection.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataGridView_Group_Email_IDs_Collection.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView_Group_Email_IDs_Collection.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dataGridView_Group_Email_IDs_Collection.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dataGridView_Group_Email_IDs_Collection.BackgroundColor = Color.White;
+
+            dataGridView_Group_Email_IDs_Collection.EnableHeadersVisualStyles = false;
+            dataGridView_Group_Email_IDs_Collection.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView_Group_Email_IDs_Collection.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(68, 106, 134);
+            dataGridView_Group_Email_IDs_Collection.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
-            button_dashboard.BackColor = Color.FromArgb(60, 65, 68);
+            //Set Background color of Dashboard button in side menu to Yellow and preserve the button name
+            button_dashboard.BackColor = Color.FromArgb(249, 166, 2);
             button_name = button_dashboard;
 
+            data_Grid_View_Style();
+
+            //Fill Chart with data
             fillChart();
             button_Day.FlatAppearance.BorderSize = 1;
 
+            //Load
             Load_Email_ID_In_Create_Group_ComboBox();
 
             
@@ -97,14 +116,17 @@ namespace Mail_Client
             panel_Create_Group.Hide();
             panel_View_Group.Hide();
 
+            //Set custom scroll bar height and top position equal to Dashboard button height and position
             panel_active.Height = button_dashboard.Height;
             panel_active.Top = button_dashboard.Top;
             
+            //Create a label application is loading
             System.Windows.Forms.Label l1 = new System.Windows.Forms.Label();
             l1.Text = "Application is Loading. Please Wait ...";
             l1.AutoSize = true;
             l1.Location = new Point(20, 20);
 
+            //Create a custom form to show application loading message
             Form f1 = new Form();
             f1.Width = 500;
             f1.Height = 100;
@@ -133,6 +155,7 @@ namespace Mail_Client
                         new FileDataStore(credPath, true)).Result;
                 }
                 f1.Close();
+
                 MessageBox.Show("Authorization Completed Successfully", "Mail Client Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception t)
@@ -598,8 +621,13 @@ namespace Mail_Client
 
         private void Back_Color_Changer(object sender, object previous)
         {
-            (sender as Button).BackColor = Color.FromArgb(60, 65, 68);
-            (previous as Button).BackColor = Color.FromArgb(41, 44, 45);
+            if(sender.ToString() != previous.ToString())
+            {
+                (sender as Button).BackColor = Color.FromArgb(249, 166, 2);
+                (sender as Button).ForeColor = Color.Black;
+                (previous as Button).BackColor = Color.FromArgb(29, 41, 100);
+                (previous as Button).ForeColor = Color.White;
+            }
         }
 
         private void button_SendMailSideMenuButton_Click(object sender, EventArgs e)
@@ -685,8 +713,15 @@ namespace Mail_Client
         {
             About AB = new About();
             AB.ShowDialog();
+            
+            //Following code will scroll custom scroll bar to the location of about menu. Uncomment only if you are going to show about info in a panel and not as a dialogue
+            /*
             panel_active.Height = button_About.Height;
             panel_active.Top = button_About.Top;
+             * 
+             * Back_Color_Changer(button_About, button_name);
+            button_name = button_About;
+             */
         }
 
         private void panel_Send_Mail_Paint(object sender, PaintEventArgs e)
