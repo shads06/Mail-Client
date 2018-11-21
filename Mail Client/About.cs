@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
+﻿#region .Net Base Library Namespaces
+using System;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+#endregion
 
 namespace Mail_Client
 {
