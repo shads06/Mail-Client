@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Threading;
 using System.Net.Mail;
+using System.Text;
 #endregion
 
 #region Gmail API Libraries
@@ -22,7 +23,7 @@ namespace Mail_Client
         // If modifying these scopes, delete your previously saved credentials
         // at ~/.credentials/gmail-dotnet-quickstart.json
         static string[] Scopes = { GmailService.Scope.GmailReadonly, GmailService.Scope.GmailCompose, GmailService.Scope.GmailLabels };
-        static string ApplicationName = "Consultax";
+        static string ApplicationName = "Mail Client";
 
         // User Credential Declaration
         UserCredential credential;
@@ -163,27 +164,11 @@ namespace Mail_Client
             }
         }
 
-        private void addEmailIDToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Add_Contact add_email_id_form = new Add_Contact();
-            add_email_id_form.ShowDialog();
-        }
+        
 
         private void button_exit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void addBulkEmailIDsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Add_Multiple_Contacts add_bulk_email_ids_form = new Add_Multiple_Contacts();
-            add_bulk_email_ids_form.ShowDialog();
-
-            // Loading group names in combobox
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
-
-            comboBox_to.Items.Clear();
-            FunctionCollection.LoadDataFromFileInComboBox(comboBox_to);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -462,7 +447,8 @@ namespace Mail_Client
 
         private static string Base64UrlEncode(string input)
         {
-            var inputBytes = System.Text.Encoding.UTF8.GetBytes(input);
+            //Using System.Text.Encoding.UTF8.GetBytes method
+            var inputBytes = Encoding.UTF8.GetBytes(input);
             // Special "url-safe" base64 encode.
             return Convert.ToBase64String(inputBytes)
               .Replace('+', '-')
@@ -475,28 +461,14 @@ namespace Mail_Client
 
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            About About_My_App_Form = new About();
-            About_My_App_Form.ShowDialog();
-        }
-
         private void checkedListBox_Edit_Recipients_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void add_contact_Click(object sender, EventArgs e)
-        {
-            Add_Contact AC = new Add_Contact();
-            AC.ShowDialog();
-        }
 
-        private void add_multiple_contacts_Click(object sender, EventArgs e)
-        {
-            Add_Multiple_Contacts AMC = new Add_Multiple_Contacts();
-            AMC.ShowDialog();
-        }
+
+        
 
         private void view_group_Click(object sender, EventArgs e)
         {
@@ -515,14 +487,35 @@ namespace Mail_Client
             this.Close();
         }
 
-        private void about_Click(object sender, EventArgs e)
+        
+
+        #region Menu Items Click Events Definition
+
+        private void add_contact_Click(object sender, EventArgs e)
         {
-            About A = new About();
-            A.ShowDialog();
+            Add_Contact NewContact = new Add_Contact();
+            NewContact.ShowDialog();
         }
 
+        private void add_multiple_contacts_Click(object sender, EventArgs e)
+        {
+            Add_Multiple_Contacts AMC = new Add_Multiple_Contacts();
+            AMC.ShowDialog();
 
+            // Loading group names in combobox
+            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
 
+            comboBox_to.Items.Clear();
+            FunctionCollection.LoadDataFromFileInComboBox(comboBox_to);
+        }
+
+        private void about_Click(object sender, EventArgs e)
+        {
+            About AboutApplication = new About();
+            AboutApplication.ShowDialog();
+        }
+
+        #endregion
     }
 
     public class FunctionCollection

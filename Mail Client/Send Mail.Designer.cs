@@ -39,13 +39,10 @@
             this.help = new System.Windows.Forms.ToolStripMenuItem();
             this.about = new System.Windows.Forms.ToolStripMenuItem();
             this.quickMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addEmailIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addBulkEmailIDsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button_authorize = new System.Windows.Forms.Button();
             this.label_to = new System.Windows.Forms.Label();
             this.comboBox_to = new System.Windows.Forms.ComboBox();
@@ -170,24 +167,6 @@
             this.quickMenuToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.quickMenuToolStripMenuItem.Text = "Quick Menu";
             // 
-            // addEmailIDToolStripMenuItem
-            // 
-            this.addEmailIDToolStripMenuItem.BackColor = System.Drawing.Color.Linen;
-            this.addEmailIDToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addEmailIDToolStripMenuItem.Image")));
-            this.addEmailIDToolStripMenuItem.Name = "addEmailIDToolStripMenuItem";
-            this.addEmailIDToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.addEmailIDToolStripMenuItem.Text = "Add Email ID";
-            this.addEmailIDToolStripMenuItem.Click += new System.EventHandler(this.addEmailIDToolStripMenuItem_Click);
-            // 
-            // addBulkEmailIDsToolStripMenuItem
-            // 
-            this.addBulkEmailIDsToolStripMenuItem.BackColor = System.Drawing.Color.Linen;
-            this.addBulkEmailIDsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addBulkEmailIDsToolStripMenuItem.Image")));
-            this.addBulkEmailIDsToolStripMenuItem.Name = "addBulkEmailIDsToolStripMenuItem";
-            this.addBulkEmailIDsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.addBulkEmailIDsToolStripMenuItem.Text = "Add Bulk Email IDs";
-            this.addBulkEmailIDsToolStripMenuItem.Click += new System.EventHandler(this.addBulkEmailIDsToolStripMenuItem_Click);
-            // 
             // viewGroupsToolStripMenuItem
             // 
             this.viewGroupsToolStripMenuItem.BackColor = System.Drawing.Color.Linen;
@@ -221,15 +200,6 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.BackColor = System.Drawing.Color.Linen;
-            this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "&About...";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // button_authorize
             // 
@@ -530,13 +500,10 @@
 
         private System.Windows.Forms.MenuStrip send_mail_menu;
         private System.Windows.Forms.ToolStripMenuItem quickMenuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addEmailIDToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addBulkEmailIDsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewGroupsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createGroupsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Button button_authorize;
         private System.Windows.Forms.Label label_to;
         private System.Windows.Forms.Button button_edit_group_list;
