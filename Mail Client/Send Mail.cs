@@ -176,43 +176,79 @@ namespace Mail_Client
             this.Close();
         }
 
+        string[] RetrieveDataFromFile(string FilePath)
+        {
+            string[] RecipientNames = new string[90];
+            string NextLine;
+            ushort Count = 0;
+
+            using (StreamReader sr = File.OpenText(FilePath))
+            {
+                while (!sr.EndOfStream)
+                {
+                    NextLine = sr.ReadLine();
+
+                    if (System.String.IsNullOrEmpty(NextLine))
+                        continue;
+                    else
+                        RecipientNames[Count++] = NextLine;
+                }
+            }
+            
+            return RecipientNames;
+        }
+
         private void button_edit_group_list_Click(object sender, EventArgs e)
         {
             try
             {
                 checkedListBox_Edit_Recipients.Items.Clear();
 
-                string path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
+                string GroupName = comboBox_to.SelectedItem.ToString();
+                string FilePath = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + GroupName + ".txt";
+                string[] RecipientNames = new string[90];
+                StreamReader sr = File.OpenText(FilePath);
 
-                //Open the file to read from.
-                using (StreamReader sr = File.OpenText(path))
+                if (sr.EndOfStream)
                 {
-                    button_edit_group_list.Enabled = false;
-
-                    string s = "";
-
-                    if ((s = sr.ReadLine()) != null)
-                    {
-                        button_Save_Edit_List.Enabled = false;
-
-                        checkedListBox_Edit_Recipients.Visible = true;
-                        button_Save_Edit_List.Visible = true;
-                        button_Close_Editing.Visible = true;
-
-                        do
-                        {
-                            count++;
-                            checkedListBox_Edit_Recipients.Items.Add(s);
-                            checkedListBox_Edit_Recipients.SetItemChecked(checkedListBox_Edit_Recipients.Items.IndexOf(s), true);
-                        } while ((s = sr.ReadLine()) != null);
-                    }
-                    else
-                        MessageBox.Show("Group doesn't have any mail address", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Group has no recipient", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    sr.Close();
                 }
+                else
+                {
+                    Array.Copy(RetrieveDataFromFile(FilePath),RecipientNames,90);
+
+                    foreach(string RN in RecipientNames)
+                    {
+                        if (RN == null)
+                            break;
+                        count++;                 
+                        checkedListBox_Edit_Recipients.Items.Add(RN);
+                        checkedListBox_Edit_Recipients.SetItemChecked(checkedListBox_Edit_Recipients.Items.IndexOf(RN), true);
+                    }
+
+                    button_edit_group_list.Enabled = false;
+                    button_Save_Edit_List.Enabled = false;
+                    button_Save_Edit_List.Visible = true;
+                    button_Close_Editing.Visible = true;
+                    checkedListBox_Edit_Recipients.Visible = true;
+                }
+            }
+            catch (FileNotFoundException t)
+            {
+                MessageBox.Show("Group not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(NullReferenceException t)
+            {
+                MessageBox.Show("No Group Selected", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception t)
             {
                 MessageBox.Show("Group Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+
             }
         }
 
@@ -376,7 +412,7 @@ namespace Mail_Client
 
 
             FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\Subject.txt";
-            FunctionCollection.WriteInFileFromTextBox(textBox_subject.Text);
+            FunctionCollection.WriteInFileTextBoxContent(textBox_subject.Text);
 
             FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\Content.txt";
             FunctionCollection.WriteInFileFromRichTextBox(richTextBox_content.Lines);
@@ -416,6 +452,7 @@ namespace Mail_Client
 
         private void button_clear_Click(object sender, EventArgs e)
         {
+            textBox_From_Email_ID.Clear();
             textBox_subject.Clear();
             richTextBox_content.Clear();
         }
@@ -486,7 +523,7 @@ namespace Mail_Client
         {
             this.Close();
         }
-
+        
         
 
         #region Menu Items Click Events Definition
@@ -518,53 +555,40 @@ namespace Mail_Client
         #endregion
     }
 
-    public class FunctionCollection
+    public static class FunctionCollection
     {
-        public static string path = null; //Creating a file or reading a file at this path
+        /// <summary>
+        /// To store path of a file. This must be set before calling any WriteToFile or ReadFromFile functions of FunctionCollection class
+        /// </summary>
+        public static string path = null; //Variable to hold a path for a file to do certain operation (Create, Delete, Modify, Open, Read, Write) on file. This must be set before calling any of the function of this class.
+
+        /*
+         * Variable to hold path of directory in which executable is placed.
+         * Because Data generated from this executable is also saved in sub directory of same directory ...\Data\...
+         */
         public static string CurrentDirectoryPath = Path.GetDirectoryName(Application.ExecutablePath);
 
-        public static void WriteInFileFromTextBox(string FromTextBox)
+        /// <summary>
+        /// Writes content of a textbox into a file. Set path before calling this function
+        /// </summary>
+        /// <param name="TextBoxContent"></param>
+        public static void WriteInFileTextBoxContent(string TextBoxContent)
         {
-            if (!File.Exists(path))
+            using (StreamWriter sw = File.AppendText(path))     //Creates or open an existing file to the end of a file pointer
             {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(FromTextBox);
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(FromTextBox);
-                }
+                sw.WriteLine(TextBoxContent);       //Write line to the file
             }
         }
 
-        public static void WriteInFileFromRichTextBox(string[] Mail_ID_Collection)
+        public static void WriteInFileFromRichTextBox(string[] ContentCollection)
         {
-            short counter = 0;
-
-            if (!File.Exists(path))
+            ushort counter = 0;
+            
+            using (StreamWriter sw = File.AppendText(path))
             {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
+                for (counter = 0; counter < ContentCollection.Length; counter++)
                 {
-                    for (counter = 0; counter < Mail_ID_Collection.Length; counter++)
-                    {
-                        sw.WriteLine(Mail_ID_Collection[counter]);
-                    }
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    for (counter = 0; counter < Mail_ID_Collection.Length; counter++)
-                    {
-                        sw.WriteLine(Mail_ID_Collection[counter]);
-                    }
+                    sw.WriteLine(ContentCollection[counter]);
                 }
             }
         }
@@ -594,7 +618,7 @@ namespace Mail_Client
                 }
             }
         }
-
+        
         public static void LoadDataFromFileInComboBox(ComboBox cmb)
         {
             //Open the file to read from.

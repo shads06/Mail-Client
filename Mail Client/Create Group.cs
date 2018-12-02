@@ -78,7 +78,7 @@ namespace Mail_Client
         {
             FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
 
-            FunctionCollection.WriteInFileFromTextBox(textBox_Group_Name.Text);
+            FunctionCollection.WriteInFileTextBoxContent(textBox_Group_Name.Text);
 
             FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Group_Name.Text + ".txt";
 

@@ -45,7 +45,7 @@ namespace Mail_Client
 
                     FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
 
-                    FunctionCollection.WriteInFileFromTextBox(textBox_Groups_Name.Text + " " + counter.ToString() + "_(Contains " + (Total_Email_IDs - Mail_ID_Number).ToString() + " Mail IDs)");
+                    FunctionCollection.WriteInFileTextBoxContent(textBox_Groups_Name.Text + " " + counter.ToString() + "_(Contains " + (Total_Email_IDs - Mail_ID_Number).ToString() + " Mail IDs)");
                 }
                 else
                 {
@@ -53,7 +53,7 @@ namespace Mail_Client
 
                     FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
 
-                    FunctionCollection.WriteInFileFromTextBox(textBox_Groups_Name.Text + " " + counter.ToString());
+                    FunctionCollection.WriteInFileTextBoxContent(textBox_Groups_Name.Text + " " + counter.ToString());
                 }
 
                 // Create a file to write to.
