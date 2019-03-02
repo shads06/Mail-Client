@@ -176,6 +176,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Group";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Create_Group_FormClosed);
             this.Load += new System.EventHandler(this.Form4_Create_Group_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

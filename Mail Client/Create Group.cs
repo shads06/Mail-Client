@@ -105,5 +105,10 @@ namespace Mail_Client
                 }
             }
         }
+
+        private void Create_Group_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }

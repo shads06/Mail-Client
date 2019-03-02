@@ -134,7 +134,6 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="FileReadWrite.cs" />
-    <Compile Include="FunctionCollection.cs" />
     <Compile Include="Send Mail.cs">
       <SubType>Form</SubType>
     </Compile>

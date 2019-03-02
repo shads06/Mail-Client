@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading;
 using System.Net.Mail;
 using System.Text;
+using System.Net;
 #endregion
 
 #region Gmail API Libraries
@@ -39,6 +40,27 @@ namespace Mail_Client
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Check for Internet Connectivity on System.
+        /// </summary>
+        /// <returns>
+        /// Exceptions:
+        /// </returns>
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (client.OpenRead("http://clients3.google.com/generate_204"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public void Reload_ComboBox_Of_Form1()
         {
@@ -47,6 +69,11 @@ namespace Mail_Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if(!CheckForInternetConnection())   //Check for "system is not connected to the internet" is true
+            {
+                MessageBox.Show("No Internet Connection. Data will be saved offline.","No Internet",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+
             System.Windows.Forms.Label l1 = new System.Windows.Forms.Label();
             l1.Text = "Application is Loading. Please Wait ...";
             l1.AutoSize = true;
