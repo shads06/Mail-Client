@@ -15,9 +15,9 @@ namespace Mail_Client
 
         private void Form5_View_Group_Load(object sender, EventArgs e)
         {
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
 
-            FunctionCollection.LoadDataFromFileInComboBox(comboBox_Group_Name);
+            FileReadWrite.LoadDataFromFileInComboBox(comboBox_Group_Name);
 
             comboBox_Group_Name.SelectedIndex = 0;
         }
@@ -25,7 +25,7 @@ namespace Mail_Client
         private void comboBox_Group_Name_SelectedValueChanged(object sender, EventArgs e)
         {
             dataGridView_Group_Email_IDs_Collection.Rows.Clear();
-            string path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_Group_Name.SelectedItem.ToString() + ".txt";
+            string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_Group_Name.SelectedItem.ToString() + ".txt";
 
             //Open the file to read from.
             using (StreamReader sr = File.OpenText(path))

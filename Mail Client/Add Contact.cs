@@ -30,8 +30,8 @@ namespace Mail_Client
 
         private void button_add_mail_id_Click(object sender, EventArgs e)
         {
-            //FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\__All Mail IDs.txt";
-            //FunctionCollection.WriteInFileTextBoxContent(textBox_email_id.Text);
+            //FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\__All Mail IDs.txt";
+            //FileReadWrite.WriteInFileTextBoxContent(textBox_email_id.Text);
             MessageBox.Show("Mail Id Added Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             textBox_email_id.Clear();
         }

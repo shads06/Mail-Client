@@ -41,19 +41,19 @@ namespace Mail_Client
             {
                 if (counter == Total_Group && Is_Last_Group_Have_Less_Than_90_Emails)
                 {
-                    path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Groups_Name.Text + " " + counter.ToString() + "_(Contains " + (Total_Email_IDs - Mail_ID_Number).ToString() + " Mail IDs).txt";
+                    path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Groups_Name.Text + " " + counter.ToString() + "_(Contains " + (Total_Email_IDs - Mail_ID_Number).ToString() + " Mail IDs).txt";
 
-                    FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+                    FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
 
-                    FunctionCollection.WriteInFileTextBoxContent(textBox_Groups_Name.Text + " " + counter.ToString() + "_(Contains " + (Total_Email_IDs - Mail_ID_Number).ToString() + " Mail IDs)");
+                    FileReadWrite.WriteInFileTextBoxContent(textBox_Groups_Name.Text + " " + counter.ToString() + "_(Contains " + (Total_Email_IDs - Mail_ID_Number).ToString() + " Mail IDs)");
                 }
                 else
                 {
-                    path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Groups_Name.Text + " " + counter.ToString() + ".txt";
+                    path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Groups_Name.Text + " " + counter.ToString() + ".txt";
 
-                    FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+                    FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
 
-                    FunctionCollection.WriteInFileTextBoxContent(textBox_Groups_Name.Text + " " + counter.ToString());
+                    FileReadWrite.WriteInFileTextBoxContent(textBox_Groups_Name.Text + " " + counter.ToString());
                 }
 
                 // Create a file to write to.

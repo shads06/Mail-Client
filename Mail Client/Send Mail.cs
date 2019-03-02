@@ -122,12 +122,12 @@ namespace Mail_Client
             //menuStrip1.BackColor = x;
 
             // Loading 
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
 
-            FunctionCollection.LoadDataFromFileInComboBox(comboBox_to);
+            FileReadWrite.LoadDataFromFileInComboBox(comboBox_to);
 
             // Reading Total Mail Sent Quota and storing in variable
-            string path1 = FunctionCollection.CurrentDirectoryPath + "\\Data\\Total Mails Sent Quota.txt";
+            string path1 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Total Mails Sent Quota.txt";
 
             //Open the file to read from.
             using (StreamReader sr = File.OpenText(path1))
@@ -205,7 +205,7 @@ namespace Mail_Client
                 checkedListBox_Edit_Recipients.Items.Clear();
 
                 string GroupName = comboBox_to.SelectedItem.ToString();
-                string FilePath = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + GroupName + ".txt";
+                string FilePath = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + GroupName + ".txt";
                 string[] RecipientNames = new string[90];
                 StreamReader sr = File.OpenText(FilePath);
 
@@ -254,7 +254,7 @@ namespace Mail_Client
 
         private void comboBox_to_SelectedValueChanged(object sender, EventArgs e)
         {
-            string path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
+            string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
 
             if (checkedListBox_Edit_Recipients.Visible == true & button_Save_Edit_List.Visible == true & button_Close_Editing.Visible == true)
             {
@@ -291,9 +291,9 @@ namespace Mail_Client
 
             FileNameBeforeEditing = comboBox_to.SelectedItem.ToString();
 
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\__" + comboBox_to.SelectedItem.ToString() + "(Edited).txt";
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\__" + comboBox_to.SelectedItem.ToString() + "(Edited).txt";
 
-            FunctionCollection.WriteInFileFromCheckListBox(checkedListBox_Edit_Recipients.CheckedItems);
+            FileReadWrite.WriteInFileFromCheckListBox(checkedListBox_Edit_Recipients.CheckedItems);
 
             comboBox_to.Items.Add("__" + comboBox_to.SelectedItem.ToString() + "(Edited)");
             comboBox_to.SelectedIndex = 0;
@@ -326,7 +326,7 @@ namespace Mail_Client
 
             try
             {
-                string path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
+                string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
 
                 using (StreamReader sr = File.OpenText(path))
                 {
@@ -387,14 +387,14 @@ namespace Mail_Client
         private void Save_Sent_Mail()
         {
             // Creating New Directory for last Sent Mail as named "Mail <mail number>"
-            DirectoryInfo di = new DirectoryInfo(FunctionCollection.CurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + ++Total_Mail_Sent);
+            DirectoryInfo di = new DirectoryInfo(FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + ++Total_Mail_Sent);
             di.Create();
 
             // Setting Path for File to read where contacts are stored of last sent mail
-            string path1 = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
+            string path1 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
 
             // Setting Path for storing last mail sent reciepients ID
-            string path2 = FunctionCollection.CurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\To.txt";
+            string path2 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\To.txt";
 
             // Create a file to write to Reciepients of last mail.
             using (StreamWriter sw = File.CreateText(path2))
@@ -411,14 +411,14 @@ namespace Mail_Client
             }
 
 
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\Subject.txt";
-            FunctionCollection.WriteInFileTextBoxContent(textBox_subject.Text);
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\Subject.txt";
+            FileReadWrite.WriteInFileTextBoxContent(textBox_subject.Text);
 
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\Content.txt";
-            FunctionCollection.WriteInFileFromRichTextBox(richTextBox_content.Lines);
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\Content.txt";
+            FileReadWrite.WriteInFileFromRichTextBox(richTextBox_content.Lines);
 
             // Writing of Total Mails Sent in "Total Mail Sent Quota File"
-            string path3 = FunctionCollection.CurrentDirectoryPath + "\\Data\\Total Mails Sent Quota.txt";
+            string path3 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Total Mails Sent Quota.txt";
 
             // Create a file to write to.
             using (StreamWriter sw = File.CreateText(path3))
@@ -431,7 +431,7 @@ namespace Mail_Client
         {
             if (flag)
             {
-                string path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\__" + FileNameBeforeEditing + "(Edited).txt";
+                string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\__" + FileNameBeforeEditing + "(Edited).txt";
 
                 if (File.Exists(path))
                     File.Delete(path);
@@ -540,10 +540,10 @@ namespace Mail_Client
             AMC.ShowDialog();
 
             // Loading group names in combobox
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
 
             comboBox_to.Items.Clear();
-            FunctionCollection.LoadDataFromFileInComboBox(comboBox_to);
+            FileReadWrite.LoadDataFromFileInComboBox(comboBox_to);
         }
 
         private void about_Click(object sender, EventArgs e)
@@ -554,96 +554,4 @@ namespace Mail_Client
 
         #endregion
     }
-
-    public static class FunctionCollection
-    {
-        /// <summary>
-        /// To store path of a file. This must be set before calling any WriteToFile or ReadFromFile functions of FunctionCollection class
-        /// </summary>
-        public static string path = null; //Variable to hold a path for a file to do certain operation (Create, Delete, Modify, Open, Read, Write) on file. This must be set before calling any of the function of this class.
-
-        /*
-         * Variable to hold path of directory in which executable is placed.
-         * Because Data generated from this executable is also saved in sub directory of same directory ...\Data\...
-         */
-        public static string CurrentDirectoryPath = Path.GetDirectoryName(Application.ExecutablePath);
-
-        /// <summary>
-        /// Writes content of a textbox into a file. Set path before calling this function
-        /// </summary>
-        /// <param name="TextBoxContent"></param>
-        public static void WriteInFileTextBoxContent(string TextBoxContent)
-        {
-            using (StreamWriter sw = File.AppendText(path))     //Creates or open an existing file to the end of a file pointer
-            {
-                sw.WriteLine(TextBoxContent);       //Write line to the file
-            }
-        }
-
-        public static void WriteInFileFromRichTextBox(string[] ContentCollection)
-        {
-            ushort counter = 0;
-            
-            using (StreamWriter sw = File.AppendText(path))
-            {
-                for (counter = 0; counter < ContentCollection.Length; counter++)
-                {
-                    sw.WriteLine(ContentCollection[counter]);
-                }
-            }
-        }
-
-        public static void WriteInFileFromCheckListBox(CheckedListBox.CheckedItemCollection chk)
-        {
-            if (!File.Exists(path))
-            {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    foreach (object itemChecked in chk)
-                    {
-                        sw.WriteLine(itemChecked.ToString());
-                    }
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    foreach (object itemChecked in chk)
-                    {
-                        sw.WriteLine(itemChecked.ToString());
-
-                    }
-                }
-            }
-        }
-        
-        public static void LoadDataFromFileInComboBox(ComboBox cmb)
-        {
-            //Open the file to read from.
-            if (!File.Exists(path))
-                MessageBox.Show("All Groups are deleted externally. No group names are available to show in drop down", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-            {
-                try
-                {
-                    using (StreamReader sr = File.OpenText(path))
-                    {
-                        string s = "";
-                        while ((s = sr.ReadLine()) != null)
-                        {
-                            cmb.Items.Add(s);
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Something went wrong. Contact Developer", "File Can not open", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-    }
-
-
 }

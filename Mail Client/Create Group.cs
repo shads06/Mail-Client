@@ -17,9 +17,9 @@ namespace Mail_Client
 
         private void Form4_Create_Group_Load(object sender, EventArgs e)
         {
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
 
-            FunctionCollection.LoadDataFromFileInComboBox(comboBox_Group_Name);
+            FileReadWrite.LoadDataFromFileInComboBox(comboBox_Group_Name);
 
             comboBox_Group_Name.SelectedIndex = 0;
         }
@@ -28,10 +28,10 @@ namespace Mail_Client
         {
             checkedListBox_Group_Email_IDs.Items.Clear();
 
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_Group_Name.SelectedItem.ToString() + ".txt";
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_Group_Name.SelectedItem.ToString() + ".txt";
 
             //Open the file to read from.
-            using (StreamReader sr = File.OpenText(FunctionCollection.path))
+            using (StreamReader sr = File.OpenText(FileReadWrite.path))
             {
                 string s = "";
                 while ((s = sr.ReadLine()) != null)
@@ -76,13 +76,13 @@ namespace Mail_Client
 
         private void button_Create_Group_Click(object sender, EventArgs e)
         {
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Group Names.txt";
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
 
-            FunctionCollection.WriteInFileTextBoxContent(textBox_Group_Name.Text);
+            FileReadWrite.WriteInFileTextBoxContent(textBox_Group_Name.Text);
 
-            FunctionCollection.path = FunctionCollection.CurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Group_Name.Text + ".txt";
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Group_Name.Text + ".txt";
 
-            FunctionCollection.WriteInFileFromCheckListBox(checkedListBox_Group_Email_IDs.CheckedItems);
+            FileReadWrite.WriteInFileFromCheckListBox(checkedListBox_Group_Email_IDs.CheckedItems);
 
             MessageBox.Show("Group Created Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             comboBox_Group_Name.Items.Add(textBox_Group_Name.Text);
