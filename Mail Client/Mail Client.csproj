@@ -134,6 +134,9 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="FileReadWrite.cs" />
+    <Compile Include="NotificationPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Send Mail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +242,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mail.ico" />
+    <None Include="Resources\icons8-notification-24.png" />
+    <None Include="Resources\icons8-wired-network-connection-50 %282%29.png" />
+    <None Include="Resources\icons8-wired-network-connection-50 %281%29.png" />
+    <None Include="Resources\icons8-refresh-26.png" />
+    <None Include="Resources\icons8-notification-64.png" />
+    <None Include="Resources\icons8-wired-network-connection-50.png" />
+    <None Include="Resources\icons8-no-network-48.png" />
+    <None Include="Resources\icons8-offline-48.png" />
+    <None Include="Resources\icons8-clock-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MCSupport\MCSupport.csproj">
+      <Project>{bd3e6d9b-42f2-4c28-a804-4397cdaee2b7}</Project>
+      <Name>MCSupport</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

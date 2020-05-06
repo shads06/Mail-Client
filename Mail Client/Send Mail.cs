@@ -7,6 +7,7 @@ using System.Threading;
 using System.Net.Mail;
 using System.Text;
 using System.Net;
+using System.Net.NetworkInformation;
 #endregion
 
 #region Gmail API Libraries
@@ -15,6 +16,7 @@ using Google.Apis.Gmail.v1;
 using Google.Apis.Gmail.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using System.Threading.Tasks;
 #endregion
 
 namespace Mail_Client
@@ -46,20 +48,25 @@ namespace Mail_Client
         /// <returns>
         /// Exceptions:
         /// </returns>
-        public static bool CheckForInternetConnection()
+        public static async Task<bool> CheckForInternetConnection()
         {
-            try
-            {
-                using (var client = new WebClient())
-                using (client.OpenRead("http://clients3.google.com/generate_204"))
+            bool result = false;
+            await Task.Run(() =>
                 {
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
+                    try
+                    {
+                        using (var client = new WebClient())
+                        using (client.OpenRead("http://clients3.google.com/generate_204"))
+                        {
+                            result = true;
+                        }
+                    }
+                    catch
+                    {
+                        result = false;
+                    }
+                });
+            return result;
         }
 
         public void Reload_ComboBox_Of_Form1()
@@ -69,10 +76,10 @@ namespace Mail_Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if(!CheckForInternetConnection())   //Check for "system is not connected to the internet" is true
-            {
-                MessageBox.Show("No Internet Connection. Data will be saved offline.","No Internet",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
+            //if(!CheckForInternetConnection())   //Check for "system is not connected to the internet" is true
+            //{
+            //    MessageBox.Show("No Internet Connection. Data will be saved offline.","No Internet",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            //}
 
             System.Windows.Forms.Label l1 = new System.Windows.Forms.Label();
             l1.Text = "Application is Loading. Please Wait ...";
@@ -161,6 +168,25 @@ namespace Mail_Client
             {
                 Total_Mail_Sent = Convert.ToInt32(sr.ReadLine());
             }
+
+            //NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
+            //foreach (NetworkInterface adapter in adapters)
+            //{
+            //    IPInterfaceProperties properties = adapter.GetIPProperties();
+            //    MessageBox.Show(adapter.Id);
+            //    MessageBox.Show(adapter.IsReceiveOnly.ToString());
+            //    MessageBox.Show(adapter.Name);
+            //    MessageBox.Show((adapter.NetworkInterfaceType).ToString());
+            //    MessageBox.Show(adapter.OperationalStatus.ToString());
+            //    MessageBox.Show(adapter.Description);
+            //    MessageBox.Show(adapter.Speed.ToString());
+            //    MessageBox.Show(adapter.GetIPv4Statistics().BytesReceived.ToString());
+            //    MessageBox.Show("  DNS suffix .............................. : " + properties.DnsSuffix);
+            //    MessageBox.Show("  DNS enabled ............................. : " + properties.IsDnsEnabled);
+            //    MessageBox.Show("  Dynamically configured DNS .............. : " + properties.IsDynamicDnsEnabled);
+            //}
+
+            toolStripStatusLabel_DateTime.Text = DateTime.Now.ToString();
         }
 
         private void button_authorize_Click(object sender, EventArgs e)
@@ -580,5 +606,102 @@ namespace Mail_Client
         }
 
         #endregion
+
+        private void button_CheckInternet_Click(object sender, EventArgs e)
+        {
+            //MCSupport.NetworkInformation CompSystem = new MCSupport.NetworkInformation();
+            //if (CompSystem.isConnectedToInternet())
+            //    MessageBox.Show("Connected");
+            //else
+            //    MessageBox.Show("Disconnected");
+        }
+
+        private void textBox_subject_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Quick_Menu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Send_Mail_Shown(object sender, EventArgs e)
+        {
+            //toolStripStatusLabel_Icon.Image = System.Drawing.Image.FromFile(@"\Resources\icons8-no-network-48.png");
+            toolStripStatusLabel_Icon.Image = Mail_Client.Properties.Resources.icons8_wired_network_connection_50__2_;
+            toolStripStatusLabel_Net_Status.Text = "Connecting ...";
+            toolStripSplitButton_Reconnect.Visible = false;
+            callmethod1();
+
+        }
+
+        public async void callmethod1()
+        {
+            Task<bool> netConnected = CheckForInternetConnection();
+            bool val = await netConnected;
+            setConnectedDisconnected(val);
+        }
+        public void setConnectedDisconnected(bool value)
+        {
+            if (!value)   //Check for "system is not connected to the internet" is true
+            {
+                //MessageBox.Show("No Internet Connection. Data will be saved offline.", "No Internet", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //toolStripStatusLabel_Icon.Image = System.Drawing.Image.FromFile(@"\Resources\icons8-no-network-48.png");
+                toolStripStatusLabel_Icon.Image = Mail_Client.Properties.Resources.icons8_wired_network_connection_50__1_;
+                toolStripStatusLabel_Net_Status.Text = "Offline";
+                toolStripSplitButton_Reconnect.Visible = true;
+            }
+            else
+            {
+                //toolStripStatusLabel_Icon.Image = System.Drawing.Image.FromFile(@"\Resources\icons8-wired-network-connection-50.png");
+                toolStripStatusLabel_Icon.Image = Mail_Client.Properties.Resources.icons8_wired_network_connection_50;
+                toolStripStatusLabel_Net_Status.Text = "Connected";
+                toolStripSplitButton_Reconnect.Visible = false;
+            }
+
+            flowLayoutPanel_NotificationContainer.MaximumSize = new Size(0, this.Height - 100);
+
+            NotificationPopup NFP = new NotificationPopup(0, 0);
+            NFP.MdiParent = this;
+            flowLayoutPanel_NotificationContainer.Controls.Add(NFP);
+            NFP.Show();
+
+            //NotificationPopup NFP1 = new NotificationPopup(0, 0);
+            //NFP1.MdiParent = this;
+            //flowLayoutPanel_NotificationContainer.Controls.Add(NFP1);
+            //NFP1.Show();
+
+            //NotificationPopup NFP2 = new NotificationPopup(0, 0);
+            //NFP2.MdiParent = this;
+            //flowLayoutPanel_NotificationContainer.Controls.Add(NFP2);
+            //NFP2.Show();
+
+            //NotificationPopup NFP3 = new NotificationPopup(0, 0);
+            //NFP3.MdiParent = this;
+            //flowLayoutPanel_NotificationContainer.Controls.Add(NFP3);
+            //NFP3.Show();
+
+            //NotificationPopup NFP4 = new NotificationPopup(0, 0);
+            //NFP4.MdiParent = this;
+            //flowLayoutPanel_NotificationContainer.Controls.Add(NFP4);
+            //NFP4.Show();
+
+            //NotificationPopup NFP5 = new NotificationPopup(0, 0);
+            //NFP5.MdiParent = this;
+            //flowLayoutPanel_NotificationContainer.Controls.Add(NFP5);
+            //NFP5.Show();
+
+            //NotificationPopup NFP6 = new NotificationPopup(0, 0);
+            //NFP6.MdiParent = this;
+            //flowLayoutPanel_NotificationContainer.Controls.Add(NFP6);
+            //NFP6.Show();
+
+            //NotificationPopup NFP7 = new NotificationPopup(0, 0);
+            //NFP7.MdiParent = this;
+            //flowLayoutPanel_NotificationContainer.Controls.Add(NFP7);
+            //NFP7.Show();
+
+        }
     }
 }

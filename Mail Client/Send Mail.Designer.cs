@@ -60,7 +60,17 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.textBox_From_Email_ID = new System.Windows.Forms.TextBox();
             this.label_Form_Email_ID = new System.Windows.Forms.Label();
+            this.button_CheckInternet = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel_Icon = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_Net_Status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSplitButton_Reconnect = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_DateTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel_NotificationContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.send_mail_menu.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // send_mail_menu
@@ -89,6 +99,7 @@
             this.Quick_Menu.Name = "Quick_Menu";
             this.Quick_Menu.Size = new System.Drawing.Size(100, 20);
             this.Quick_Menu.Text = "Quick Menu";
+            this.Quick_Menu.Click += new System.EventHandler(this.Quick_Menu_Click);
             // 
             // add_contact
             // 
@@ -156,7 +167,7 @@
             this.about.BackColor = System.Drawing.Color.WhiteSmoke;
             this.about.Image = global::Mail_Client.Properties.Resources.info;
             this.about.Name = "about";
-            this.about.Size = new System.Drawing.Size(152, 22);
+            this.about.Size = new System.Drawing.Size(107, 22);
             this.about.Text = "About";
             this.about.Click += new System.EventHandler(this.about_Click);
             // 
@@ -285,6 +296,7 @@
             this.textBox_subject.Name = "textBox_subject";
             this.textBox_subject.Size = new System.Drawing.Size(623, 22);
             this.textBox_subject.TabIndex = 8;
+            this.textBox_subject.TextChanged += new System.EventHandler(this.textBox_subject_TextChanged);
             // 
             // label_content
             // 
@@ -300,6 +312,8 @@
             // 
             // richTextBox_content
             // 
+            this.richTextBox_content.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.richTextBox_content.AutoWordSelection = true;
             this.richTextBox_content.BackColor = System.Drawing.Color.WhiteSmoke;
             this.richTextBox_content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -315,6 +329,7 @@
             // 
             // button_send_mail
             // 
+            this.button_send_mail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_send_mail.BackColor = System.Drawing.Color.Transparent;
             this.button_send_mail.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
             this.button_send_mail.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -331,6 +346,7 @@
             // 
             // button_clear
             // 
+            this.button_clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_clear.BackColor = System.Drawing.Color.Transparent;
             this.button_clear.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
             this.button_clear.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -347,6 +363,7 @@
             // 
             // button_exit
             // 
+            this.button_exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_exit.BackColor = System.Drawing.Color.Transparent;
             this.button_exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_exit.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
@@ -364,6 +381,9 @@
             // 
             // checkedListBox_Edit_Recipients
             // 
+            this.checkedListBox_Edit_Recipients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.checkedListBox_Edit_Recipients.BackColor = System.Drawing.Color.WhiteSmoke;
             this.checkedListBox_Edit_Recipients.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBox_Edit_Recipients.CheckOnClick = true;
@@ -381,6 +401,7 @@
             // 
             // button_Save_Edit_List
             // 
+            this.button_Save_Edit_List.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_Save_Edit_List.BackColor = System.Drawing.Color.Transparent;
             this.button_Save_Edit_List.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Save_Edit_List.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
@@ -399,6 +420,7 @@
             // 
             // button_Close_Editing
             // 
+            this.button_Close_Editing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_Close_Editing.BackColor = System.Drawing.Color.Transparent;
             this.button_Close_Editing.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Close_Editing.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
@@ -417,6 +439,7 @@
             // 
             // progressBar1
             // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.progressBar1.Cursor = System.Windows.Forms.Cursors.Default;
             this.progressBar1.Location = new System.Drawing.Point(739, 527);
             this.progressBar1.Maximum = 50;
@@ -451,15 +474,122 @@
             this.label_Form_Email_ID.TabIndex = 20;
             this.label_Form_Email_ID.Text = "From";
             // 
+            // button_CheckInternet
+            // 
+            this.button_CheckInternet.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_CheckInternet.BackColor = System.Drawing.Color.Transparent;
+            this.button_CheckInternet.FlatAppearance.BorderSize = 0;
+            this.button_CheckInternet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_CheckInternet.Location = new System.Drawing.Point(92, 365);
+            this.button_CheckInternet.Name = "button_CheckInternet";
+            this.button_CheckInternet.Size = new System.Drawing.Size(107, 68);
+            this.button_CheckInternet.TabIndex = 21;
+            this.button_CheckInternet.Text = "Check Internet";
+            this.button_CheckInternet.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button_CheckInternet.UseVisualStyleBackColor = false;
+            this.button_CheckInternet.Click += new System.EventHandler(this.Send_Mail_Shown);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.AutoSize = false;
+            this.statusStrip1.GripMargin = new System.Windows.Forms.Padding(0);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel_Icon,
+            this.toolStripStatusLabel_Net_Status,
+            this.toolStripSplitButton_Reconnect,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel_DateTime});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 540);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.ShowItemToolTips = true;
+            this.statusStrip1.Size = new System.Drawing.Size(1362, 22);
+            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.TabIndex = 22;
+            // 
+            // toolStripStatusLabel_Icon
+            // 
+            this.toolStripStatusLabel_Icon.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripStatusLabel_Icon.Image = global::Mail_Client.Properties.Resources.icons8_wired_network_connection_50__1_;
+            this.toolStripStatusLabel_Icon.Name = "toolStripStatusLabel_Icon";
+            this.toolStripStatusLabel_Icon.Size = new System.Drawing.Size(16, 17);
+            // 
+            // toolStripStatusLabel_Net_Status
+            // 
+            this.toolStripStatusLabel_Net_Status.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripStatusLabel_Net_Status.Name = "toolStripStatusLabel_Net_Status";
+            this.toolStripStatusLabel_Net_Status.Size = new System.Drawing.Size(43, 17);
+            this.toolStripStatusLabel_Net_Status.Text = "Offline";
+            this.toolStripStatusLabel_Net_Status.ToolTipText = "Current state of Internet connectivity";
+            // 
+            // toolStripSplitButton_Reconnect
+            // 
+            this.toolStripSplitButton_Reconnect.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripSplitButton_Reconnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton_Reconnect.Image = global::Mail_Client.Properties.Resources.icons8_refresh_26;
+            this.toolStripSplitButton_Reconnect.Name = "toolStripSplitButton_Reconnect";
+            this.toolStripSplitButton_Reconnect.Size = new System.Drawing.Size(16, 17);
+            this.toolStripSplitButton_Reconnect.ToolTipText = "Reconnect to Internet again";
+            this.toolStripSplitButton_Reconnect.Visible = false;
+            this.toolStripSplitButton_Reconnect.Click += new System.EventHandler(this.Send_Mail_Shown);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1225, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            // 
+            // toolStripStatusLabel_DateTime
+            // 
+            this.toolStripStatusLabel_DateTime.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripStatusLabel_DateTime.Image = global::Mail_Client.Properties.Resources.icons8_clock_26;
+            this.toolStripStatusLabel_DateTime.Name = "toolStripStatusLabel_DateTime";
+            this.toolStripStatusLabel_DateTime.Size = new System.Drawing.Size(16, 17);
+            this.toolStripStatusLabel_DateTime.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.toolStripStatusLabel_DateTime.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.toolStripStatusLabel_DateTime.ToolTipText = "Current Date Time";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::Mail_Client.Properties.Resources.icons8_notification_24;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(1328, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 24);
+            this.button1.TabIndex = 23;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel_NotificationContainer
+            // 
+            this.flowLayoutPanel_NotificationContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel_NotificationContainer.AutoScroll = true;
+            this.flowLayoutPanel_NotificationContainer.AutoSize = true;
+            this.flowLayoutPanel_NotificationContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel_NotificationContainer.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel_NotificationContainer.Location = new System.Drawing.Point(1037, 29);
+            this.flowLayoutPanel_NotificationContainer.MinimumSize = new System.Drawing.Size(325, 0);
+            this.flowLayoutPanel_NotificationContainer.Name = "flowLayoutPanel_NotificationContainer";
+            this.flowLayoutPanel_NotificationContainer.Size = new System.Drawing.Size(325, 0);
+            this.flowLayoutPanel_NotificationContainer.TabIndex = 24;
+            // 
             // Send_Mail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.CancelButton = this.button_exit;
             this.ClientSize = new System.Drawing.Size(1362, 562);
+            this.Controls.Add(this.flowLayoutPanel_NotificationContainer);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.button_CheckInternet);
             this.Controls.Add(this.label_Form_Email_ID);
             this.Controls.Add(this.textBox_From_Email_ID);
             this.Controls.Add(this.progressBar1);
@@ -481,16 +611,20 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.send_mail_menu;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
             this.Name = "Send_Mail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Send Mail";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_Main_Window_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Send_Mail_Shown);
             this.send_mail_menu.ResumeLayout(false);
             this.send_mail_menu.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,6 +663,15 @@
         private System.Windows.Forms.ToolStripMenuItem exit;
         private System.Windows.Forms.ToolStripMenuItem help;
         private System.Windows.Forms.ToolStripMenuItem about;
+        private System.Windows.Forms.Button button_CheckInternet;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Icon;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Net_Status;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_DateTime;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_NotificationContainer;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripSplitButton_Reconnect;
     }
 }
 

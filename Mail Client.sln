@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mail Client", "Mail Client\Mail Client.csproj", "{F38D42F3-DA57-4FFF-BF1E-FCAF8A1EAEE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCSupport", "MCSupport\MCSupport.csproj", "{BD3E6D9B-42F2-4C28-A804-4397CDAEE2B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -16,6 +18,10 @@ Global
 		{F38D42F3-DA57-4FFF-BF1E-FCAF8A1EAEE6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{F38D42F3-DA57-4FFF-BF1E-FCAF8A1EAEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F38D42F3-DA57-4FFF-BF1E-FCAF8A1EAEE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3E6D9B-42F2-4C28-A804-4397CDAEE2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3E6D9B-42F2-4C28-A804-4397CDAEE2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD3E6D9B-42F2-4C28-A804-4397CDAEE2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD3E6D9B-42F2-4C28-A804-4397CDAEE2B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
