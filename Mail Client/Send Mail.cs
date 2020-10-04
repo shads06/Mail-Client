@@ -580,5 +580,17 @@ namespace Mail_Client
         }
 
         #endregion
+
+        private void comboBox_to_DropDown(object sender, EventArgs e)
+        {
+            comboBox_to.Items.Clear();
+            FileReadWrite.LoadDataFromFileInComboBox(comboBox_to);
+        }
+
+        private void contactsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Contacts contactsWindows = new Contacts();
+            contactsWindows.ShowDialog();
+        }
     }
 }

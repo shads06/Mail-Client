@@ -14,8 +14,11 @@ namespace Mail_Client
         [STAThread]
         static void Main()
         {
+            Core.MailClientCore.Initialize();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Mail_Client.Core.MailClientCore.Initialize();
             Application.Run(new Send_Mail());
         }
     }

@@ -133,7 +133,25 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Constants\DataStorageKinds.cs" />
+    <Compile Include="Constants\Status.cs" />
+    <Compile Include="Contacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacts.Designer.cs">
+      <DependentUpon>Contacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ApplicationConfiguration.cs" />
+    <Compile Include="Core\MailClientCore.cs" />
+    <Compile Include="Core\XMLDataStorage.cs" />
     <Compile Include="FileReadWrite.cs" />
+    <Compile Include="Helpers\XMLHelper.cs" />
+    <Compile Include="Managers\AbstractManagerDB.cs" />
+    <Compile Include="Managers\ContactManager.cs" />
+    <Compile Include="Managers\IManager.cs" />
+    <Compile Include="Managers\IManagerDB.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\IDBEntity.cs" />
     <Compile Include="Send Mail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,8 +184,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AddContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddContact.Designer.cs">
+      <DependentUpon>AddContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contact\ViewContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Contact\ViewContact.Designer.cs">
+      <DependentUpon>ViewContact.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contacts.resx">
+      <DependentUpon>Contacts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Send Mail.resx">
       <DependentUpon>Send Mail.cs</DependentUpon>
@@ -194,6 +227,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\AddContact.resx">
+      <DependentUpon>AddContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Contact\ViewContact.resx">
+      <DependentUpon>ViewContact.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="icons\create_group.ico" />
     <None Include="icons\mail.ico" />
     <None Include="icons\search_group.ico" />
@@ -239,6 +278,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mail.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="Screens\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

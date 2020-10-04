@@ -60,6 +60,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.textBox_From_Email_ID = new System.Windows.Forms.TextBox();
             this.label_Form_Email_ID = new System.Windows.Forms.Label();
+            this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.send_mail_menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +81,7 @@
             // 
             this.Quick_Menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Quick_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contactsToolStripMenuItem,
             this.add_contact,
             this.add_multiple_contacts,
             this.view_group,
@@ -156,7 +158,7 @@
             this.about.BackColor = System.Drawing.Color.WhiteSmoke;
             this.about.Image = global::Mail_Client.Properties.Resources.info;
             this.about.Name = "about";
-            this.about.Size = new System.Drawing.Size(152, 22);
+            this.about.Size = new System.Drawing.Size(107, 22);
             this.about.Text = "About";
             this.about.Click += new System.EventHandler(this.about_Click);
             // 
@@ -242,6 +244,7 @@
             this.comboBox_to.Size = new System.Drawing.Size(482, 24);
             this.comboBox_to.Sorted = true;
             this.comboBox_to.TabIndex = 5;
+            this.comboBox_to.DropDown += new System.EventHandler(this.comboBox_to_DropDown);
             this.comboBox_to.SelectedIndexChanged += new System.EventHandler(this.comboBox_to_SelectedIndexChanged);
             this.comboBox_to.SelectedValueChanged += new System.EventHandler(this.comboBox_to_SelectedValueChanged);
             // 
@@ -451,6 +454,13 @@
             this.label_Form_Email_ID.TabIndex = 20;
             this.label_Form_Email_ID.Text = "From";
             // 
+            // contactsToolStripMenuItem
+            // 
+            this.contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
+            this.contactsToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.contactsToolStripMenuItem.Text = "Contacts";
+            this.contactsToolStripMenuItem.Click += new System.EventHandler(this.contactsToolStripMenuItem_Click);
+            // 
             // Send_Mail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -529,6 +539,7 @@
         private System.Windows.Forms.ToolStripMenuItem exit;
         private System.Windows.Forms.ToolStripMenuItem help;
         private System.Windows.Forms.ToolStripMenuItem about;
+        private System.Windows.Forms.ToolStripMenuItem contactsToolStripMenuItem;
     }
 }
 

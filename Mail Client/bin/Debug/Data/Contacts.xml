@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Contacts>
+  <Contact ID="1">
+    <Name>Ravi Shashtri</Name>
+    <EmailID>johndoe@gmail.com</EmailID>
+    <Status>2</Status>
+    <CreatedOn>2020-09-27T17:11:35.4841027Z</CreatedOn>
+    <LastUpdatedOn>04-10-2020 AM 10:26:43</LastUpdatedOn>
+  </Contact>
+  <Contact ID="2">
+    <Name>Hari Om Gaur</Name>
+    <EmailID>johndoe@gmail.com</EmailID>
+    <Status>3</Status>
+    <CreatedOn>2020-10-03T18:18:14.5233601Z</CreatedOn>
+    <LastUpdatedOn>04-10-2020 AM 10:39:39</LastUpdatedOn>
+  </Contact>
+  <Contact ID="3">
+    <Name>Akhtar Khan</Name>
+    <EmailID>Akhtarkhan@gmail.com</EmailID>
+    <Status>1</Status>
+    <CreatedOn>2020-10-03T18:34:01.3965182Z</CreatedOn>
+    <LastUpdatedOn />
+  </Contact>
+  <Contact ID="4">
+    <Name>Mahima Pratap</Name>
+    <EmailID>MahimaPratap@gmail.com</EmailID>
+    <Status>1</Status>
+    <CreatedOn>2020-10-03T18:39:28.2802149Z</CreatedOn>
+    <LastUpdatedOn />
+  </Contact>
+  <Contact ID="5">
+    <Name>Priya Lal</Name>
+    <EmailID>PriyaLal@gmail.com</EmailID>
+    <Status>1</Status>
+    <CreatedOn>2020-10-03T18:49:54.7550472Z</CreatedOn>
+    <LastUpdatedOn />
+  </Contact>
+  <Contact ID="6">
+    <Name>One Plus India</Name>
+    <EmailID>OnePlusIndia@gmail.com</EmailID>
+    <Status>1</Status>
+    <CreatedOn>2020-10-03T18:53:44.6721977Z</CreatedOn>
+    <LastUpdatedOn />
+  </Contact>
+  <Contact ID="7">
+    <Name>Sudhiksha Sharma</Name>
+    <EmailID>SudikshaSharma@gmail.com</EmailID>
+    <Status>1</Status>
+    <CreatedOn>2020-10-04T10:40:12.1335827Z</CreatedOn>
+    <LastUpdatedOn />
+  </Contact>
+  <Contact ID="8">
+    <Name>Stack Overflow</Name>
+    <EmailID>Stackoverflow@gmail.com</EmailID>
+    <Status>1</Status>
+    <CreatedOn>2020-10-04T10:40:28.7215315Z</CreatedOn>
+    <LastUpdatedOn />
+  </Contact>
+  <Contact ID="9">
+    <Name>Billu Barbar</Name>
+    <EmailID>BilluBarbar@gmail.com</EmailID>
+    <Status>1</Status>
+    <CreatedOn>2020-10-04T10:40:53.2659353Z</CreatedOn>
+    <LastUpdatedOn />
+  </Contact>
+</Contacts>
