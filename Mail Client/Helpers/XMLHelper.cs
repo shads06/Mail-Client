@@ -32,13 +32,32 @@ namespace Mail_Client.Helpers
                 //     orderby Convert.ToInt32(selectItems.Attribute("ID").Value) descending
                 //     select selectItems).Max();
 
-                var lastUniqueID =
-                    (DocumentRoot.Elements(ChildName)
-                     .Max(item => (int)item.Attribute("ID")));
+                if (DocumentRoot.HasElements)
+                {
+                    XElement node = DocumentRoot.Element(ChildName);
+
+                    if (node != null)
+                    {
+                        
+                        var lastUniqueID =
+                            (DocumentRoot.Elements(ChildName)
+                            .Max(item => (int)item.Attribute("ID")));
+
+                        return lastUniqueID;
+
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+
+                }
+                else
+                {
+                    return 0;
+                }
 
                 //var maxID = Convert.ToInt32(lastUniqueID.Attribute("ID").Value);
-
-                return lastUniqueID;
 
             }
             catch (Exception ex)

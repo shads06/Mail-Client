@@ -150,8 +150,10 @@
     <Compile Include="Managers\ContactManager.cs" />
     <Compile Include="Managers\IManager.cs" />
     <Compile Include="Managers\IManagerDB.cs" />
+    <Compile Include="Managers\MailServerManager.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\IDBEntity.cs" />
+    <Compile Include="Models\MailServer.cs" />
     <Compile Include="Send Mail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +198,24 @@
     <Compile Include="Views\Contact\ViewContact.Designer.cs">
       <DependentUpon>ViewContact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Mail Server\AddMailServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Mail Server\AddMailServer.Designer.cs">
+      <DependentUpon>AddMailServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mail Server\MailServers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Mail Server\MailServers.Designer.cs">
+      <DependentUpon>MailServers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mail Server\ViewMailServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Mail Server\ViewMailServer.Designer.cs">
+      <DependentUpon>ViewMailServer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +252,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Contact\ViewContact.resx">
       <DependentUpon>ViewContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Mail Server\AddMailServer.resx">
+      <DependentUpon>AddMailServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Mail Server\MailServers.resx">
+      <DependentUpon>MailServers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Mail Server\ViewMailServer.resx">
+      <DependentUpon>ViewMailServer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="icons\create_group.ico" />
     <None Include="icons\mail.ico" />

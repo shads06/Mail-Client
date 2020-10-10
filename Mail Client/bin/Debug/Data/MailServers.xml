@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MailServers>
+  <Server ID="1">
+    <Name>Fake Server 1</Name>
+    <Description>Fake Server 1 Description</Description>
+    <Host>192.168.0.1</Host>
+    <Port>1234</Port>
+    <Username>username@username.com</Username>
+    <Password>password@password.com</Password>
+    <FromAddress>username@username.com</FromAddress>
+    <IsSecured>0</IsSecured>
+    <Status>1</Status>
+    <CreatedOn>2020-10-10T13:01:24.6671774Z</CreatedOn>
+    <LastUpdatedOn />
+  </Server>
+  <Server ID="2">
+    <Name>Fake Server 2</Name>
+    <Description>Fake Server 2 Description</Description>
+    <Host>192.168.0.1</Host>
+    <Port>5678</Port>
+    <Username>xyz@xyz.com</Username>
+    <Password>password</Password>
+    <FromAddress>xyz@xyz.com</FromAddress>
+    <IsSecured>1</IsSecured>
+    <Status>1</Status>
+    <CreatedOn>2020-10-10T13:26:02.5977102Z</CreatedOn>
+    <LastUpdatedOn />
+  </Server>
+  <Server ID="3">
+    <Name>Fake Server 3</Name>
+    <Description>Fake Server 3 Description</Description>
+    <Host>192.168.0.1</Host>
+    <Port>1234567</Port>
+    <Username>fgh@fgh.com</Username>
+    <Password>password</Password>
+    <FromAddress>fgh@fgh.com</FromAddress>
+    <IsSecured>1</IsSecured>
+    <Status>2</Status>
+    <CreatedOn>2020-10-10T13:55:50.1369516Z</CreatedOn>
+    <LastUpdatedOn>10-10-2020 PM 01:57:33</LastUpdatedOn>
+  </Server>
+  <Server ID="4">
+    <Name>Fake Server 4</Name>
+    <Description>Fake Server 4 Description</Description>
+    <Host>192.168.0.1</Host>
+    <Port>738294</Port>
+    <Username>jalf@fjsj.com</Username>
+    <Password>jdjakefiw</Password>
+    <FromAddress>djajsdj@fjsj.com</FromAddress>
+    <IsSecured>0</IsSecured>
+    <Status>3</Status>
+    <CreatedOn>2020-10-10T13:56:46.5421778Z</CreatedOn>
+    <LastUpdatedOn>10-10-2020 PM 01:57:54</LastUpdatedOn>
+  </Server>
+</MailServers>

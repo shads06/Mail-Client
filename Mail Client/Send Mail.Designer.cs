@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Send_Mail));
             this.send_mail_menu = new System.Windows.Forms.MenuStrip();
             this.Quick_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.add_contact = new System.Windows.Forms.ToolStripMenuItem();
             this.add_multiple_contacts = new System.Windows.Forms.ToolStripMenuItem();
             this.view_group = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.textBox_From_Email_ID = new System.Windows.Forms.TextBox();
             this.label_Form_Email_ID = new System.Windows.Forms.Label();
-            this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mailServersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.send_mail_menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +82,7 @@
             // 
             this.Quick_Menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Quick_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mailServersToolStripMenuItem,
             this.contactsToolStripMenuItem,
             this.add_contact,
             this.add_multiple_contacts,
@@ -91,6 +93,13 @@
             this.Quick_Menu.Name = "Quick_Menu";
             this.Quick_Menu.Size = new System.Drawing.Size(100, 20);
             this.Quick_Menu.Text = "Quick Menu";
+            // 
+            // contactsToolStripMenuItem
+            // 
+            this.contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
+            this.contactsToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.contactsToolStripMenuItem.Text = "Contacts";
+            this.contactsToolStripMenuItem.Click += new System.EventHandler(this.contactsToolStripMenuItem_Click);
             // 
             // add_contact
             // 
@@ -454,12 +463,12 @@
             this.label_Form_Email_ID.TabIndex = 20;
             this.label_Form_Email_ID.Text = "From";
             // 
-            // contactsToolStripMenuItem
+            // mailServersToolStripMenuItem
             // 
-            this.contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
-            this.contactsToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.contactsToolStripMenuItem.Text = "Contacts";
-            this.contactsToolStripMenuItem.Click += new System.EventHandler(this.contactsToolStripMenuItem_Click);
+            this.mailServersToolStripMenuItem.Name = "mailServersToolStripMenuItem";
+            this.mailServersToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.mailServersToolStripMenuItem.Text = "Mail Servers";
+            this.mailServersToolStripMenuItem.Click += new System.EventHandler(this.mailServersToolStripMenuItem_Click);
             // 
             // Send_Mail
             // 
@@ -540,6 +549,7 @@
         private System.Windows.Forms.ToolStripMenuItem help;
         private System.Windows.Forms.ToolStripMenuItem about;
         private System.Windows.Forms.ToolStripMenuItem contactsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mailServersToolStripMenuItem;
     }
 }
 

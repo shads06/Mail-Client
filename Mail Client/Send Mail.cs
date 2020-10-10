@@ -592,5 +592,24 @@ namespace Mail_Client
             Contacts contactsWindows = new Contacts();
             contactsWindows.ShowDialog();
         }
+
+        private void mailServersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                Mail_Client.Views.Mail_Server.MailServers mailServers = new Views.Mail_Server.MailServers();
+                mailServers.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Something went wrong. Mail Servers can't be open");
+
+            }
+            
+        }
     }
 }
