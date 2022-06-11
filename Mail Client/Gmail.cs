@@ -65,7 +65,7 @@ namespace Mail_Client
             {
                 // Converting Message to Base64UrlEncode
                 Google.Apis.Gmail.v1.Data.Message message = new Google.Apis.Gmail.v1.Data.Message();
-                message.Raw = Base64UrlEncode(mimeMessage);
+                message.Raw = Utility.Base64UrlEncode(mimeMessage);
 
                 service.Users.Messages.Send(message, userId).Execute();
             }
@@ -75,15 +75,5 @@ namespace Mail_Client
             }
         }
 
-        private string Base64UrlEncode(string input)
-        {
-            //Using System.Text.Encoding.UTF8.GetBytes method
-            var inputBytes = Encoding.UTF8.GetBytes(input);
-            // Special "url-safe" base64 encode.
-            return Convert.ToBase64String(inputBytes)
-              .Replace('+', '-')
-              .Replace('/', '_')
-              .Replace("=", "");
-        }
     }
 }
