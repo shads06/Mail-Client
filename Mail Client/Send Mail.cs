@@ -7,6 +7,7 @@ using System.Threading;
 using System.Net.Mail;
 using System.Text;
 using System.Net;
+using _Form = System.Windows.Forms;
 #endregion
 
 #region Gmail API Libraries
@@ -15,26 +16,22 @@ using Google.Apis.Gmail.v1;
 using Google.Apis.Gmail.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using System.Threading.Tasks;
 #endregion
 
 namespace Mail_Client
 {
     public partial class Send_Mail : Form
     {
-        // If modifying these scopes, delete your previously saved credentials
-        // at ~/.credentials/gmail-dotnet-quickstart.json
-        static string[] Scopes = { GmailService.Scope.GmailReadonly, GmailService.Scope.GmailCompose, GmailService.Scope.GmailLabels };
-        static string ApplicationName = "Mail Client";
-
-        // User Credential Declaration
-        UserCredential credential;
-        string credPath;
-
+        private Gmail _gmail = new Gmail();
+        Form appLoadForm = new Form();
         // Variables to use in form
         bool flag = false;
         string FileNameBeforeEditing = null;
         int Total_Mail_Sent = 0;
         uint count = 0;
+        UserCredential credential;
+        string applicationDirectory = "MailClient";
         public Send_Mail()
         {
             InitializeComponent();
@@ -67,86 +64,24 @@ namespace Mail_Client
             
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
             if(!CheckForInternetConnection())   //Check for "system is not connected to the internet" is true
             {
                 MessageBox.Show("No Internet Connection. Data will be saved offline.","No Internet",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
 
-            System.Windows.Forms.Label l1 = new System.Windows.Forms.Label();
-            l1.Text = "Application is Loading. Please Wait ...";
-            l1.AutoSize = true;
-            l1.Location = new Point(20, 20);
+            var userCredential = _gmail.Authorize();
 
-            Form f1 = new Form();
-            f1.Width = 500;
-            f1.Height = 100;
-            f1.StartPosition = FormStartPosition.CenterScreen;
-            f1.Controls.Add(l1);
-            f1.BackColor = Color.Linen;
-            f1.MinimizeBox = false;
-            f1.MaximizeBox = false;
-            f1.Show();
+            UpdateDesign();
 
-            //   UserCredential credential;
-            try
-            {
-                using (var stream =
-    new FileStream("client_secret.json", FileMode.Open, FileAccess.Read))
-                {
-                    credPath = System.Environment.GetFolderPath(
-                        System.Environment.SpecialFolder.Personal);
-                    credPath = Path.Combine(credPath, ".credentials/main");
+            ShowLoadingMessageForm();
 
-                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                        GoogleClientSecrets.Load(stream).Secrets,
-                        Scopes,
-                        "user",
-                        CancellationToken.None,
-                        new FileDataStore(credPath, true)).Result;
-                }
-                f1.Close();
-                MessageBox.Show("Authorization Completed Successfully", "Mail Client Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception t)
-            {
-                MessageBox.Show("Authorization Failed\n" + t.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            await Task.Delay(10000);
 
+            await userCredential;
 
-            System.Drawing.Color y = Color.FromArgb(31, 65, 119);
-            //label_step1.ForeColor = y;
-            //label_step2.ForeColor = y;
-            label_to.ForeColor = y;
-            label_subject.ForeColor = y;
-            label_content.ForeColor = y;
-            
-            button_authorize.FlatAppearance.BorderColor = y;
-            button_authorize.ForeColor = y;
-            
-            button_edit_group_list.FlatAppearance.BorderColor = y;
-            button_edit_group_list.ForeColor = y;
-            
-            button_send_mail.FlatAppearance.BorderColor = y;
-            button_send_mail.ForeColor = y;
-            
-            button_clear.FlatAppearance.BorderColor = y;
-            button_clear.ForeColor = y;
-            
-            button_exit.FlatAppearance.BorderColor = y;
-            button_exit.ForeColor = y;
-            
-            send_mail_menu.ForeColor = y;
-            
-            comboBox_to.ForeColor = y;
-            
-            textBox_subject.ForeColor = y;
-            
-            richTextBox_content.ForeColor = y;
-
-            System.Drawing.Color x = Color.FromArgb(140, 197, 67);
-            //menuStrip1.BackColor = x;
+            appLoadForm.Close();
 
             // Loading 
             FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
@@ -163,40 +98,76 @@ namespace Mail_Client
             }
         }
 
-        private void button_authorize_Click(object sender, EventArgs e)
+        private void ShowLoadingMessageForm()
         {
-            //   UserCredential credential;
-            try
-            {
-                using (var stream =
-    new FileStream("client_secret.json", FileMode.Open, FileAccess.Read))
-                {
-                    credPath = System.Environment.GetFolderPath(
-                        System.Environment.SpecialFolder.Personal);
-                    credPath = Path.Combine(credPath, ".credentials/main");
+            _Form.Label appLoadFormLabel = new _Form.Label();
+            appLoadFormLabel.Text = "Application is Loading. Please Wait ...";
+            appLoadFormLabel.AutoSize = true;
+            appLoadFormLabel.Location = new Point(20, 20);
 
-                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                        GoogleClientSecrets.Load(stream).Secrets,
-                        Scopes,
-                        "user",
-                        CancellationToken.None,
-                        new FileDataStore(credPath, true)).Result;
-                }
-
-                MessageBox.Show("Authorization Completed Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch(Exception t)
-            {
-                MessageBox.Show("Authorization Failed\n" + t.Message, "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+            appLoadForm = new Form();
+            appLoadForm.Width = 500;
+            appLoadForm.Height = 100;
+            appLoadForm.StartPosition = FormStartPosition.CenterScreen;
+            appLoadForm.Controls.Add(appLoadFormLabel);
+            appLoadForm.BackColor = Color.Linen;
+            appLoadForm.MinimizeBox = false;
+            appLoadForm.MaximizeBox = false;
+            appLoadForm.Show();
         }
 
-        
+        private void UpdateDesign()
+        {
+            Color y = Color.FromArgb(31, 65, 119);
+            //label_step1.ForeColor = y;
+            //label_step2.ForeColor = y;
+            label_to.ForeColor = y;
+            label_subject.ForeColor = y;
+            label_content.ForeColor = y;
+
+            button_authorize.FlatAppearance.BorderColor = y;
+            button_authorize.ForeColor = y;
+
+            button_edit_group_list.FlatAppearance.BorderColor = y;
+            button_edit_group_list.ForeColor = y;
+
+            button_send_mail.FlatAppearance.BorderColor = y;
+            button_send_mail.ForeColor = y;
+
+            button_clear.FlatAppearance.BorderColor = y;
+            button_clear.ForeColor = y;
+
+            button_exit.FlatAppearance.BorderColor = y;
+            button_exit.ForeColor = y;
+
+            send_mail_menu.ForeColor = y;
+
+            comboBox_to.ForeColor = y;
+
+            textBox_subject.ForeColor = y;
+
+            richTextBox_content.ForeColor = y;
+
+            Color x = Color.FromArgb(140, 197, 67);
+            //menuStrip1.BackColor = x;
+        }
+
+        /******************* Form Events Start *******************/
+        /******************* Form Events Start *******************/
+
+        /******************* Form Controls Events Start *******************/
+
+        private async void button_authorize_Click(object sender, EventArgs e)
+        {
+            await _gmail.Authorize();
+        }
 
         private void button_exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
+
+        /******************* Form Controls Events End *******************/
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -342,12 +313,7 @@ namespace Mail_Client
 
         private void button_send_mail_Click(object sender, EventArgs e)
         {
-            // Create Gmail API service.
-            var service = new GmailService(new BaseClientService.Initializer()
-            {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
-            });
+            
 
             int count_mail_ids = 0;
 
@@ -385,12 +351,8 @@ namespace Mail_Client
 
                         MimeKit.MimeMessage mimeMessage = MimeKit.MimeMessage.CreateFromMailMessage(mail);
 
-                        // Converting Message to Base64UrlEncode
-                        Google.Apis.Gmail.v1.Data.Message message = new Google.Apis.Gmail.v1.Data.Message();
-                        message.Raw = Base64UrlEncode(mimeMessage.ToString());
-
                         //Sending Mail
-                        Send_Mail.SendMessage(service, "me", message);
+                        _gmail.SendMail(mimeMessage.ToString(), "me");
 
                         progressBar1.PerformStep();
                     }
@@ -482,42 +444,6 @@ namespace Mail_Client
             textBox_From_Email_ID.Clear();
             textBox_subject.Clear();
             richTextBox_content.Clear();
-        }
-
-        // ...
-
-        /// <summary>
-        /// Send an email from the user's mailbox to its recipient.
-        /// </summary>
-        /// <param name="service">Gmail API service instance.</param>
-        /// <param name="userId">User's email address. The special value "me"
-        /// can be used to indicate the authenticated user.</param>
-        /// <param name="email">Email to be sent.</param>
-        public static Google.Apis.Gmail.v1.Data.Message SendMessage(GmailService service, String userId, Google.Apis.Gmail.v1.Data.Message email)
-        {
-            try
-            {
-                return service.Users.Messages.Send(email, userId).Execute();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("An error occurred: " + e.Message);
-            }
-
-            return null;
-        }
-
-        // ...
-
-        private static string Base64UrlEncode(string input)
-        {
-            //Using System.Text.Encoding.UTF8.GetBytes method
-            var inputBytes = Encoding.UTF8.GetBytes(input);
-            // Special "url-safe" base64 encode.
-            return Convert.ToBase64String(inputBytes)
-              .Replace('+', '-')
-              .Replace('/', '_')
-              .Replace("=", "");
         }
 
         private void comboBox_to_SelectedIndexChanged(object sender, EventArgs e)
