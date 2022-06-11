@@ -29,39 +29,9 @@ namespace Mail_Client
         bool flag = false;
         string FileNameBeforeEditing = null;
         int Total_Mail_Sent = 0;
-        uint count = 0;
-        UserCredential credential;
-        string applicationDirectory = "MailClient";
         public Send_Mail()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Check for Internet Connectivity on System.
-        /// </summary>
-        /// <returns>
-        /// Exceptions:
-        /// </returns>
-        public static bool CheckForInternetConnection()
-        {
-            try
-            {
-                using (var client = new WebClient())
-                using (client.OpenRead("http://clients3.google.com/generate_204"))
-                {
-                    return true;
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public void Reload_ComboBox_Of_Form1()
-        {
-            
         }
 
         /********************************************************* Form Events Start *********************************************************/
@@ -75,11 +45,13 @@ namespace Mail_Client
 
             var userCredential = _gmail.Authorize();
 
+            MailClient.Setup();
+
             UpdateDesign();
 
             ShowLoadingMessageForm();
 
-            await Task.Delay(10000);
+            //await Task.Delay(10000);
 
             await userCredential;
 
@@ -232,6 +204,28 @@ namespace Mail_Client
             }
         }
 
+        /// <summary>
+        /// Check for Internet Connectivity on System.
+        /// </summary>
+        /// <returns>
+        /// Exceptions:
+        /// </returns>
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (client.OpenRead("http://clients3.google.com/generate_204"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         /********************************************************* Form Controls Events Start *********************************************************/
 
         private async void button_authorize_Click(object sender, EventArgs e)
@@ -367,9 +361,9 @@ namespace Mail_Client
 
             try
             {
-                string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
-
-                using (StreamReader sr = File.OpenText(path))
+                //string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
+                string contactListFilePath = Path.Combine(MailClient.ContactsListsDirectory, comboBox_to.SelectedItem.ToString() + ".txt");
+                using (StreamReader sr = File.OpenText(contactListFilePath))
                 {
                     string s = "";
 
@@ -380,7 +374,7 @@ namespace Mail_Client
                 }
 
                 //Open the file to read from.
-                using (StreamReader sr = File.OpenText(path))
+                using (StreamReader sr = File.OpenText(contactListFilePath))
                 {
                     progressBar1.Maximum = count_mail_ids - 1;
 
@@ -442,6 +436,11 @@ namespace Mail_Client
         {
             comboBox_to.Items.Clear();
             FileReadWrite.LoadDataFromFileInComboBox(comboBox_to);
+        }
+
+        public void Reload_ComboBox_Of_Form1()
+        {
+
         }
 
         /********************************************************* Menu Events Start *********************************************************/

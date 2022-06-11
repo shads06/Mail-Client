@@ -12,7 +12,7 @@ namespace Mail_Client
         public static string UserDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
         public static string AppDirectory = Path.Combine(UserDirectory, "MailClient");
         public static string ContactsDirectory = Path.Combine(AppDirectory, "Contacts");
-        public static string ContactsGroupsDirectory = Path.Combine(AppDirectory, "ContactsGroups");
+        public static string ContactsListsDirectory = Path.Combine(AppDirectory, "ContactsLists");
         public static string MailsDirectory = Path.Combine(AppDirectory, "Mails");
         public static string LicenseDirectory = Path.Combine(AppDirectory, "License");
         public static string GmailCredentialsDirectory = Path.Combine(AppDirectory, "Credentials");
@@ -24,8 +24,8 @@ namespace Mail_Client
                 Directory.CreateDirectory(AppDirectory);
             if (!Directory.Exists(ContactsDirectory))
                 Directory.CreateDirectory(ContactsDirectory);
-            if (!Directory.Exists(ContactsGroupsDirectory))
-                Directory.CreateDirectory(ContactsGroupsDirectory);
+            if (!Directory.Exists(ContactsListsDirectory))
+                Directory.CreateDirectory(ContactsListsDirectory);
             if (!Directory.Exists(MailsDirectory))
                 Directory.CreateDirectory(MailsDirectory);
             if (!Directory.Exists(LicenseDirectory))

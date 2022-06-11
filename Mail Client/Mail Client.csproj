@@ -155,6 +155,7 @@
     <Compile Include="Managers\MailServerManager.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\IDBEntity.cs" />
+    <Compile Include="Models\Mail.cs" />
     <Compile Include="Models\MailServer.cs" />
     <Compile Include="Send Mail.cs">
       <SubType>Form</SubType>
@@ -180,6 +181,7 @@
     <Compile Include="Create Group.Designer.cs">
       <DependentUpon>Create Group.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility.cs" />
     <Compile Include="View Group.cs">
       <SubType>Form</SubType>
     </Compile>

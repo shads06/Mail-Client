@@ -12,17 +12,39 @@ using System.Threading.Tasks;
 
 namespace Mail_Client
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Gmail
     {
         // If modifying these scopes, delete your previously saved credentials
         // at ~/.credentials/gmail-dotnet-quickstart.json
         static string[] Scopes = { GmailService.Scope.GmailReadonly, GmailService.Scope.GmailCompose, GmailService.Scope.GmailLabels };
-        public static string ApplicationName = "Mail Client";
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        string ApplicationName = "Mail Client";
+
+        /// <summary>
+        /// 
+        /// </summary>
         GmailService service = new GmailService();
-        // User Credential Declaration
-        public static UserCredential credential;
+
+        /// <summary>
+        /// User Credential Declaration
+        /// </summary>
+        UserCredential credential;
+
+        /// <summary>
+        /// 
+        /// </summary>
         string credPath;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task Authorize()
         {
             try
