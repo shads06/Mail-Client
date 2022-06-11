@@ -64,6 +64,8 @@ namespace Mail_Client
             
         }
 
+        /********************************************************* Form Events Start *********************************************************/
+
         private async void Form1_Load(object sender, EventArgs e)
         {
             if(!CheckForInternetConnection())   //Check for "system is not connected to the internet" is true
@@ -97,6 +99,19 @@ namespace Mail_Client
                 Total_Mail_Sent = Convert.ToInt32(sr.ReadLine());
             }
         }
+
+        private void Form1_Main_Window_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (flag)
+            {
+                string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\__" + FileNameBeforeEditing + "(Edited).txt";
+
+                if (File.Exists(path))
+                    File.Delete(path);
+            }
+        }
+
+        /********************************************************* Private Methods Start *********************************************************/
 
         private void ShowLoadingMessageForm()
         {
@@ -152,28 +167,6 @@ namespace Mail_Client
             //menuStrip1.BackColor = x;
         }
 
-        /******************* Form Events Start *******************/
-        /******************* Form Events Start *******************/
-
-        /******************* Form Controls Events Start *******************/
-
-        private async void button_authorize_Click(object sender, EventArgs e)
-        {
-            await _gmail.Authorize();
-        }
-
-        private void button_exit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        /******************* Form Controls Events End *******************/
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         string[] RetrieveDataFromFile(string FilePath)
         {
             string[] RecipientNames = new string[90];
@@ -192,8 +185,63 @@ namespace Mail_Client
                         RecipientNames[Count++] = NextLine;
                 }
             }
-            
+
             return RecipientNames;
+        }
+
+        private void Save_Sent_Mail()
+        {
+            // Creating New Directory for last Sent Mail as named "Mail <mail number>"
+            DirectoryInfo di = new DirectoryInfo(FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + ++Total_Mail_Sent);
+            di.Create();
+
+            // Setting Path for File to read where contacts are stored of last sent mail
+            string path1 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
+
+            // Setting Path for storing last mail sent reciepients ID
+            string path2 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\To.txt";
+
+            // Create a file to write to Reciepients of last mail.
+            using (StreamWriter sw = File.CreateText(path2))
+            {
+                //Open the file to read from.
+                using (StreamReader sr = File.OpenText(path1))
+                {
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        sw.WriteLine(s);
+                    }
+                }
+            }
+
+
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\Subject.txt";
+            FileReadWrite.WriteInFileTextBoxContent(textBox_subject.Text);
+
+            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\Content.txt";
+            FileReadWrite.WriteInFileFromRichTextBox(richTextBox_content.Lines);
+
+            // Writing of Total Mails Sent in "Total Mail Sent Quota File"
+            string path3 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Total Mails Sent Quota.txt";
+
+            // Create a file to write to.
+            using (StreamWriter sw = File.CreateText(path3))
+            {
+                sw.WriteLine(Total_Mail_Sent.ToString());
+            }
+        }
+
+        /********************************************************* Form Controls Events Start *********************************************************/
+
+        private async void button_authorize_Click(object sender, EventArgs e)
+        {
+            await _gmail.Authorize();
+        }
+
+        private void button_exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void button_edit_group_list_Click(object sender, EventArgs e)
@@ -214,13 +262,13 @@ namespace Mail_Client
                 }
                 else
                 {
-                    Array.Copy(RetrieveDataFromFile(FilePath),RecipientNames,90);
+                    Array.Copy(RetrieveDataFromFile(FilePath), RecipientNames, 90);
 
-                    foreach(string RN in RecipientNames)
+                    foreach (string RN in RecipientNames)
                     {
                         if (RN == null)
                             break;
-                        count++;                 
+                        count++;
                         checkedListBox_Edit_Recipients.Items.Add(RN);
                         checkedListBox_Edit_Recipients.SetItemChecked(checkedListBox_Edit_Recipients.Items.IndexOf(RN), true);
                     }
@@ -236,7 +284,7 @@ namespace Mail_Client
             {
                 MessageBox.Show("Group not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch(NullReferenceException t)
+            catch (NullReferenceException t)
             {
                 MessageBox.Show("No Group Selected", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -256,7 +304,7 @@ namespace Mail_Client
 
             if (checkedListBox_Edit_Recipients.Visible == true & button_Save_Edit_List.Visible == true & button_Close_Editing.Visible == true)
             {
-               checkedListBox_Edit_Recipients.Items.Clear();
+                checkedListBox_Edit_Recipients.Items.Clear();
 
                 try
                 {
@@ -313,7 +361,7 @@ namespace Mail_Client
 
         private void button_send_mail_Click(object sender, EventArgs e)
         {
-            
+
 
             int count_mail_ids = 0;
 
@@ -324,8 +372,8 @@ namespace Mail_Client
                 using (StreamReader sr = File.OpenText(path))
                 {
                     string s = "";
-                    
-                    while((s = sr.ReadLine()) != null)
+
+                    while ((s = sr.ReadLine()) != null)
                     {
                         count_mail_ids++;
                     }
@@ -373,72 +421,6 @@ namespace Mail_Client
             }
         }
 
-        private void Save_Sent_Mail()
-        {
-            // Creating New Directory for last Sent Mail as named "Mail <mail number>"
-            DirectoryInfo di = new DirectoryInfo(FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + ++Total_Mail_Sent);
-            di.Create();
-
-            // Setting Path for File to read where contacts are stored of last sent mail
-            string path1 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
-
-            // Setting Path for storing last mail sent reciepients ID
-            string path2 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\To.txt";
-
-            // Create a file to write to Reciepients of last mail.
-            using (StreamWriter sw = File.CreateText(path2))
-            {
-                //Open the file to read from.
-                using (StreamReader sr = File.OpenText(path1))
-                {
-                    string s = "";
-                    while ((s = sr.ReadLine()) != null)
-                    {
-                        sw.WriteLine(s);
-                    }
-                }
-            }
-
-
-            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\Subject.txt";
-            FileReadWrite.WriteInFileTextBoxContent(textBox_subject.Text);
-
-            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Sent Mails\\Mail " + Total_Mail_Sent.ToString() + "\\Content.txt";
-            FileReadWrite.WriteInFileFromRichTextBox(richTextBox_content.Lines);
-
-            // Writing of Total Mails Sent in "Total Mail Sent Quota File"
-            string path3 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Total Mails Sent Quota.txt";
-
-            // Create a file to write to.
-            using (StreamWriter sw = File.CreateText(path3))
-            {
-                sw.WriteLine(Total_Mail_Sent.ToString());
-            }
-        }
-
-        private void Form1_Main_Window_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (flag)
-            {
-                string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\__" + FileNameBeforeEditing + "(Edited).txt";
-
-                if (File.Exists(path))
-                    File.Delete(path);
-            }
-        }
-
-        private void viewGroupsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            View_Group View_Group_Form = new View_Group();
-            View_Group_Form.ShowDialog();
-        }
-
-        private void createGroupsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Create_Group Create_Group_Form = new Create_Group();
-            Create_Group_Form.ShowDialog();
-        }
-
         private void button_clear_Click(object sender, EventArgs e)
         {
             textBox_From_Email_ID.Clear();
@@ -456,30 +438,13 @@ namespace Mail_Client
 
         }
 
-
-
-        
-
-        private void view_group_Click(object sender, EventArgs e)
+        private void comboBox_to_DropDown(object sender, EventArgs e)
         {
-            View_Group VG = new View_Group();
-            VG.ShowDialog();
+            comboBox_to.Items.Clear();
+            FileReadWrite.LoadDataFromFileInComboBox(comboBox_to);
         }
 
-        private void create_group_Click(object sender, EventArgs e)
-        {
-            Create_Group CG = new Create_Group();
-            CG.ShowDialog();
-        }
-
-        private void exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        
-        
-
-        #region Menu Items Click Events Definition
+        /********************************************************* Menu Events Start *********************************************************/
 
         private void add_contact_Click(object sender, EventArgs e)
         {
@@ -505,14 +470,40 @@ namespace Mail_Client
             AboutApplication.ShowDialog();
         }
 
-        #endregion
-
-        private void comboBox_to_DropDown(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            comboBox_to.Items.Clear();
-            FileReadWrite.LoadDataFromFileInComboBox(comboBox_to);
+            this.Close();
         }
 
+        private void viewGroupsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_Group View_Group_Form = new View_Group();
+            View_Group_Form.ShowDialog();
+        }
+
+        private void createGroupsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Create_Group Create_Group_Form = new Create_Group();
+            Create_Group_Form.ShowDialog();
+        }
+
+        private void view_group_Click(object sender, EventArgs e)
+        {
+            View_Group VG = new View_Group();
+            VG.ShowDialog();
+        }
+
+        private void create_group_Click(object sender, EventArgs e)
+        {
+            Create_Group CG = new Create_Group();
+            CG.ShowDialog();
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        
         private void contactsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Contacts contactsWindows = new Contacts();

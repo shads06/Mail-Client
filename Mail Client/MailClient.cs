@@ -16,6 +16,7 @@ namespace Mail_Client
         public static string MailsDirectory = Path.Combine(AppDirectory, "Mails");
         public static string LicenseDirectory = Path.Combine(AppDirectory, "License");
         public static string GmailCredentialsDirectory = Path.Combine(AppDirectory, "Credentials");
+        public static string TempDirectory = Path.Combine(AppDirectory, "Temp");
 
         public static void Setup()
         {
@@ -31,6 +32,8 @@ namespace Mail_Client
                 Directory.CreateDirectory(LicenseDirectory);
             if (!Directory.Exists(GmailCredentialsDirectory))
                 Directory.CreateDirectory(GmailCredentialsDirectory);
+            if (!Directory.Exists(TempDirectory))
+                Directory.CreateDirectory(TempDirectory);
         }
     }
 }
