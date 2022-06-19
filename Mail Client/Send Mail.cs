@@ -417,7 +417,11 @@ namespace Mail_Client
                         string senderAddress = textBox_From_Email_ID.Text;
                         var newSendMailTask = Task.Run( () => SendMail(receipientAddress, subject, body, senderAddress));
                         sendMailTasks.Add(newSendMailTask);
-                        progressBar1.PerformStep();
+                        newSendMailTask.ContinueWith((completedTask) =>
+                        {
+                            Invoke(new Action(() => { progressBar1.PerformStep(); }));
+                            
+                        });
                     }
                     await Task.WhenAll(sendMailTasks);
                 }
