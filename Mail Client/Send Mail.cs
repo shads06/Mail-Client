@@ -408,6 +408,7 @@ namespace Mail_Client
 
 
             int count_mail_ids = 0;
+            int sent_mails_Count = 0;
 
             try
             {
@@ -423,6 +424,7 @@ namespace Mail_Client
                     }
                 }
 
+                Message_Sending_Progress.Text = $"Sent {sent_mails_Count}/{count_mail_ids} Emails";
                 //Open the file to read from.
                 using (StreamReader sr = File.OpenText(contactListFilePath))
                 {
@@ -440,7 +442,12 @@ namespace Mail_Client
                         sendMailTasks.Add(newSendMailTask);
                         newSendMailTask.ContinueWith((completedTask) =>
                         {
-                            Invoke(new Action(() => { progressBar1.PerformStep(); }));
+                            Invoke(new Action(() => 
+                            {
+                                sent_mails_Count++;
+                                progressBar1.PerformStep();
+                                Message_Sending_Progress.Text = $"Sent {sent_mails_Count}/{count_mail_ids} Emails";
+                            }));
                             
                         });
                     }

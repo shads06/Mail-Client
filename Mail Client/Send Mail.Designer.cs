@@ -64,6 +64,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.textBox_From_Email_ID = new System.Windows.Forms.TextBox();
             this.label_Form_Email_ID = new System.Windows.Forms.Label();
+            this.Message_Sending_Progress = new System.Windows.Forms.Label();
             this.send_mail_menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -224,6 +225,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Message_Sending_Progress);
             this.panel1.Controls.Add(this.Authenticate_Message);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 588);
@@ -492,6 +494,16 @@
             this.label_Form_Email_ID.TabIndex = 20;
             this.label_Form_Email_ID.Text = "From";
             // 
+            // Message_Sending_Progress
+            // 
+            this.Message_Sending_Progress.AutoSize = true;
+            this.Message_Sending_Progress.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Message_Sending_Progress.Location = new System.Drawing.Point(44, 0);
+            this.Message_Sending_Progress.Name = "Message_Sending_Progress";
+            this.Message_Sending_Progress.Size = new System.Drawing.Size(64, 16);
+            this.Message_Sending_Progress.TabIndex = 1;
+            this.Message_Sending_Progress.Text = "                   ";
+            // 
             // Send_Mail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -576,6 +588,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox textBox_From_Email_ID;
         private System.Windows.Forms.Label label_Form_Email_ID;
+        private System.Windows.Forms.Label Message_Sending_Progress;
     }
 }
 
