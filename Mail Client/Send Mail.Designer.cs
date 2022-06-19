@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Send_Mail));
             this.send_mail_menu = new System.Windows.Forms.MenuStrip();
             this.Quick_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.mailServersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.add_contact = new System.Windows.Forms.ToolStripMenuItem();
             this.add_multiple_contacts = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +45,8 @@
             this.createGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Authenticate_Message = new System.Windows.Forms.Label();
             this.button_authorize = new System.Windows.Forms.Button();
             this.label_to = new System.Windows.Forms.Label();
             this.comboBox_to = new System.Windows.Forms.ComboBox();
@@ -61,8 +64,8 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.textBox_From_Email_ID = new System.Windows.Forms.TextBox();
             this.label_Form_Email_ID = new System.Windows.Forms.Label();
-            this.mailServersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.send_mail_menu.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // send_mail_menu
@@ -93,6 +96,13 @@
             this.Quick_Menu.Name = "Quick_Menu";
             this.Quick_Menu.Size = new System.Drawing.Size(100, 20);
             this.Quick_Menu.Text = "Quick Menu";
+            // 
+            // mailServersToolStripMenuItem
+            // 
+            this.mailServersToolStripMenuItem.Name = "mailServersToolStripMenuItem";
+            this.mailServersToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.mailServersToolStripMenuItem.Text = "Mail Servers";
+            this.mailServersToolStripMenuItem.Click += new System.EventHandler(this.mailServersToolStripMenuItem_Click);
             // 
             // contactsToolStripMenuItem
             // 
@@ -211,6 +221,25 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Authenticate_Message);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 588);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1362, 26);
+            this.panel1.TabIndex = 21;
+            // 
+            // Authenticate_Message
+            // 
+            this.Authenticate_Message.AutoSize = true;
+            this.Authenticate_Message.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Authenticate_Message.Location = new System.Drawing.Point(0, 0);
+            this.Authenticate_Message.Name = "Authenticate_Message";
+            this.Authenticate_Message.Size = new System.Drawing.Size(44, 16);
+            this.Authenticate_Message.TabIndex = 0;
+            this.Authenticate_Message.Text = "label1";
             // 
             // button_authorize
             // 
@@ -463,22 +492,15 @@
             this.label_Form_Email_ID.TabIndex = 20;
             this.label_Form_Email_ID.Text = "From";
             // 
-            // mailServersToolStripMenuItem
-            // 
-            this.mailServersToolStripMenuItem.Name = "mailServersToolStripMenuItem";
-            this.mailServersToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.mailServersToolStripMenuItem.Text = "Mail Servers";
-            this.mailServersToolStripMenuItem.Click += new System.EventHandler(this.mailServersToolStripMenuItem_Click);
-            // 
             // Send_Mail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Silver;
             this.CancelButton = this.button_exit;
-            this.ClientSize = new System.Drawing.Size(1362, 562);
+            this.ClientSize = new System.Drawing.Size(1362, 614);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label_Form_Email_ID);
             this.Controls.Add(this.textBox_From_Email_ID);
             this.Controls.Add(this.progressBar1);
@@ -510,6 +532,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.send_mail_menu.ResumeLayout(false);
             this.send_mail_menu.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -523,8 +547,21 @@
         private System.Windows.Forms.ToolStripMenuItem createGroupsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Quick_Menu;
+        private System.Windows.Forms.ToolStripMenuItem add_contact;
+        private System.Windows.Forms.ToolStripMenuItem add_multiple_contacts;
+        private System.Windows.Forms.ToolStripMenuItem view_group;
+        private System.Windows.Forms.ToolStripMenuItem create_group;
+        private System.Windows.Forms.ToolStripMenuItem exit;
+        private System.Windows.Forms.ToolStripMenuItem help;
+        private System.Windows.Forms.ToolStripMenuItem about;
+        private System.Windows.Forms.ToolStripMenuItem contactsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mailServersToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label Authenticate_Message;
         private System.Windows.Forms.Button button_authorize;
         private System.Windows.Forms.Label label_to;
+        private System.Windows.Forms.ComboBox comboBox_to;
         private System.Windows.Forms.Button button_edit_group_list;
         private System.Windows.Forms.Label label_subject;
         private System.Windows.Forms.TextBox textBox_subject;
@@ -537,19 +574,8 @@
         private System.Windows.Forms.Button button_Save_Edit_List;
         private System.Windows.Forms.Button button_Close_Editing;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.ComboBox comboBox_to;
         private System.Windows.Forms.TextBox textBox_From_Email_ID;
         private System.Windows.Forms.Label label_Form_Email_ID;
-        private System.Windows.Forms.ToolStripMenuItem Quick_Menu;
-        private System.Windows.Forms.ToolStripMenuItem add_contact;
-        private System.Windows.Forms.ToolStripMenuItem add_multiple_contacts;
-        private System.Windows.Forms.ToolStripMenuItem view_group;
-        private System.Windows.Forms.ToolStripMenuItem create_group;
-        private System.Windows.Forms.ToolStripMenuItem exit;
-        private System.Windows.Forms.ToolStripMenuItem help;
-        private System.Windows.Forms.ToolStripMenuItem about;
-        private System.Windows.Forms.ToolStripMenuItem contactsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mailServersToolStripMenuItem;
     }
 }
 

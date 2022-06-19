@@ -45,17 +45,28 @@ namespace Mail_Client
                 MessageBox.Show("No Internet Connection. Data will be saved offline.","No Internet",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
 
-            var userCredential = _gmail.Authorize();
+            try
+            {
+                Authenticate_Message.Text = "Authenticating ...";
 
-            MailClient.Setup();
+                var userCredential = _gmail.Authorize();
 
-            UpdateDesign();
+                MailClient.Setup();
 
-            ShowLoadingMessageForm();
+                UpdateDesign();
 
-            //await Task.Delay(10000);
+                ShowLoadingMessageForm();
 
-            await userCredential;
+                //await Task.Delay(10000);
+
+                await userCredential;
+
+                Authenticate_Message.Text = "Authenticated";
+            }
+            catch (Exception ex)
+            {
+                Authenticate_Message.Text = "Authewntication Failed";
+            }
 
             appLoadForm.Close();
 
@@ -259,7 +270,17 @@ namespace Mail_Client
 
         private async void button_authorize_Click(object sender, EventArgs e)
         {
-            await _gmail.Authorize();
+            try
+            {
+                Authenticate_Message.Text = "Authenticating ...";
+                await Task.Delay(2000);
+                await _gmail.Authorize();
+                Authenticate_Message.Text = "Authenticated";
+            }
+            catch (Exception ex)
+            {
+                Authenticate_Message.Text = "Authewntication Failed";
+            }
         }
 
         private void button_exit_Click(object sender, EventArgs e)
