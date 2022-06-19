@@ -17,6 +17,7 @@ using Google.Apis.Gmail.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 #endregion
 
 namespace Mail_Client
@@ -29,6 +30,7 @@ namespace Mail_Client
         bool flag = false;
         string FileNameBeforeEditing = null;
         int Total_Mail_Sent = 0;
+        int count;
         public Send_Mail()
         {
             InitializeComponent();
@@ -204,6 +206,33 @@ namespace Mail_Client
             }
         }
 
+        private void SendMail(string receipientAddress, string subject, string body, string senderAddress)
+        {
+            try
+            {
+                MailAddress adrs = new MailAddress(receipientAddress);
+
+                //Creating Message
+                MailMessage mail = new MailMessage();
+                mail.To.Add(adrs);
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.From = new MailAddress(senderAddress);
+                mail.IsBodyHtml = true;
+
+                MimeKit.MimeMessage mimeMessage = MimeKit.MimeMessage.CreateFromMailMessage(mail);
+                //await Task.Delay(2000);
+
+                //Sending Mail
+                _gmail.SendMail(mimeMessage.ToString(), "me");
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something wrong");
+            }
+        }
+
         /// <summary>
         /// Check for Internet Connectivity on System.
         /// </summary>
@@ -353,7 +382,7 @@ namespace Mail_Client
             button_Close_Editing.Visible = false;
         }
 
-        private void button_send_mail_Click(object sender, EventArgs e)
+        private async void button_send_mail_Click(object sender, EventArgs e)
         {
 
 
@@ -378,26 +407,19 @@ namespace Mail_Client
                 {
                     progressBar1.Maximum = count_mail_ids - 1;
 
+                    List<Task> sendMailTasks = new List<Task>();
                     string s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
-                        MailAddress adrs = new MailAddress(s);
-
-                        //Creating Message
-                        MailMessage mail = new MailMessage();
-                        mail.To.Add(adrs);
-                        mail.Subject = textBox_subject.Text;
-                        mail.Body = richTextBox_content.Text;
-                        mail.From = new MailAddress(textBox_From_Email_ID.Text);
-                        mail.IsBodyHtml = true;
-
-                        MimeKit.MimeMessage mimeMessage = MimeKit.MimeMessage.CreateFromMailMessage(mail);
-
-                        //Sending Mail
-                        _gmail.SendMail(mimeMessage.ToString(), "me");
-
+                        string receipientAddress = s;
+                        string subject = textBox_subject.Text;
+                        string body = richTextBox_content.Text;
+                        string senderAddress = textBox_From_Email_ID.Text;
+                        var newSendMailTask = Task.Run( () => SendMail(receipientAddress, subject, body, senderAddress));
+                        sendMailTasks.Add(newSendMailTask);
                         progressBar1.PerformStep();
                     }
+                    await Task.WhenAll(sendMailTasks);
                 }
 
                 Save_Sent_Mail();
