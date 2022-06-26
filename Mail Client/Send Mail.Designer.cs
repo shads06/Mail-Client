@@ -46,6 +46,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Message_Sending_Progress = new System.Windows.Forms.Label();
             this.Authenticate_Message = new System.Windows.Forms.Label();
             this.button_authorize = new System.Windows.Forms.Button();
             this.label_to = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.textBox_From_Email_ID = new System.Windows.Forms.TextBox();
             this.label_Form_Email_ID = new System.Windows.Forms.Label();
-            this.Message_Sending_Progress = new System.Windows.Forms.Label();
             this.send_mail_menu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -232,6 +232,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1362, 26);
             this.panel1.TabIndex = 21;
+            // 
+            // Message_Sending_Progress
+            // 
+            this.Message_Sending_Progress.AutoSize = true;
+            this.Message_Sending_Progress.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Message_Sending_Progress.Location = new System.Drawing.Point(44, 0);
+            this.Message_Sending_Progress.Name = "Message_Sending_Progress";
+            this.Message_Sending_Progress.Size = new System.Drawing.Size(64, 16);
+            this.Message_Sending_Progress.TabIndex = 1;
+            this.Message_Sending_Progress.Text = "                   ";
             // 
             // Authenticate_Message
             // 
@@ -493,16 +503,6 @@
             this.label_Form_Email_ID.Size = new System.Drawing.Size(44, 18);
             this.label_Form_Email_ID.TabIndex = 20;
             this.label_Form_Email_ID.Text = "From";
-            // 
-            // Message_Sending_Progress
-            // 
-            this.Message_Sending_Progress.AutoSize = true;
-            this.Message_Sending_Progress.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Message_Sending_Progress.Location = new System.Drawing.Point(44, 0);
-            this.Message_Sending_Progress.Name = "Message_Sending_Progress";
-            this.Message_Sending_Progress.Size = new System.Drawing.Size(64, 16);
-            this.Message_Sending_Progress.TabIndex = 1;
-            this.Message_Sending_Progress.Text = "                   ";
             // 
             // Send_Mail
             // 

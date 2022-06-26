@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "SendMailView";
+}
+
+<h2>SendMailView</h2>
+
+@using(Html.BeginForm("SendMail", "SendMail"))
+            {
+                @Html.TextBox("fromEmail", "gaursharad06@gmail.com")
+    @Html.DropDownList("toGroup");
+    <input type="submit" value="Submit"/>
+            }
