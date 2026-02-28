@@ -1,15 +1,35 @@
 ﻿using MailClient.Core;
+using MailClient.Core.Models;
+using MailClient.Core.Storage;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MailClient.DAL.Managers
 {
-    public class MailManager
+    public class MailRepository : IMailRepository
     {
+        public Task<Mail> AddAsync(Mail item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Mail> DeleteAsync(dynamic id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Mail>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Mail> GetSingleAsync(dynamic id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SaveSentMail(string contactListName, string subject, string content)
         {
             // 
@@ -45,6 +65,16 @@ namespace MailClient.DAL.Managers
             File.WriteAllText(Path.Combine(newMailGroupSentDirectoryPath.FullName, "Subject.txt"), subject);
             File.WriteAllText(Path.Combine(newMailGroupSentDirectoryPath.FullName, "Content.txt"), content);
             File.WriteAllText(Path.Combine(Main.MailsDirectoryPath, "Total Mails Sent Quota.txt"), Total_Mail_Contact_List_Sent_Previously.ToString());
+        }
+
+        public Task UpdateAsync(Mail item)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Mail> IRepository<Mail>.UpdateAsync(Mail item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

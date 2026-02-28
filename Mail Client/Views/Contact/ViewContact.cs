@@ -26,7 +26,7 @@ namespace Mail_Client.Views.Contact
 
         }
 
-        private void ViewContact_Load(object sender, EventArgs e)
+        private async void ViewContact_Load(object sender, EventArgs e)
         {
 
             try
@@ -34,7 +34,7 @@ namespace Mail_Client.Views.Contact
 
                 StatusCombobox.DataSource = Enum.GetValues(typeof(Status));
 
-                var Contact = contactManager.GetSingle(ContactID);
+                var Contact = await contactManager.GetSingleAsync(ContactID);
 
                 this.Text += Contact.Name;
 
@@ -62,14 +62,14 @@ namespace Mail_Client.Views.Contact
             try
             {
                 
-                MailClient.DAL.Contact Contact = new MailClient.DAL.Contact();
+                MailClient.Core.Models.Contact Contact = new MailClient.Core.Models.Contact();
                 Contact.ID = Convert.ToInt32(IDValueLabel.Text);
                 Contact.Name = NameTextbox.Text;
                 Contact.Email = EmailIDTextbox.Text;
                 Contact.Status = (Status)StatusCombobox.SelectedItem;
                 Contact.LastUpdatedOn = DateTime.UtcNow;
 
-                contactManager.Update(Contact);
+                contactManager.UpdateAsync(Contact);
 
                 MessageBox.Show("Successfully Updated Contact");
 

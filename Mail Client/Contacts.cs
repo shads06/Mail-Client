@@ -16,12 +16,12 @@ namespace Mail_Client
             InitializeComponent();
         }
 
-        private void Contacts_Load(object sender, EventArgs e)
+        private async void Contacts_Load(object sender, EventArgs e)
         {
 
             try
             {
-                var Contacts = contactManager.GetAll();
+                var Contacts = await contactManager.GetAllAsync();
 
                 var data = Contacts.ToList();
 
@@ -92,13 +92,13 @@ namespace Mail_Client
 
         }
 
-        private void ReloadContactsButton_Click(object sender, EventArgs e)
+        private async void ReloadContactsButton_Click(object sender, EventArgs e)
         {
 
             try
             {
 
-                var Contacts = contactManager.GetAll();
+                var Contacts = await contactManager.GetAllAsync();
 
                 var data = Contacts.ToList();
 
@@ -136,13 +136,13 @@ namespace Mail_Client
 
         }
 
-        private void Contacts_Activated(object sender, EventArgs e)
+        private async void Contacts_Activated(object sender, EventArgs e)
         {
 
             try
             {
 
-                var Contacts = contactManager.GetAll();
+                var Contacts = await contactManager.GetAllAsync();
 
                 var data = Contacts.ToList();
 

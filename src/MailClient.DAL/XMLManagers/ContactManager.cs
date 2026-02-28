@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 using MailClient.Core;
+using MailClient.Core.Models;
+using MailClient.Core.Storage;
 
 namespace MailClient.DAL.XMLManagers
 {
-
-    public class ContactManager : AbstractManagerDB<Contact>
+    public class ContactManager : IRepository<Contact>
     {
 
         // Location of Contacts.xml file for storing contact information
         string _DataLocation = XMLDataStorage.Location + "Contacts.xml";
 
-        public override void Add(Contact item)
+        public Task<Contact> AddAsync(Contact item)
         {
 
             try
@@ -72,7 +74,7 @@ namespace MailClient.DAL.XMLManagers
 
                 // Finally, save the document back
                 ContactsDocument.Save(_DataLocation);
-
+                return null;
             }
             catch (Exception ex)
             {
@@ -83,7 +85,7 @@ namespace MailClient.DAL.XMLManagers
 
         }
 
-        public override void Delete(dynamic ItemId)
+        public Task<Contact> DeleteAsync(dynamic ItemId)
         {
 
             try
@@ -106,7 +108,7 @@ namespace MailClient.DAL.XMLManagers
 
                 // Finally, Save the document back
                 ContactsDocument.Save(_DataLocation);
-
+                return null;
             }
             catch (Exception ex)
             {
@@ -117,7 +119,7 @@ namespace MailClient.DAL.XMLManagers
 
         }
 
-        public override void Update(Contact item)
+        public Task<Contact> UpdateAsync(Contact item)
         {
 
             try
@@ -149,7 +151,7 @@ namespace MailClient.DAL.XMLManagers
 
                 // Finally, Save the document back
                 ContactsDocument.Save(_DataLocation);
-
+                return null;
             }
             catch (Exception ex)
             {
@@ -160,7 +162,7 @@ namespace MailClient.DAL.XMLManagers
 
         }
 
-        public override Contact GetSingle(dynamic ItemId)
+        public Task<Contact> GetSingleAsync(dynamic ItemId)
         {
 
             try
@@ -197,7 +199,7 @@ namespace MailClient.DAL.XMLManagers
                     else
                         contact.LastUpdatedOn = null;
 
-                    return contact;
+                    return Task.FromResult<Contact>(contact);
 
                 }
                 else
@@ -217,12 +219,12 @@ namespace MailClient.DAL.XMLManagers
 
         }
 
-        public override Contact GetItem(IDataReader reader)
+        public Contact GetItemAsync(IDataReader reader)
         {
             throw new NotImplementedException();
         }
 
-        public override IEnumerable<Contact> GetAll()
+        public Task<IEnumerable<Contact>> GetAllAsync()
         {
 
             List<Contact> ContactsRetrieved = new List<Contact>();
@@ -270,13 +272,13 @@ namespace MailClient.DAL.XMLManagers
 
                     }
 
-                    return ContactsRetrieved;
+                    return Task.FromResult<IEnumerable<Contact>>(ContactsRetrieved);
 
                 }
                 else
                 {
 
-                    return null;
+                    return Task.FromResult<IEnumerable<Contact>>(null);
 
                 }
 
@@ -291,5 +293,4 @@ namespace MailClient.DAL.XMLManagers
         }
 
     }
-
 }

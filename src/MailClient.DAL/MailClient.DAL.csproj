@@ -42,15 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Managers\ContactManager.cs" />
-    <Compile Include="Managers\MailManager.cs" />
-    <Compile Include="Models\IDBEntity.cs" />
-    <Compile Include="Models\Contact.cs" />
-    <Compile Include="Models\Mail.cs" />
-    <Compile Include="Models\MailServer.cs" />
+    <Compile Include="Managers\ContactRepository.cs" />
+    <Compile Include="Managers\MailRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="XMLHelper.cs" />
+    <Compile Include="XMLManagers\XMLHelper.cs" />
     <Compile Include="XMLManagers\AbstractManagerDB.cs" />
     <Compile Include="XMLManagers\ContactManager.cs" />
     <Compile Include="XMLManagers\IManager.cs" />

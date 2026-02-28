@@ -102,11 +102,20 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DataStorageKinds.cs" />
     <Compile Include="GmailManager.cs" />
+    <Compile Include="Storage\IContactRepository.cs" />
+    <Compile Include="Storage\IMailRepository.cs" />
+    <Compile Include="Storage\IMailServerRepository.cs" />
+    <Compile Include="Storage\IRepository.cs" />
     <Compile Include="MailClientCore.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="CoreNotInitalizedException.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\IDBEntity.cs" />
+    <Compile Include="Models\Mail.cs" />
+    <Compile Include="Models\MailServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Status.cs" />
+    <Compile Include="Storage\StorageResolver.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="XMLDataStorage.cs" />
   </ItemGroup>

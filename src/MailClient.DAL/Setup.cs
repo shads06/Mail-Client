@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MailClient.DAL
+﻿namespace MailClient.DAL
 {
     /// <summary>
     /// This class will setup the data access layer for File System, XML, CSV, Microsoft Access, SQL Server

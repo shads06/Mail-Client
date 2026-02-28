@@ -13,7 +13,7 @@ namespace MailClient.Processor
     public class MailProcessor
     {
         private GmailManager _gmailManager = new GmailManager();
-        private MailManager _mailManager = new MailManager();
+        private MailRepository _mailManager = new MailRepository();
         public async Task Send(string contactListName, string mailSubject, string mailContent, string fromEmail)
         {
             int count_mail_ids = 0;

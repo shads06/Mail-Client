@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MailClient.Core;
+using MailClient.Core.Models;
 using MailClient.DAL;
 using MailClient.DAL.XMLManagers;
 

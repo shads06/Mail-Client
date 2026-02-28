@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MailClient.Core.Models;
+using System.Collections.Generic;
 using System.Data;
 
 namespace MailClient.DAL.XMLManagers

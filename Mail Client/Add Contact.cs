@@ -2,6 +2,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using MailClient.Core.Models;
+
 #endregion
 using MailClient.DAL;
 using MailClient.DAL.XMLManagers;
@@ -37,8 +39,8 @@ namespace Mail_Client
             try
             {
                 ContactManager manager = new ContactManager();
-                manager.Add(new Contact() { ID = counter, Name = string.Empty, Email = textBox_email_id.Text });
-                var c = manager.GetSingle(counter);
+                manager.AddAsync(new Contact() { ID = counter, Name = string.Empty, Email = textBox_email_id.Text });
+                var c = manager.GetSingleAsync(counter);
                 MessageBox.Show(c.ToString());
                 counter++;
             }

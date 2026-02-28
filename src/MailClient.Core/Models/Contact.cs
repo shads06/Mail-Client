@@ -1,11 +1,7 @@
-﻿using MailClient.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace MailClient.DAL
+namespace MailClient.Core.Models
 {
     public class Contact : IDBEntity
     {
@@ -18,9 +14,7 @@ namespace MailClient.DAL
         public DateTime? LastUpdatedOn { get; set; }
         public override string ToString()
         {
-
             StringBuilder contactString = new StringBuilder();
-
             contactString.Append("ID: ");
             contactString.Append(ID.ToString());
             contactString.Append(", ");
@@ -42,7 +36,6 @@ namespace MailClient.DAL
             contactString.Append("Last Modified On: ");
             contactString.Append(LastUpdatedOn.ToString());
             return contactString.ToString();
-
         }
     }
 }

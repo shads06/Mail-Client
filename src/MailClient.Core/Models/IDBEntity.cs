@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MailClient.DAL
+namespace MailClient.Core.Models
 {
     public interface IDBEntity
     {

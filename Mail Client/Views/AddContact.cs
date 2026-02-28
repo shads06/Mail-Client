@@ -25,12 +25,12 @@ namespace Mail_Client.Views
             {
                 XMLHelper helper = new XMLHelper();
 
-                MailClient.DAL.Contact NewContact = new MailClient.DAL.Contact();
+                MailClient.Core.Models.Contact NewContact = new MailClient.Core.Models.Contact();
                 NewContact.ID = helper.LastElementUniqueID(_location + "Contacts.xml", "Contact") + 1;
                 NewContact.Name = NameTextbox.Text;
                 NewContact.Email = EmailIDTextbox.Text;
 
-                contactManager.Add(NewContact);
+                contactManager.AddAsync(NewContact);
 
                 MessageBox.Show("New Contact: " + NewContact.Name + " Added Successfully");
 
@@ -53,12 +53,12 @@ namespace Mail_Client.Views
             {
                 XMLHelper helper = new XMLHelper();
 
-                MailClient.DAL.Contact NewContact = new MailClient.DAL.Contact();
+                MailClient.Core.Models.Contact NewContact = new MailClient.Core.Models.Contact();
                 NewContact.ID = helper.LastElementUniqueID(_location + "Contacts.xml", "Contact") + 1;
                 NewContact.Name = NameTextbox.Text;
                 NewContact.Email = EmailIDTextbox.Text;
 
-                contactManager.Add(NewContact);
+                contactManager.AddAsync(NewContact);
 
                 MessageBox.Show("New Contact: " + NewContact.Name + " Added Successfully");
 
