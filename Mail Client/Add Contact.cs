@@ -38,7 +38,7 @@ namespace Mail_Client
 
             try
             {
-                ContactManager manager = new ContactManager();
+                ContactRepository manager = new ContactRepository();
                 manager.AddAsync(new Contact() { ID = counter, Name = string.Empty, Email = textBox_email_id.Text });
                 var c = manager.GetSingleAsync(counter);
                 MessageBox.Show(c.ToString());

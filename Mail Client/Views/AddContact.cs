@@ -11,7 +11,7 @@ namespace Mail_Client.Views
 
         string _location = XMLDataStorage.Location;
 
-        ContactManager contactManager = new ContactManager();
+        ContactRepository contactManager = new ContactRepository();
 
         public AddContactForm()
         {

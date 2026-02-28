@@ -8,20 +8,20 @@ namespace Mail_Client.Views.Mail_Server
     public partial class MailServers : Form
     {
 
-        MailServerManager mailServerManager = new MailServerManager();
+        MailServerRepository mailServerManager = new MailServerRepository();
 
         public MailServers()
         {
             InitializeComponent();
         }
 
-        private void MailServers_Load(object sender, EventArgs e)
+        private async void MailServers_Load(object sender, EventArgs e)
         {
 
             try
             {
 
-                var AllServers = mailServerManager.GetAll();
+                var AllServers = await mailServerManager.GetAllAsync();
 
                 var AllServersList = AllServers.ToList();
 
@@ -91,13 +91,13 @@ namespace Mail_Client.Views.Mail_Server
 
         }
 
-        private void ReloadMailServersButton_Click(object sender, EventArgs e)
+        private async void ReloadMailServersButton_Click(object sender, EventArgs e)
         {
 
             try
             {
                 
-                var Servers = mailServerManager.GetAll();
+                var Servers = await mailServerManager.GetAllAsync();
 
                 var data = Servers.ToList();
 
@@ -135,13 +135,13 @@ namespace Mail_Client.Views.Mail_Server
 
         }
 
-        private void MailServers_Activated(object sender, EventArgs e)
+        private async void MailServers_Activated(object sender, EventArgs e)
         {
 
             try
             {
 
-                var Servers = mailServerManager.GetAll();
+                var Servers = await mailServerManager.GetAllAsync();
 
                 var data = Servers.ToList();
 

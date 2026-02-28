@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 using MailClient.Core;
 using MailClient.Core.Models;
+using MailClient.Core.Storage;
 
 namespace MailClient.DAL.XMLManagers
 {
-    public class MailServerManager : AbstractManagerDB<MailServer>
+    public class MailServerRepository : IRepository<MailServer>
     {
 
         private string _mailServerXMLDataStorageLocation = XMLDataStorage.Location + "MailServers.xml";
@@ -16,7 +18,7 @@ namespace MailClient.DAL.XMLManagers
         /// 
         /// </summary>
         /// <param name="item"></param>
-        public override void Add(MailServer item)
+        public Task<MailServer> AddAsync(MailServer item)
         {
 
             try
@@ -86,7 +88,7 @@ namespace MailClient.DAL.XMLManagers
                 RootMailServers.Add(Server);
 
                 MailServersDocument.Save(_mailServerXMLDataStorageLocation);
-
+                return null;
             }
             catch (Exception ex)
             {
@@ -101,7 +103,7 @@ namespace MailClient.DAL.XMLManagers
         /// 
         /// </summary>
         /// <param name="item"></param>
-        public override void Update(MailServer item)
+        public Task<MailServer> UpdateAsync(MailServer item)
         {
 
             try
@@ -137,7 +139,7 @@ namespace MailClient.DAL.XMLManagers
                 SelectedElement.Element("LastUpdatedOn").Value = DateTime.UtcNow.ToString();
 
                 MailServersDocument.Save(_mailServerXMLDataStorageLocation);
-
+                return null;
             }
             catch (Exception ex)
             {
@@ -152,7 +154,7 @@ namespace MailClient.DAL.XMLManagers
         /// 
         /// </summary>
         /// <param name="ItemId"></param>
-        public override void Delete(dynamic ItemId)
+        public Task<MailServer> DeleteAsync(dynamic ItemId)
         {
 
             try
@@ -172,7 +174,7 @@ namespace MailClient.DAL.XMLManagers
                 SelectedElement.Element("LastUpdatedOn").Value = DateTime.UtcNow.ToString();
 
                 MailServersDocument.Save(_mailServerXMLDataStorageLocation);
-
+                return null;
             }
             catch (Exception ex)
             {
@@ -188,7 +190,7 @@ namespace MailClient.DAL.XMLManagers
         /// </summary>
         /// <param name="ItemId"></param>
         /// <returns></returns>
-        public override MailServer GetSingle(dynamic ItemId)
+        public Task<MailServer> GetSingleAsync(dynamic ItemId)
         {
 
             MailServer mailServer = new MailServer();
@@ -233,7 +235,7 @@ namespace MailClient.DAL.XMLManagers
                     if (!string.IsNullOrEmpty(SelectedElement.Element("LastUpdatedOn").Value)) mailServer.LastUpdatedOn = Convert.ToDateTime(SelectedElement.Element("LastUpdatedOn").Value).ToLocalTime();
                     else mailServer.LastUpdatedOn = null;
 
-                    return mailServer;
+                    return Task.FromResult<MailServer>(mailServer);
 
                 }
                 else
@@ -257,7 +259,7 @@ namespace MailClient.DAL.XMLManagers
         /// 
         /// </summary>
         /// <returns></returns>
-        public override IEnumerable<MailServer> GetAll()
+        public Task<IEnumerable<MailServer>> GetAllAsync()
         {
             
             List<MailServer> mailServers = new List<MailServer>();
@@ -312,7 +314,7 @@ namespace MailClient.DAL.XMLManagers
 
                     }
 
-                    return mailServers;
+                    return Task.FromResult<IEnumerable<MailServer>>(mailServers);
 
                 }
                 else
@@ -337,7 +339,7 @@ namespace MailClient.DAL.XMLManagers
         /// </summary>
         /// <param name="reader"></param>
         /// <returns></returns>
-        public override MailServer GetItem(System.Data.IDataReader reader)
+        public Task<MailServer> GetItemAsync(System.Data.IDataReader reader)
         {
             throw new NotImplementedException();
         }

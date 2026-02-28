@@ -9,7 +9,7 @@ namespace Mail_Client.Views.Mail_Server
     public partial class ViewMailServer : Form
     {
 
-        MailServerManager mailServerManager = new MailServerManager();
+        MailServerRepository mailServerManager = new MailServerRepository();
 
         int serverID { get; set; }
 
@@ -27,7 +27,7 @@ namespace Mail_Client.Views.Mail_Server
 
         }
 
-        private void ViewMailServer_Load(object sender, EventArgs e)
+        private async void ViewMailServer_Load(object sender, EventArgs e)
         {
 
             try
@@ -35,7 +35,7 @@ namespace Mail_Client.Views.Mail_Server
 
                 StatusCombobox.DataSource = Enum.GetValues(typeof(Status));
 
-                var server = mailServerManager.GetSingle(serverID);
+                var server = await mailServerManager.GetSingleAsync(serverID);
 
                 IDValueLabel.Text = server.ID.ToString();
                 NameTextBox.Text = server.Name;
@@ -80,7 +80,7 @@ namespace Mail_Client.Views.Mail_Server
                     Status = (Status)StatusCombobox.SelectedItem
                 };
 
-                mailServerManager.Update(UpdateServer);
+                mailServerManager.UpdateAsync(UpdateServer);
 
                 MessageBox.Show("Server is updated syccessfully");
 

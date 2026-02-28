@@ -10,7 +10,7 @@ namespace Mail_Client.Views.Contact
 
         int ContactID { get; set; }
 
-        ContactManager contactManager = new ContactManager();
+        ContactRepository contactManager = new ContactRepository();
 
         public ViewContact()
         {

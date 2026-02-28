@@ -10,7 +10,7 @@ using MailClient.Core.Storage;
 
 namespace MailClient.DAL.XMLManagers
 {
-    public class ContactManager : IRepository<Contact>
+    public class ContactRepository : IRepository<Contact>
     {
 
         // Location of Contacts.xml file for storing contact information

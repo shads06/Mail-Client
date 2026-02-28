@@ -9,7 +9,7 @@ namespace Mail_Client
     public partial class Contacts : Form
     {
 
-        ContactManager contactManager = new ContactManager();
+        ContactRepository contactManager = new ContactRepository();
 
         public Contacts()
         {

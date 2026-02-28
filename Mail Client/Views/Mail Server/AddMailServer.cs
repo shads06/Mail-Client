@@ -10,7 +10,7 @@ namespace Mail_Client.Views.Mail_Server
     public partial class AddMailServer : Form
     {
 
-        MailServerManager mailServerManager = new MailServerManager();
+        MailServerRepository mailServerManager = new MailServerRepository();
 
         public AddMailServer()
         {
@@ -38,7 +38,7 @@ namespace Mail_Client.Views.Mail_Server
                     IsSecured = IsSecuredCheckbox.Checked
                 };
 
-                mailServerManager.Add(NewServer);
+                mailServerManager.AddAsync(NewServer);
 
                 MessageBox.Show("Mail Server is successfully added");
 
@@ -75,7 +75,7 @@ namespace Mail_Client.Views.Mail_Server
                     IsSecured = IsSecuredCheckbox.Checked
                 };
 
-                mailServerManager.Add(NewServer);
+                mailServerManager.AddAsync(NewServer);
 
                 MessageBox.Show("Mail Server is successfully added");
 
