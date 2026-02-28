@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using MailClient.Core.Models;
 
 #endregion
-using MailClient.DAL;
 using MailClient.DAL.XMLManagers;
 
 namespace Mail_Client
@@ -50,8 +49,6 @@ namespace Mail_Client
                 MessageBox.Show("Something went wrong");
 
             }
-            //FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\__All Mail IDs.txt";
-            //FileReadWrite.WriteInFileTextBoxContent(textBox_email_id.Text);
             MessageBox.Show("Mail Id Added Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             textBox_email_id.Clear();
         }

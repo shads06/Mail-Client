@@ -1,40 +1,36 @@
 ﻿#region .Net Base Library Namespaces
+using MailClient.DAL.Managers;
 using System;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 #endregion
 
 namespace Mail_Client
 {
     public partial class View_Group : Form
     {
+        ContactListRepository contactListRepository = new ContactListRepository();
         public View_Group()
         {
             InitializeComponent();
         }
 
-        private void Form5_View_Group_Load(object sender, EventArgs e)
+        private async void Form5_View_Group_Load(object sender, EventArgs e)
         {
-            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
-
-            FileReadWrite.LoadDataFromFileInComboBox(comboBox_Group_Name);
-
+            var cl = await contactListRepository.GetAllAsync();
+            FileReadWrite.PopulateCombobox(comboBox_Group_Name, cl.Select(x => x.Name));
             comboBox_Group_Name.SelectedIndex = 0;
         }
 
-        private void comboBox_Group_Name_SelectedValueChanged(object sender, EventArgs e)
+        private async void comboBox_Group_Name_SelectedValueChanged(object sender, EventArgs e)
         {
             dataGridView_Group_Email_IDs_Collection.Rows.Clear();
-            string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_Group_Name.SelectedItem.ToString() + ".txt";
-
-            //Open the file to read from.
-            using (StreamReader sr = File.OpenText(path))
+            var contacts = await contactListRepository.GetContactsInListAsync(comboBox_Group_Name.SelectedItem.ToString());
+            foreach (var contact in contacts)
             {
-                string s = "";
-                while ((s = sr.ReadLine()) != null)
-                {
-                    dataGridView_Group_Email_IDs_Collection.Rows.Add(s);
-                }
+                dataGridView_Group_Email_IDs_Collection.Rows.Add(contact.Email);
             }
         }
 

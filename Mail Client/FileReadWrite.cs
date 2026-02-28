@@ -1,5 +1,7 @@
 ﻿#region .Net Base Library Namespaces
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 #endregion
@@ -98,6 +100,10 @@ namespace Mail_Client
                     MessageBox.Show("Something went wrong. Contact Developer", "File Can not open", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+        public static void PopulateCombobox(ComboBox cmb, IEnumerable<string> items)
+        {
+            foreach (var item in items) cmb.Items.Add(item);
         }
     }
 }

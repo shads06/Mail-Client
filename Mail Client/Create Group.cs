@@ -22,8 +22,7 @@ namespace Mail_Client
         private async void Form4_Create_Group_Load(object sender, EventArgs e)
         {
             var cl = await contactListRepository.GetAllAsync();
-            foreach (var item in cl)
-                comboBox_Group_Name.Items.Add(item.Name);
+            FileReadWrite.PopulateCombobox(comboBox_Group_Name, cl.Select(x => x.Name));
             comboBox_Group_Name.SelectedIndex = 0;
         }
 
