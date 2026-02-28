@@ -1,16 +1,8 @@
-﻿using Mail_Client.Managers;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
-using Mail_Client.Models;
-using Mail_Client.Helpers;
-using Mail_Client.Core;
+using MailClient.Core;
+using MailClient.DAL;
+using MailClient.DAL.XMLManagers;
 
 namespace Mail_Client.Views.Mail_Server
 {

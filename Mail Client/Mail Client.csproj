@@ -27,6 +27,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -134,30 +135,14 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Constants\DataStorageKinds.cs" />
-    <Compile Include="Constants\Status.cs" />
     <Compile Include="Contacts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Contacts.Designer.cs">
       <DependentUpon>Contacts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\ApplicationConfiguration.cs" />
-    <Compile Include="Core\MailClientCore.cs" />
-    <Compile Include="Core\XMLDataStorage.cs" />
     <Compile Include="FileReadWrite.cs" />
     <Compile Include="Gmail.cs" />
-    <Compile Include="Helpers\XMLHelper.cs" />
-    <Compile Include="MailClient.cs" />
-    <Compile Include="Managers\AbstractManagerDB.cs" />
-    <Compile Include="Managers\ContactManager.cs" />
-    <Compile Include="Managers\IManager.cs" />
-    <Compile Include="Managers\IManagerDB.cs" />
-    <Compile Include="Managers\MailServerManager.cs" />
-    <Compile Include="Models\Contact.cs" />
-    <Compile Include="Models\IDBEntity.cs" />
-    <Compile Include="Models\Mail.cs" />
-    <Compile Include="Models\MailServer.cs" />
     <Compile Include="Send Mail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,9 +298,16 @@
   <ItemGroup>
     <Content Include="mail.ico" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Screens\" />
+    <ProjectReference Include="..\src\MailClient.Core\MailClient.Core.csproj">
+      <Project>{3f3f1b9f-e87a-4839-8aef-c968e7838d13}</Project>
+      <Name>MailClient.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\MailClient.DAL\MailClient.DAL.csproj">
+      <Project>{53efbfb4-4781-4935-8ea7-e845b3679e07}</Project>
+      <Name>MailClient.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

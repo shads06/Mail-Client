@@ -50,9 +50,6 @@ namespace Mail_Client
                 Authenticate_Message.Text = "Authenticating ...";
 
                 var userCredential = _gmail.Authorize();
-
-                MailClient.Setup();
-
                 UpdateDesign();
 
                 ShowLoadingMessageForm();
@@ -71,12 +68,12 @@ namespace Mail_Client
             appLoadForm.Close();
 
             // Loading 
-            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
+            FileReadWrite.path = MailClient.Core.Main.ContactsListFileMainPath;
 
             FileReadWrite.LoadDataFromFileInComboBox(comboBox_to);
 
             // Reading Total Mail Sent Quota and storing in variable
-            string path1 = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Total Mails Sent Quota.txt";
+            string path1 = MailClient.Core.Main.MailsTotalQuotaFilePath;
 
             //Open the file to read from.
             using (StreamReader sr = File.OpenText(path1))
@@ -413,7 +410,7 @@ namespace Mail_Client
             try
             {
                 //string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
-                string contactListFilePath = Path.Combine(MailClient.ContactsListsDirectory, comboBox_to.SelectedItem.ToString() + ".txt");
+                string contactListFilePath = Path.Combine(MailClient.Core.Main.ContactsListsDirectoryPath, comboBox_to.SelectedItem.ToString() + ".txt");
                 using (StreamReader sr = File.OpenText(contactListFilePath))
                 {
                     string s = "";

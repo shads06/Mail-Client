@@ -3,74 +3,25 @@ using System.IO;
 
 namespace MailClient.Core
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public static class Main
     {
-        /// <summary>
-        /// 
-        /// </summary>
         static string UserProfileDirectoryPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string AppDirectoryPath = Path.Combine(UserProfileDirectoryPath, "MailClient");
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string TempDirectoryPath = Path.Combine(AppDirectoryPath, "Temp");
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string LicenseDirectoryPath = Path.Combine(AppDirectoryPath, "License");
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string GmailCredentialsDirectoryPath = Path.Combine(AppDirectoryPath, "GmailCredentials");
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string DatabaseDirectoryPath = Path.Combine(AppDirectoryPath, "Database");
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string ContactsDirectoryPath = Path.Combine(DatabaseDirectoryPath, "Contacts");
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string ContactsListsDirectoryPath = Path.Combine(DatabaseDirectoryPath, "ContactsLists");
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string MailsDirectoryPath = Path.Combine(DatabaseDirectoryPath, "Mails");
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string AccountsDirectoryPath = Path.Combine(DatabaseDirectoryPath, "Accounts");
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string ActiveAccountDirectoryPath = Path.Combine(AccountsDirectoryPath, "Active");
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string ContactsFileMainPath = Path.Combine(ContactsDirectoryPath, "Contacts.txt");
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string ContactsListFileMainPath = Path.Combine(ContactsListsDirectoryPath, "ContactsLists.txt");
-
+        public static readonly string AppDirectoryPath = Path.Combine(UserProfileDirectoryPath, Constants.AppName);
+        public static readonly string TempDirectoryPath = Path.Combine(AppDirectoryPath, Constants.TempLocationName);
+        public static readonly string LicenseDirectoryPath = Path.Combine(AppDirectoryPath, Constants.LicenseLocationName);
+        public static readonly string GmailCredentialsDirectoryPath = Path.Combine(AppDirectoryPath, Constants.GmailCredentialsLocationName);
+        public static readonly string DatabaseDirectoryPath = Path.Combine(AppDirectoryPath, Constants.DatabaseLocationName);
+        public static readonly string ContactsDirectoryPath = Path.Combine(DatabaseDirectoryPath, Constants.ContactsLocationName);
+        public static readonly string ContactsListsDirectoryPath = Path.Combine(DatabaseDirectoryPath, Constants.ContactsListsLocationName);
+        public static readonly string MailsDirectoryPath = Path.Combine(DatabaseDirectoryPath, Constants.MailsLocationName);
+        public static readonly string AccountsDirectoryPath = Path.Combine(DatabaseDirectoryPath, Constants.AccountsLocationName);
+        public static readonly string ActiveAccountDirectoryPath = Path.Combine(AccountsDirectoryPath, Constants.ActiveAccountLocationName);
+        public static readonly string ContactsFileMainPath = Path.Combine(ContactsDirectoryPath, Constants.ContactsFileName);
+        public static readonly string ContactsListFileMainPath = Path.Combine(ContactsListsDirectoryPath, Constants.ContactsListFileName);
+        public static readonly string MailsTotalQuotaFilePath = Path.Combine(MailsDirectoryPath, Constants.MailsTotalQuotaFileName);
         //public static readonly string BackupAppDirectoryPath = Path.Combine(UserProfileDirectoryPath, "MailClientBackup");
-
         //public static FileSystemWatcher appDirectoryWatcher = new FileSystemWatcher(AppDirectoryPath);
 
-        /// <summary>
-        /// 
-        /// </summary>
         static Main()
         {
         }

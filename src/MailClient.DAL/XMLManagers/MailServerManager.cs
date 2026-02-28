@@ -1,16 +1,10 @@
-﻿using Mail_Client.Core;
-using Mail_Client.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
-using Mail_Client.Constants;
-using Mail_Client.Helpers;
+using MailClient.Core;
 
-namespace Mail_Client.Managers
+namespace MailClient.DAL.XMLManagers
 {
     public class MailServerManager : AbstractManagerDB<MailServer>
     {
@@ -68,7 +62,7 @@ namespace Mail_Client.Managers
 
                 XElement Status = new XElement("Status");
 
-                Status.SetValue(Convert.ToInt32(Mail_Client.Constants.Status.Active));
+                Status.SetValue(Convert.ToInt32(MailClient.Core.Status.Active));
 
                 XElement CreatedOn = new XElement("CreatedOn");
 
@@ -172,7 +166,7 @@ namespace Mail_Client.Managers
                      where Convert.ToInt32(selectedMailServer.Attribute("ID").Value) == ItemId
                      select selectedMailServer).SingleOrDefault();
 
-                SelectedElement.Element("Status").SetValue(Convert.ToInt32(Mail_Client.Constants.Status.Deleted));
+                SelectedElement.Element("Status").SetValue(Convert.ToInt32(Status.Deleted));
 
                 SelectedElement.Element("LastUpdatedOn").Value = DateTime.UtcNow.ToString();
 

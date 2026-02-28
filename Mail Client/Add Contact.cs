@@ -3,8 +3,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 #endregion
-using Mail_Client.Managers;
-using Mail_Client.Models;
+using MailClient.DAL;
+using MailClient.DAL.XMLManagers;
 
 namespace Mail_Client
 {

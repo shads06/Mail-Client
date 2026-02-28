@@ -1,11 +1,7 @@
-﻿using Mail_Client.Constants;
+﻿using MailClient.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Mail_Client.Models
+namespace MailClient.DAL
 {
 
     public class MailServer : IDBEntity

@@ -1,19 +1,11 @@
-﻿using Mail_Client.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
-using Mail_Client.Core;
-using Mail_Client.Constants;
-using Mail_Client.Helpers;
+using MailClient.Core;
 
-namespace Mail_Client.Managers
+namespace MailClient.DAL.XMLManagers
 {
 
     public class ContactManager : AbstractManagerDB<Contact>
@@ -56,7 +48,7 @@ namespace Mail_Client.Managers
                 XElement Status = new XElement("Status");
 
                 // Set Status of the new contact
-                Status.SetValue(Convert.ToInt32(Mail_Client.Constants.Status.Active));
+                Status.SetValue(Convert.ToInt32(MailClient.Core.Status.Active));
 
                 // Create a new XML element for new contact Created On Date
                 XElement CreatedOn = new XElement("CreatedOn");
@@ -110,7 +102,7 @@ namespace Mail_Client.Managers
                  select contact).SingleOrDefault();
 
                 // Change the status of the contact to Deleted
-                toBeDeletedContact.Element("Status").Value = Mail_Client.Constants.Status.Deleted.ToString();
+                toBeDeletedContact.Element("Status").Value = Status.Deleted.ToString();
 
                 // Finally, Save the document back
                 ContactsDocument.Save(_DataLocation);

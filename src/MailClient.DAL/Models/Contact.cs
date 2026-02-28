@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MailClient.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,13 @@ namespace MailClient.DAL
 {
     public class Contact : IDBEntity
     {
-        public Guid ID { get; set; }
-        public string FullName { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
         public string PhoneNumber { get; set; }
-        public string EmailID { get; set; }
+        public string Email { get; set; }
+        public Status Status { get; set; }
         public DateTime CreatedOn { get; set; }
-        public DateTime? LastModifiedOn { get; set; }
+        public DateTime? LastUpdatedOn { get; set; }
         public override string ToString()
         {
 
@@ -22,14 +24,14 @@ namespace MailClient.DAL
             contactString.Append("ID: ");
             contactString.Append(ID.ToString());
             contactString.Append(", ");
-            contactString.Append("FullName: ");
-            contactString.Append(FullName);
+            contactString.Append("Name: ");
+            contactString.Append(Name);
             contactString.Append(", ");
             contactString.Append("PhoneNumber: ");
             contactString.Append(PhoneNumber);
             contactString.Append(", ");
             contactString.Append("Email: ");
-            contactString.Append(EmailID);
+            contactString.Append(Email);
             contactString.Append(", ");
             contactString.Append("Status: ");
             contactString.Append("");
@@ -38,7 +40,7 @@ namespace MailClient.DAL
             contactString.Append(CreatedOn.ToString());
             contactString.Append(", ");
             contactString.Append("Last Modified On: ");
-            contactString.Append(LastModifiedOn.ToString());
+            contactString.Append(LastUpdatedOn.ToString());
             return contactString.ToString();
 
         }

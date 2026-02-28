@@ -1,14 +1,7 @@
-﻿using Mail_Client.Constants;
-using Mail_Client.Managers;
-using Mail_Client.Models;
+﻿using MailClient.Core;
+using MailClient.DAL;
+using MailClient.DAL.XMLManagers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Mail_Client.Views.Mail_Server

@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MailClient.DAL;
 using System.Windows.Forms;
-using Mail_Client.Managers;
-using Mail_Client.Models;
-using Mail_Client.Core;
-using Mail_Client.Helpers;
+using MailClient.Core;
+using MailClient.DAL.XMLManagers;
 
 namespace Mail_Client.Views
 {
@@ -33,7 +25,7 @@ namespace Mail_Client.Views
             {
                 XMLHelper helper = new XMLHelper();
 
-                Mail_Client.Models.Contact NewContact = new Models.Contact();
+                MailClient.DAL.Contact NewContact = new MailClient.DAL.Contact();
                 NewContact.ID = helper.LastElementUniqueID(_location + "Contacts.xml", "Contact") + 1;
                 NewContact.Name = NameTextbox.Text;
                 NewContact.Email = EmailIDTextbox.Text;
@@ -61,7 +53,7 @@ namespace Mail_Client.Views
             {
                 XMLHelper helper = new XMLHelper();
 
-                Mail_Client.Models.Contact NewContact = new Models.Contact();
+                MailClient.DAL.Contact NewContact = new MailClient.DAL.Contact();
                 NewContact.ID = helper.LastElementUniqueID(_location + "Contacts.xml", "Contact") + 1;
                 NewContact.Name = NameTextbox.Text;
                 NewContact.Email = EmailIDTextbox.Text;

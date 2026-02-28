@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
-using System.Linq;
-using Mail_Client.Constants;
+using MailClient.Core;
 
-namespace Mail_Client.Helpers
+namespace MailClient.DAL
 {
     public class XMLHelper
     {

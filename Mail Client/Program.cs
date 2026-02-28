@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Mail_Client
@@ -14,11 +11,10 @@ namespace Mail_Client
         [STAThread]
         static void Main()
         {
-            Core.MailClientCore.Initialize();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Mail_Client.Core.MailClientCore.Initialize();
+            MailClient.Core.MailClientCore.Initialize();
+            MailClient.Core.Main.Setup();
             Application.Run(new Send_Mail());
         }
     }

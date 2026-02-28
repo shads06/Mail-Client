@@ -12,8 +12,8 @@ namespace MailClient.DAL.Managers
         /// <exception cref="FileNotFoundException"></exception>
         public Contact Add(Contact contact)
         {
-            if (!File.Exists(MailClient.Core.Main.ContactsDirectoryPath + @"\Contacts.txt")) throw new FileNotFoundException("Failed to add contact", MailClient.Core.Main.ContactsDirectoryPath + @"\Contacts.txt");
-            using(StreamWriter contactsSW = new StreamWriter(MailClient.Core.Main.ContactsDirectoryPath + @"\Contacts.txt"))
+            if (!File.Exists(MailClient.Core.Main.ContactsFileMainPath)) throw new FileNotFoundException("Failed to add contact", MailClient.Core.Main.ContactsFileMainPath);
+            using(StreamWriter contactsSW = new StreamWriter(MailClient.Core.Main.ContactsFileMainPath))
                 contactsSW.WriteLine(contact.ToString());
             return contact;
         }

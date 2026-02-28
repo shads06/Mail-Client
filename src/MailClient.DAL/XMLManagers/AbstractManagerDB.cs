@@ -1,12 +1,7 @@
-﻿using Mail_Client.Models;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Mail_Client.Managers
+namespace MailClient.DAL.XMLManagers
 {
 
     public abstract class AbstractManagerDB<T> : IManagerDB<T> where T : IDBEntity
