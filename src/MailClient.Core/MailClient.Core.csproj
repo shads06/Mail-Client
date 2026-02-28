@@ -102,6 +102,8 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DataStorageKinds.cs" />
     <Compile Include="GmailManager.cs" />
+    <Compile Include="Models\ContactList.cs" />
+    <Compile Include="Storage\IContactListRepository.cs" />
     <Compile Include="Storage\IContactRepository.cs" />
     <Compile Include="Storage\IMailRepository.cs" />
     <Compile Include="Storage\IMailServerRepository.cs" />

@@ -2,6 +2,9 @@
 using System;
 using System.Windows.Forms;
 using System.IO;
+using MailClient.DAL.Managers;
+using System.Threading.Tasks;
+using System.Linq;
 #endregion
 
 namespace Mail_Client
@@ -9,42 +12,36 @@ namespace Mail_Client
     public partial class Create_Group : Form
     {
         bool click = true;
+        ContactListRepository contactListRepository = new ContactListRepository();
 
         public Create_Group()
         {
             InitializeComponent();
         }
 
-        private void Form4_Create_Group_Load(object sender, EventArgs e)
+        private async void Form4_Create_Group_Load(object sender, EventArgs e)
         {
-            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
-
-            FileReadWrite.LoadDataFromFileInComboBox(comboBox_Group_Name);
-
+            var cl = await contactListRepository.GetAllAsync();
+            foreach (var item in cl)
+                comboBox_Group_Name.Items.Add(item.Name);
             comboBox_Group_Name.SelectedIndex = 0;
         }
 
-        private void comboBox_Group_Name_SelectedValueChanged(object sender, EventArgs e)
+        private async void comboBox_Group_Name_SelectedValueChanged(object sender, EventArgs e)
         {
             checkedListBox_Group_Email_IDs.Items.Clear();
+            var contacts = await contactListRepository.GetContactsInListAsync(comboBox_Group_Name.SelectedItem.ToString());
 
-            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_Group_Name.SelectedItem.ToString() + ".txt";
-
-            //Open the file to read from.
-            using (StreamReader sr = File.OpenText(FileReadWrite.path))
+            // S3267: Use LINQ Select to simplify loop
+            var emails = contacts.Select(contact => contact.Email);
+            foreach (var email in emails)
             {
-                string s = "";
-                while ((s = sr.ReadLine()) != null)
-                {
-                    // Writing In CheckedListBox
-                    checkedListBox_Group_Email_IDs.Items.Add(s);
+                checkedListBox_Group_Email_IDs.Items.Add(email);
 
-                    if (checkedListBox_New_Group_ID_Collection.Items.Contains(s))
-                    {
-                        click = false;
-                       // checkedListBox_Group_Email_IDs.SetSelected(checkedListBox_New_Group_ID_Collection.Items.IndexOf(s), true);    No need of this code
-                        checkedListBox_Group_Email_IDs.SetItemChecked(checkedListBox_Group_Email_IDs.Items.IndexOf(s), true);
-                    }
+                if (checkedListBox_New_Group_ID_Collection.Items.Contains(email))
+                {
+                    click = false;
+                    checkedListBox_Group_Email_IDs.SetItemChecked(checkedListBox_Group_Email_IDs.Items.IndexOf(email), true);
                 }
             }
         }
@@ -74,15 +71,20 @@ namespace Mail_Client
                 click = true;
         }
 
-        private void button_Create_Group_Click(object sender, EventArgs e)
+        private async void button_Create_Group_Click(object sender, EventArgs e)
         {
-            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
+            await contactListRepository.AddAsync(new MailClient.Core.Models.ContactList()
+            {
+                Name = textBox_Group_Name.Text,
+                CreatedOn = DateTime.Now
+            });
 
-            FileReadWrite.WriteInFileTextBoxContent(textBox_Group_Name.Text);
+            // Fix: Convert CheckedItems to IEnumerable<string>
+            var checkedEmails = checkedListBox_Group_Email_IDs.CheckedItems
+                .OfType<string>()
+                .ToList();
 
-            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + textBox_Group_Name.Text + ".txt";
-
-            FileReadWrite.WriteInFileFromCheckListBox(checkedListBox_Group_Email_IDs.CheckedItems);
+            await contactListRepository.AddContactsToListAsync(textBox_Group_Name.Text, checkedEmails);
 
             MessageBox.Show("Group Created Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             comboBox_Group_Name.Items.Add(textBox_Group_Name.Text);
