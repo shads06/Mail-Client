@@ -9,7 +9,7 @@ namespace MailClient.Core.Models
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public Status Status { get; set; }
+        public Status Status { get; set; } = Status.Active;
         public DateTime CreatedOn { get; set; }
         public DateTime? LastUpdatedOn { get; set; }
         public override string ToString()

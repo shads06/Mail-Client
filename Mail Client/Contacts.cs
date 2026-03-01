@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using Mail_Client.Views;
-using MailClient.DAL.XMLManagers;
+using MailClient.DAL.Managers;
 
 namespace Mail_Client
 {
