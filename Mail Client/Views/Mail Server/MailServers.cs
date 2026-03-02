@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Mail_Client.Views.Mail_Server
+namespace Mail_Client.Views
 {
     public partial class MailServers : Form
     {

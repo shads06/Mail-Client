@@ -135,11 +135,11 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contacts.cs">
+    <Compile Include="Views\Contact\ContactsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Contacts.Designer.cs">
-      <DependentUpon>Contacts.cs</DependentUpon>
+    <Compile Include="Views\Contact\ContactsForm.Designer.cs">
+      <DependentUpon>ContactsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FileReadWrite.cs" />
     <Compile Include="Gmail.cs" />
@@ -176,17 +176,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\AddContact.cs">
+    <Compile Include="Views\Contact\AddContactForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AddContact.Designer.cs">
-      <DependentUpon>AddContact.cs</DependentUpon>
+    <Compile Include="Views\Contact\AddContactForm.Designer.cs">
+      <DependentUpon>AddContactForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Contact\ViewContact.cs">
+    <Compile Include="Views\Contact\ViewContactForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Contact\ViewContact.Designer.cs">
-      <DependentUpon>ViewContact.cs</DependentUpon>
+    <Compile Include="Views\Contact\ViewContactForm.Designer.cs">
+      <DependentUpon>ViewContactForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Mail Server\AddMailServer.cs">
       <SubType>Form</SubType>
@@ -209,8 +209,8 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contacts.resx">
-      <DependentUpon>Contacts.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Contact\ContactsForm.resx">
+      <DependentUpon>ContactsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Send Mail.resx">
       <DependentUpon>Send Mail.cs</DependentUpon>
@@ -237,11 +237,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\AddContact.resx">
-      <DependentUpon>AddContact.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Contact\AddContactForm.resx">
+      <DependentUpon>AddContactForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Contact\ViewContact.resx">
-      <DependentUpon>ViewContact.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Contact\ViewContactForm.resx">
+      <DependentUpon>ViewContactForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Mail Server\AddMailServer.resx">
       <DependentUpon>AddMailServer.cs</DependentUpon>

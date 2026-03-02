@@ -1,6 +1,6 @@
-﻿namespace Mail_Client.Views.Contact
+﻿namespace Mail_Client.Views
 {
-    partial class ViewContact
+    partial class ViewContactForm
     {
         /// <summary>
         /// Required designer variable.

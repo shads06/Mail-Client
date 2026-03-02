@@ -4,14 +4,14 @@ using System.Windows.Forms;
 using Mail_Client.Views;
 using MailClient.DAL.Managers;
 
-namespace Mail_Client
+namespace Mail_Client.Views
 {
-    public partial class Contacts : Form
+    public partial class ContactsForm : Form
     {
 
         ContactRepository contactManager = new ContactRepository();
 
-        public Contacts()
+        public ContactsForm()
         {
             InitializeComponent();
         }
@@ -63,7 +63,7 @@ namespace Mail_Client
 
                     var ContactID = Convert.ToInt32(ContactsGrid.Rows[row].Cells["ID"].Value);
 
-                    Mail_Client.Views.Contact.ViewContact viewContact = new Views.Contact.ViewContact(ContactID);
+                    Mail_Client.Views.ViewContactForm viewContact = new Views.ViewContactForm(ContactID);
                     viewContact.ShowDialog();
 
                 }

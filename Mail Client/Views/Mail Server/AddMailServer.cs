@@ -5,7 +5,7 @@ using MailClient.Core.Models;
 using MailClient.DAL;
 using MailClient.DAL.XMLManagers;
 
-namespace Mail_Client.Views.Mail_Server
+namespace Mail_Client.Views
 {
     public partial class AddMailServer : Form
     {

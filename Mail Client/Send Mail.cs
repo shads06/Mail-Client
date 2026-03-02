@@ -18,6 +18,7 @@ using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Mail_Client.Views;
 #endregion
 
 namespace Mail_Client
@@ -556,7 +557,7 @@ namespace Mail_Client
         
         private void contactsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Contacts contactsWindows = new Contacts();
+            ContactsForm contactsWindows = new ContactsForm();
             contactsWindows.ShowDialog();
         }
 
@@ -566,7 +567,7 @@ namespace Mail_Client
             try
             {
 
-                Mail_Client.Views.Mail_Server.MailServers mailServers = new Views.Mail_Server.MailServers();
+                Mail_Client.Views.MailServers mailServers = new Views.MailServers();
                 mailServers.ShowDialog();
 
             }

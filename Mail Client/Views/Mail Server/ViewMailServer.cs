@@ -4,7 +4,7 @@ using MailClient.DAL.XMLManagers;
 using System;
 using System.Windows.Forms;
 
-namespace Mail_Client.Views.Mail_Server
+namespace Mail_Client.Views
 {
     public partial class ViewMailServer : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace Mail_Client.Views.Mail_Server
+﻿namespace Mail_Client.Views
 {
     partial class AddMailServer
     {

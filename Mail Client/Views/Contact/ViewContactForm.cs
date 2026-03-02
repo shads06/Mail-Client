@@ -3,21 +3,21 @@ using System.Windows.Forms;
 using MailClient.Core;
 using MailClient.DAL.XMLManagers;
 
-namespace Mail_Client.Views.Contact
+namespace Mail_Client.Views
 {
-    public partial class ViewContact : Form
+    public partial class ViewContactForm : Form
     {
 
         int ContactID { get; set; }
 
         ContactRepository contactManager = new ContactRepository();
 
-        public ViewContact()
+        public ViewContactForm()
         {
             InitializeComponent();
         }
 
-        public ViewContact(int ContactID)
+        public ViewContactForm(int ContactID)
         {
 
             InitializeComponent();
