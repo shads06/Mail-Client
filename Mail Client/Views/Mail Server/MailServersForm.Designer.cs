@@ -1,6 +1,6 @@
 ﻿namespace Mail_Client.Views
 {
-    partial class MailServers
+    partial class MailServersForm
     {
         /// <summary>
         /// Required designer variable.

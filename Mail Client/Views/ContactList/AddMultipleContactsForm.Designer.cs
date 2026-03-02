@@ -1,6 +1,6 @@
-﻿namespace Mail_Client
+﻿namespace Mail_Client.Views
 {
-    partial class Add_Multiple_Contacts
+    partial class AddMultipleContactsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Multiple_Contacts));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMultipleContactsForm));
             this.label_Enter_Bulk_Email_IDs = new System.Windows.Forms.Label();
             this.richTextBox_Bulk_Email_IDs = new System.Windows.Forms.RichTextBox();
             this.button_Add_Bulk_Email_IDs = new System.Windows.Forms.Button();

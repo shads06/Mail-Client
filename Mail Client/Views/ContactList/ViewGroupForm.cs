@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion
 
-namespace Mail_Client
+namespace Mail_Client.Views
 {
-    public partial class View_Group : Form
+    public partial class ViewGroupForm : Form
     {
         ContactListRepository contactListRepository = new ContactListRepository();
-        public View_Group()
+        public ViewGroupForm()
         {
             InitializeComponent();
         }

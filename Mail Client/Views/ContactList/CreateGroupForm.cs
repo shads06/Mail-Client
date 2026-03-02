@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using System.Linq;
 #endregion
 
-namespace Mail_Client
+namespace Mail_Client.Views
 {
-    public partial class Create_Group : Form
+    public partial class CreateGroupForm : Form
     {
         bool click = true;
         ContactListRepository contactListRepository = new ContactListRepository();
 
-        public Create_Group()
+        public CreateGroupForm()
         {
             InitializeComponent();
         }

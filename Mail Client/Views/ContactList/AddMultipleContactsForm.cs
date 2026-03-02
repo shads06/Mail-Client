@@ -8,12 +8,12 @@ using MailClient.Core.Models;
 using System.Linq;
 #endregion
 
-namespace Mail_Client
+namespace Mail_Client.Views
 {
-    public partial class Add_Multiple_Contacts : Form
+    public partial class AddMultipleContactsForm : Form
     {
         ContactListRepository contactListRepository = new ContactListRepository();
-        public Add_Multiple_Contacts()
+        public AddMultipleContactsForm()
         {
             InitializeComponent();
         }

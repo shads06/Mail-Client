@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace Mail_Client.Views
 {
-    public partial class MailServers : Form
+    public partial class MailServersForm : Form
     {
 
         MailServerRepository mailServerManager = new MailServerRepository();
 
-        public MailServers()
+        public MailServersForm()
         {
             InitializeComponent();
         }
@@ -63,7 +63,7 @@ namespace Mail_Client.Views
 
                     var ServerID = Convert.ToInt32(MailServersDataGridView.Rows[row].Cells["ID"].Value);
 
-                    ViewMailServer viewMailServer = new ViewMailServer(ServerID);
+                    ViewMailServerForm viewMailServer = new ViewMailServerForm(ServerID);
                     viewMailServer.ShowDialog();
 
                 }
@@ -78,7 +78,7 @@ namespace Mail_Client.Views
             try
             {
 
-                AddMailServer NewMailServerScreen = new AddMailServer();
+                AddMailServerForm NewMailServerScreen = new AddMailServerForm();
                 NewMailServerScreen.ShowDialog();
 
             }

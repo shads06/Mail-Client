@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mail_Client.Views;
+using System;
 using System.Windows.Forms;
 
 namespace Mail_Client
@@ -15,7 +16,7 @@ namespace Mail_Client
             Application.SetCompatibleTextRenderingDefault(false);
             MailClient.Core.MailClientCore.Initialize();
             MailClient.Core.Main.Setup();
-            Application.Run(new Send_Mail());
+            Application.Run(new SendMailForm());
         }
     }
 }

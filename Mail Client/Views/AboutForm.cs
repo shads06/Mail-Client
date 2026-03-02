@@ -4,11 +4,11 @@ using System.Reflection;
 using System.Windows.Forms;
 #endregion
 
-namespace Mail_Client
+namespace Mail_Client.Views
 {
-    partial class About : Form
+    partial class AboutForm : Form
     {
-        public About()
+        public AboutForm()
         {
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);

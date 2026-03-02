@@ -1,4 +1,4 @@
-﻿namespace Mail_Client
+﻿namespace Mail_Client.Views
 {
     partial class Add_Contact
     {

@@ -1,6 +1,6 @@
-﻿namespace Mail_Client
+﻿namespace Mail_Client.Views
 {
-    partial class Send_Mail
+    partial class SendMailForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Send_Mail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SendMailForm));
             this.send_mail_menu = new System.Windows.Forms.MenuStrip();
             this.Quick_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.mailServersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();

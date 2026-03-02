@@ -1,6 +1,6 @@
-﻿namespace Mail_Client
+﻿namespace Mail_Client.Views
 {
-    partial class View_Group
+    partial class ViewGroupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View_Group));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewGroupForm));
             this.comboBox_Group_Name = new System.Windows.Forms.ComboBox();
             this.dataGridView_Group_Email_IDs_Collection = new System.Windows.Forms.DataGridView();
             this.Email_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();

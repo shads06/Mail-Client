@@ -6,19 +6,19 @@ using System.Windows.Forms;
 
 namespace Mail_Client.Views
 {
-    public partial class ViewMailServer : Form
+    public partial class ViewMailServerForm : Form
     {
 
         MailServerRepository mailServerManager = new MailServerRepository();
 
         int serverID { get; set; }
 
-        public ViewMailServer()
+        public ViewMailServerForm()
         {
             InitializeComponent();
         }
 
-        public ViewMailServer(int serverID)
+        public ViewMailServerForm(int serverID)
         {
 
             InitializeComponent();

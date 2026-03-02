@@ -21,9 +21,9 @@ using System.Collections.Generic;
 using Mail_Client.Views;
 #endregion
 
-namespace Mail_Client
+namespace Mail_Client.Views
 {
-    public partial class Send_Mail : Form
+    public partial class SendMailForm : Form
     {
         private Gmail _gmail = new Gmail();
         Form appLoadForm = new Form();
@@ -32,7 +32,7 @@ namespace Mail_Client
         string FileNameBeforeEditing = null;
         int Total_Mail_Sent = 0;
         int count;
-        public Send_Mail()
+        public SendMailForm()
         {
             InitializeComponent();
         }
@@ -505,7 +505,7 @@ namespace Mail_Client
 
         private void add_multiple_contacts_Click(object sender, EventArgs e)
         {
-            Add_Multiple_Contacts AMC = new Add_Multiple_Contacts();
+            AddMultipleContactsForm AMC = new AddMultipleContactsForm();
             AMC.ShowDialog();
 
             // Loading group names in combobox
@@ -517,7 +517,7 @@ namespace Mail_Client
 
         private void about_Click(object sender, EventArgs e)
         {
-            About AboutApplication = new About();
+            AboutForm AboutApplication = new AboutForm();
             AboutApplication.ShowDialog();
         }
 
@@ -528,25 +528,25 @@ namespace Mail_Client
 
         private void viewGroupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            View_Group View_Group_Form = new View_Group();
+            ViewGroupForm View_Group_Form = new ViewGroupForm();
             View_Group_Form.ShowDialog();
         }
 
         private void createGroupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Create_Group Create_Group_Form = new Create_Group();
+            CreateGroupForm Create_Group_Form = new CreateGroupForm();
             Create_Group_Form.ShowDialog();
         }
 
         private void view_group_Click(object sender, EventArgs e)
         {
-            View_Group VG = new View_Group();
+            ViewGroupForm VG = new ViewGroupForm();
             VG.ShowDialog();
         }
 
         private void create_group_Click(object sender, EventArgs e)
         {
-            Create_Group CG = new Create_Group();
+            CreateGroupForm CG = new CreateGroupForm();
             CG.ShowDialog();
         }
 
@@ -567,7 +567,7 @@ namespace Mail_Client
             try
             {
 
-                Mail_Client.Views.MailServers mailServers = new Views.MailServers();
+                Mail_Client.Views.MailServersForm mailServers = new Views.MailServersForm();
                 mailServers.ShowDialog();
 
             }

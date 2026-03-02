@@ -7,12 +7,12 @@ using MailClient.DAL.XMLManagers;
 
 namespace Mail_Client.Views
 {
-    public partial class AddMailServer : Form
+    public partial class AddMailServerForm : Form
     {
 
         MailServerRepository mailServerManager = new MailServerRepository();
 
-        public AddMailServer()
+        public AddMailServerForm()
         {
             InitializeComponent();
         }

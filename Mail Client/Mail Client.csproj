@@ -129,11 +129,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.cs">
+    <Compile Include="Views\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="About.Designer.cs">
-      <DependentUpon>About.cs</DependentUpon>
+    <Compile Include="Views\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Contact\ContactsForm.cs">
       <SubType>Form</SubType>
@@ -143,36 +143,36 @@
     </Compile>
     <Compile Include="FileReadWrite.cs" />
     <Compile Include="Gmail.cs" />
-    <Compile Include="Send Mail.cs">
+    <Compile Include="Views\SendMailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Send Mail.Designer.cs">
-      <DependentUpon>Send Mail.cs</DependentUpon>
+    <Compile Include="Views\SendMailForm.Designer.cs">
+      <DependentUpon>SendMailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add Contact.cs">
+    <Compile Include="Views\Contact\Add Contact.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add Contact.Designer.cs">
+    <Compile Include="Views\Contact\Add Contact.Designer.cs">
       <DependentUpon>Add Contact.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add Multiple Contacts.cs">
+    <Compile Include="Views\ContactList\AddMultipleContactsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add Multiple Contacts.Designer.cs">
-      <DependentUpon>Add Multiple Contacts.cs</DependentUpon>
+    <Compile Include="Views\ContactList\AddMultipleContactsForm.Designer.cs">
+      <DependentUpon>AddMultipleContactsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Create Group.cs">
+    <Compile Include="Views\ContactList\CreateGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Create Group.Designer.cs">
-      <DependentUpon>Create Group.cs</DependentUpon>
+    <Compile Include="Views\ContactList\CreateGroupForm.Designer.cs">
+      <DependentUpon>CreateGroupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
-    <Compile Include="View Group.cs">
+    <Compile Include="Views\ContactList\ViewGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View Group.Designer.cs">
-      <DependentUpon>View Group.cs</DependentUpon>
+    <Compile Include="Views\ContactList\ViewGroupForm.Designer.cs">
+      <DependentUpon>ViewGroupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -188,44 +188,44 @@
     <Compile Include="Views\Contact\ViewContactForm.Designer.cs">
       <DependentUpon>ViewContactForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Mail Server\AddMailServer.cs">
+    <Compile Include="Views\Mail Server\AddMailServerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Mail Server\AddMailServer.Designer.cs">
-      <DependentUpon>AddMailServer.cs</DependentUpon>
+    <Compile Include="Views\Mail Server\AddMailServerForm.Designer.cs">
+      <DependentUpon>AddMailServerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Mail Server\MailServers.cs">
+    <Compile Include="Views\Mail Server\MailServersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Mail Server\MailServers.Designer.cs">
-      <DependentUpon>MailServers.cs</DependentUpon>
+    <Compile Include="Views\Mail Server\MailServersForm.Designer.cs">
+      <DependentUpon>MailServersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Mail Server\ViewMailServer.cs">
+    <Compile Include="Views\Mail Server\ViewMailServerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Mail Server\ViewMailServer.Designer.cs">
-      <DependentUpon>ViewMailServer.cs</DependentUpon>
+    <Compile Include="Views\Mail Server\ViewMailServerForm.Designer.cs">
+      <DependentUpon>ViewMailServerForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="About.resx">
-      <DependentUpon>About.cs</DependentUpon>
+    <EmbeddedResource Include="Views\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Contact\ContactsForm.resx">
       <DependentUpon>ContactsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Send Mail.resx">
-      <DependentUpon>Send Mail.cs</DependentUpon>
+    <EmbeddedResource Include="Views\SendMailForm.resx">
+      <DependentUpon>SendMailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add Contact.resx">
+    <EmbeddedResource Include="Views\Contact\Add Contact.resx">
       <DependentUpon>Add Contact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add Multiple Contacts.resx">
-      <DependentUpon>Add Multiple Contacts.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ContactList\AddMultipleContactsForm.resx">
+      <DependentUpon>AddMultipleContactsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Create Group.resx">
-      <DependentUpon>Create Group.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ContactList\CreateGroupForm.resx">
+      <DependentUpon>CreateGroupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View Group.resx">
-      <DependentUpon>View Group.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ContactList\ViewGroupForm.resx">
+      <DependentUpon>ViewGroupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -243,14 +243,14 @@
     <EmbeddedResource Include="Views\Contact\ViewContactForm.resx">
       <DependentUpon>ViewContactForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Mail Server\AddMailServer.resx">
-      <DependentUpon>AddMailServer.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Mail Server\AddMailServerForm.resx">
+      <DependentUpon>AddMailServerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Mail Server\MailServers.resx">
-      <DependentUpon>MailServers.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Mail Server\MailServersForm.resx">
+      <DependentUpon>MailServersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Mail Server\ViewMailServer.resx">
-      <DependentUpon>ViewMailServer.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Mail Server\ViewMailServerForm.resx">
+      <DependentUpon>ViewMailServerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="icons\create_group.ico" />
     <None Include="icons\mail.ico" />

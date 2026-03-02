@@ -7,7 +7,7 @@ using MailClient.Core.Models;
 #endregion
 using MailClient.DAL.XMLManagers;
 
-namespace Mail_Client
+namespace Mail_Client.Views
 {
     public partial class Add_Contact : Form
     {

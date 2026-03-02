@@ -1,6 +1,6 @@
-﻿namespace Mail_Client
+﻿namespace Mail_Client.Views
 {
-    partial class Create_Group
+    partial class CreateGroupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Create_Group));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateGroupForm));
             this.label_Enter_Group_Name = new System.Windows.Forms.Label();
             this.textBox_Group_Name = new System.Windows.Forms.TextBox();
             this.checkedListBox_Group_Email_IDs = new System.Windows.Forms.CheckedListBox();
