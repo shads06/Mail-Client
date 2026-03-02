@@ -13,80 +13,132 @@ namespace MailClient.DAL.Managers
     {
         public Task<Contact> AddAsync(Contact item)
         {
-            try
-            {
-                if (item == null)
-                    throw new ArgumentNullException(nameof(item));
-
-                var contactsFilePath = MailClient.Core.Main.ContactsFileMainPath;
-
-                if (!File.Exists(contactsFilePath))
-                    throw new FileNotFoundException("Contacts file not found.", contactsFilePath);
-
-                // Append the contact to the file
-                using (var sw = File.AppendText(contactsFilePath))
-                {
-                    sw.WriteLine(item.ToString());
-                }
-
-                return Task.FromResult(item);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+            var contactsFilePath = MailClient.Core.Main.ContactsFileMainPath;
+            if (!File.Exists(contactsFilePath))
+                throw new FileNotFoundException("Contacts file not found.", contactsFilePath);
+            using (var sw = File.AppendText(contactsFilePath))
+                sw.WriteLine(item.ToString());
+            return Task.FromResult(item);
         }
 
         public Task<Contact> DeleteAsync(dynamic id)
         {
-            throw new NotImplementedException();
+            if (id == null)
+                throw new ArgumentNullException(nameof(id));
+            if (!int.TryParse(id.ToString(), out int contactId))
+                throw new ArgumentException("Invalid contact ID.", nameof(id));
+            var contactsFilePath = MailClient.Core.Main.ContactsFileMainPath;
+            if (!File.Exists(contactsFilePath))
+                throw new FileNotFoundException("Contacts file not found.", contactsFilePath);
+            var lines = File.ReadAllLines(contactsFilePath);
+            var updatedLines = new List<string>();
+            Contact deletedContact = null;
+            foreach (var line in lines)
+            {
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    updatedLines.Add(line);
+                    continue;
+                }
+                var contact = ParseContactFromLine(line);
+                if (contact != null && contact.ID == contactId)
+                {
+                    contact.Status = Status.Deleted;
+                    contact.LastUpdatedOn = DateTime.UtcNow;
+                    updatedLines.Add(contact.ToString());
+                    deletedContact = contact;
+                }
+                else
+                    updatedLines.Add(line);
+            }
+            if (deletedContact == null)
+                throw new InvalidOperationException($"Contact with ID {contactId} not found.");
+            File.WriteAllLines(contactsFilePath, updatedLines);
+            return Task.FromResult(deletedContact);
         }
 
         public Task<IEnumerable<Contact>> GetAllAsync()
         {
-            try
+            var contactsFilePath = MailClient.Core.Main.ContactsFileMainPath;
+            if (!File.Exists(contactsFilePath))
+                return Task.FromResult<IEnumerable<Contact>>(new List<Contact>());
+            var lines = File.ReadAllLines(contactsFilePath)
+                            .Where(l => !string.IsNullOrWhiteSpace(l))
+                            .ToArray();
+            List<Contact> contacts = new List<Contact>();
+            foreach (var line in lines)
             {
-                var contactsFilePath = MailClient.Core.Main.ContactsFileMainPath;
-
-                if (!File.Exists(contactsFilePath))
-                    return Task.FromResult<IEnumerable<Contact>>(new List<Contact>());
-
-                var lines = File.ReadAllLines(contactsFilePath)
-                                .Where(l => !string.IsNullOrWhiteSpace(l))
-                                .ToArray();
-
-                List<Contact> contacts = new List<Contact>();
-
-                foreach (var line in lines)
-                {
-                    var contact = ParseContactFromLine(line);
-                    if (contact != null)
-                    {
-                        contacts.Add(contact);
-                    }
-                }
-
-                return Task.FromResult<IEnumerable<Contact>>(contacts);
+                var contact = ParseContactFromLine(line);
+                if (contact != null)
+                    contacts.Add(contact);
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            return Task.FromResult<IEnumerable<Contact>>(contacts);
         }
 
         public Task<Contact> GetSingleAsync(dynamic id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Contact Update(Contact contact)
-        {
-            return null;
+            if (id == null)
+                throw new ArgumentNullException(nameof(id));
+            if (!int.TryParse(id.ToString(), out int contactId))
+                throw new ArgumentException("Invalid contact ID.", nameof(id));
+            var contactsFilePath = MailClient.Core.Main.ContactsFileMainPath;
+            if (!File.Exists(contactsFilePath))
+                throw new FileNotFoundException("Contacts file not found.", contactsFilePath);
+            var lines = File.ReadAllLines(contactsFilePath)
+                            .Where(l => !string.IsNullOrWhiteSpace(l))
+                            .ToArray();
+            foreach (var line in lines)
+            {
+                var contact = ParseContactFromLine(line);
+                if (contact != null && contact.ID == contactId)
+                    return Task.FromResult(contact);
+            }
+            throw new InvalidOperationException($"Contact with ID {contactId} not found.");
         }
 
         public Task<Contact> UpdateAsync(Contact item)
         {
-            throw new NotImplementedException();
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+            if (item.ID <= 0)
+                throw new ArgumentException("Contact ID must be greater than zero.", nameof(item));
+            var contactsFilePath = MailClient.Core.Main.ContactsFileMainPath;
+            if (!File.Exists(contactsFilePath))
+                throw new FileNotFoundException("Contacts file not found.", contactsFilePath);
+            var lines = File.ReadAllLines(contactsFilePath);
+            var updatedLines = new List<string>();
+            Contact updatedContact = null;
+            foreach (var line in lines)
+            {
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    updatedLines.Add(line);
+                    continue;
+                }
+                var contact = ParseContactFromLine(line);
+                if (contact != null && contact.ID == item.ID)
+                {
+                    // Update contact properties
+                    contact.Name = item.Name;
+                    contact.Email = item.Email;
+                    contact.PhoneNumber = item.PhoneNumber;
+                    contact.Status = item.Status;
+                    contact.LastUpdatedOn = DateTime.UtcNow;
+
+                    updatedLines.Add(contact.ToString());
+                    updatedContact = contact;
+                }
+                else
+                {
+                    updatedLines.Add(line);
+                }
+            }
+            if (updatedContact == null)
+                throw new InvalidOperationException($"Contact with ID {item.ID} not found.");
+            File.WriteAllLines(contactsFilePath, updatedLines);
+            return Task.FromResult(updatedContact);
         }
 
         /// <summary>
