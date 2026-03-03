@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using MailClient.Core.Models;
 
 #endregion
-using MailClient.DAL.XMLManagers;
+using MailClient.DAL.Managers;
 
 namespace Mail_Client.Views
 {

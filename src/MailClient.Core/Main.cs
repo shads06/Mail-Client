@@ -19,6 +19,7 @@ namespace MailClient.Core
         public static readonly string ContactsFileMainPath = Path.Combine(ContactsDirectoryPath, Constants.ContactsFileName);
         public static readonly string ContactsListFileMainPath = Path.Combine(ContactsListsDirectoryPath, Constants.ContactsListFileName);
         public static readonly string MailsTotalQuotaFilePath = Path.Combine(MailsDirectoryPath, Constants.MailsTotalQuotaFileName);
+        public static readonly string MailServersFileMainPath = Path.Combine(DatabaseDirectoryPath, Constants.MailServersFileName);
         //public static readonly string BackupAppDirectoryPath = Path.Combine(UserProfileDirectoryPath, "MailClientBackup");
         //public static FileSystemWatcher appDirectoryWatcher = new FileSystemWatcher(AppDirectoryPath);
 
@@ -46,6 +47,7 @@ namespace MailClient.Core
 
                 if(!File.Exists(ContactsFileMainPath)) File.Create(ContactsFileMainPath).Close();
                 if(!File.Exists(ContactsListFileMainPath)) File.Create(ContactsListFileMainPath).Close();
+                if(!File.Exists(MailServersFileMainPath)) File.Create(MailServersFileMainPath).Close();
 
                 //Directory.CreateDirectory(BackupAppDirectoryPath);
                 //appDirectoryWatcher.EnableRaisingEvents = true;

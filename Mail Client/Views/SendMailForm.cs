@@ -3,22 +3,11 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
-using System.Threading;
 using System.Net.Mail;
-using System.Text;
 using System.Net;
 using _Form = System.Windows.Forms;
-#endregion
-
-#region Gmail API Libraries
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Gmail.v1;
-using Google.Apis.Gmail.v1.Data;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Mail_Client.Views;
 #endregion
 
 namespace Mail_Client.Views

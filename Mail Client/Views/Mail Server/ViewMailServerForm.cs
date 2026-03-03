@@ -1,6 +1,6 @@
 ﻿using MailClient.Core;
 using MailClient.Core.Models;
-using MailClient.DAL.XMLManagers;
+using MailClient.DAL.Managers;
 using System;
 using System.Windows.Forms;
 
@@ -68,7 +68,6 @@ namespace Mail_Client.Views
 
                 MailServer UpdateServer = new MailServer()
                 {
-                    ID = Convert.ToInt32(IDValueLabel.Text),
                     Name = NameTextBox.Text,
                     Description = DescriptionTextBox.Text,
                     Host = HostTextBox.Text,

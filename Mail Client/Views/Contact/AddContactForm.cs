@@ -3,6 +3,7 @@ using MailClient.DAL;
 using System.Windows.Forms;
 using MailClient.Core;
 using MailClient.DAL.Managers;
+using MailClient.Core.Models;
 
 namespace Mail_Client.Views
 {
@@ -22,9 +23,7 @@ namespace Mail_Client.Views
         {
             try
             {
-                XMLHelper helper = new XMLHelper();
-
-                MailClient.Core.Models.Contact NewContact = new MailClient.Core.Models.Contact()
+                Contact NewContact = new Contact()
                 {
                     Name = NameTextbox.Text,
                     Email = EmailIDTextbox.Text
@@ -44,10 +43,7 @@ namespace Mail_Client.Views
 
             try
             {
-                XMLHelper helper = new XMLHelper();
-
-                MailClient.Core.Models.Contact NewContact = new MailClient.Core.Models.Contact();
-                NewContact.ID = helper.LastElementUniqueID(_location + "Contacts.xml", "Contact") + 1;
+                Contact NewContact = new Contact();
                 NewContact.Name = NameTextbox.Text;
                 NewContact.Email = EmailIDTextbox.Text;
 

@@ -45,6 +45,7 @@
     <Compile Include="Managers\ContactListRepository.cs" />
     <Compile Include="Managers\ContactRepository.cs" />
     <Compile Include="Managers\MailRepository.cs" />
+    <Compile Include="Managers\MailServerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="XMLManagers\XMLHelper.cs" />

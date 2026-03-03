@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using MailClient.Core;
 using MailClient.Core.Models;
 using MailClient.DAL;
-using MailClient.DAL.XMLManagers;
+using MailClient.DAL.Managers;
 
 namespace Mail_Client.Views
 {
@@ -23,11 +23,8 @@ namespace Mail_Client.Views
             try
             {
 
-                XMLHelper helper = new XMLHelper();
-
                 MailServer NewServer = new MailServer()
                 {
-                    ID = helper.LastElementUniqueID(XMLDataStorage.Location + "MailServers.xml", "Server") + 1,
                     Name = NameTextBox.Text,
                     Description = DescriptionTextBox.Text,
                     Host = HostTextBox.Text,
@@ -60,11 +57,9 @@ namespace Mail_Client.Views
             try
             {
 
-                XMLHelper helper = new XMLHelper();
 
                 MailServer NewServer = new MailServer()
                 {
-                    ID = helper.LastElementUniqueID(XMLDataStorage.Location + "MailServers.xml", "Server") + 1,
                     Name = NameTextBox.Text,
                     Description = DescriptionTextBox.Text,
                     Host = HostTextBox.Text,

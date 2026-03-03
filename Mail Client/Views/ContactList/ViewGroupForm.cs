@@ -1,9 +1,7 @@
 ﻿#region .Net Base Library Namespaces
 using MailClient.DAL.Managers;
 using System;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion
 

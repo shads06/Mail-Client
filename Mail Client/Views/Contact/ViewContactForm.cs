@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using MailClient.Core;
-using MailClient.DAL.XMLManagers;
+using MailClient.Core.Models;
+using MailClient.DAL.Managers;
 
 namespace Mail_Client.Views
 {
@@ -62,7 +63,7 @@ namespace Mail_Client.Views
             try
             {
                 
-                MailClient.Core.Models.Contact Contact = new MailClient.Core.Models.Contact();
+                Contact Contact = new Contact();
                 Contact.ID = Convert.ToInt32(IDValueLabel.Text);
                 Contact.Name = NameTextbox.Text;
                 Contact.Email = EmailIDTextbox.Text;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using Mail_Client.Views;
 using MailClient.DAL.Managers;
 
 namespace Mail_Client.Views
@@ -63,7 +62,7 @@ namespace Mail_Client.Views
 
                     var ContactID = Convert.ToInt32(ContactsGrid.Rows[row].Cells["ID"].Value);
 
-                    Mail_Client.Views.ViewContactForm viewContact = new Views.ViewContactForm(ContactID);
+                    ViewContactForm viewContact = new ViewContactForm(ContactID);
                     viewContact.ShowDialog();
 
                 }

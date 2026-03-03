@@ -1,4 +1,4 @@
-﻿using MailClient.DAL.XMLManagers;
+﻿using MailClient.DAL.Managers;
 using System;
 using System.Linq;
 using System.Windows.Forms;
