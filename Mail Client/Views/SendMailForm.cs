@@ -8,13 +8,14 @@ using System.Net;
 using _Form = System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using MailClient.Core;
 #endregion
 
 namespace Mail_Client.Views
 {
     public partial class SendMailForm : Form
     {
-        private Gmail _gmail = new Gmail();
+        private GmailManager _gmail = new GmailManager();
         Form appLoadForm = new Form();
         // Variables to use in form
         bool flag = false;

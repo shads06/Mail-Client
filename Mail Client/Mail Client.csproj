@@ -142,7 +142,6 @@
       <DependentUpon>ContactsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FileReadWrite.cs" />
-    <Compile Include="Gmail.cs" />
     <Compile Include="Views\SendMailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,7 +166,6 @@
     <Compile Include="Views\ContactList\CreateGroupForm.Designer.cs">
       <DependentUpon>CreateGroupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility.cs" />
     <Compile Include="Views\ContactList\ViewGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>

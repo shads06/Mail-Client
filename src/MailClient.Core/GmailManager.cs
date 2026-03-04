@@ -49,7 +49,7 @@ namespace MailClient.Core
         {
             try
             {
-                using (var stream = new FileStream(Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "MailClient", "client_secret.json"), FileMode.Open, FileAccess.Read))
+                using (var stream = new FileStream(Main.GmailCredentialsFileMainPath, FileMode.Open, FileAccess.Read))
                 {
                     //credPath = System.Environment.GetFolderPath(
                     //    System.Environment.SpecialFolder.Personal);

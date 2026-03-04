@@ -13,6 +13,7 @@ namespace MailClient.Core
         public const string ContactsListFileName = "ContactsLists.txt";
         public const string MailsTotalQuotaFileName = "Total Mails Sent Quota.txt";
         public const string MailServersFileName = "MailServers.txt";
+        public const string GmailCredentialsFileName = "client_secret.json";
         // Location Names starts below
         public const string LicenseLocationName = "License";
         public const string GmailCredentialsLocationName = "GmailCredentials";

@@ -5,6 +5,7 @@ namespace MailClient.Core
 {
     public static class Main
     {
+        // Directory Paths
         static string UserProfileDirectoryPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
         public static readonly string AppDirectoryPath = Path.Combine(UserProfileDirectoryPath, Constants.AppName);
         public static readonly string TempDirectoryPath = Path.Combine(AppDirectoryPath, Constants.TempLocationName);
@@ -16,6 +17,8 @@ namespace MailClient.Core
         public static readonly string MailsDirectoryPath = Path.Combine(DatabaseDirectoryPath, Constants.MailsLocationName);
         public static readonly string AccountsDirectoryPath = Path.Combine(DatabaseDirectoryPath, Constants.AccountsLocationName);
         public static readonly string ActiveAccountDirectoryPath = Path.Combine(AccountsDirectoryPath, Constants.ActiveAccountLocationName);
+        // File Paths
+        public static readonly string GmailCredentialsFileMainPath = Path.Combine(GmailCredentialsDirectoryPath, Constants.GmailCredentialsFileName);
         public static readonly string ContactsFileMainPath = Path.Combine(ContactsDirectoryPath, Constants.ContactsFileName);
         public static readonly string ContactsListFileMainPath = Path.Combine(ContactsListsDirectoryPath, Constants.ContactsListFileName);
         public static readonly string MailsTotalQuotaFilePath = Path.Combine(MailsDirectoryPath, Constants.MailsTotalQuotaFileName);
@@ -38,6 +41,7 @@ namespace MailClient.Core
                 Directory.CreateDirectory(AppDirectoryPath);
                 Directory.CreateDirectory(TempDirectoryPath);
                 Directory.CreateDirectory(LicenseDirectoryPath);
+                Directory.CreateDirectory(GmailCredentialsDirectoryPath);
                 Directory.CreateDirectory(DatabaseDirectoryPath);
                 Directory.CreateDirectory(ContactsDirectoryPath);
                 Directory.CreateDirectory(ContactsListsDirectoryPath);
