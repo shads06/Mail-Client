@@ -310,5 +310,48 @@ namespace MailClient.DAL.Managers
             }).ToList();
             return Task.FromResult<IEnumerable<Contact>>(addedContacts);
         }
+
+        public Task<bool> DeleteContactListByNameAsync(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Contact list name is required.", nameof(name));
+            var trimmedName = name.Trim();
+            var listsFilePath = Main.ContactsListFileMainPath;
+            var listsDirectory = Main.ContactsListsDirectoryPath;
+            if (!File.Exists(listsFilePath))
+                throw new FileNotFoundException("Contact lists file not found.", listsFilePath);
+            var lines = File.ReadAllLines(listsFilePath);
+            var updatedLines = new List<string>();
+            bool listFound = false;
+            foreach (var line in lines)
+            {
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    updatedLines.Add(line);
+                    continue;
+                }
+
+                var currentName = line.Trim();
+                if (string.Equals(currentName, trimmedName, StringComparison.OrdinalIgnoreCase))
+                {
+                    // Delete the associated contact-list file
+                    var listFilePath = Path.Combine(listsDirectory, currentName + ".txt");
+                    if (File.Exists(listFilePath))
+                        File.Delete(listFilePath);
+
+                    listFound = true;
+                    // Skip adding this line to updatedLines (hard delete)
+                }
+                else
+                {
+                    updatedLines.Add(line);
+                }
+            }
+            if (!listFound)
+                throw new InvalidOperationException($"Contact list with name '{trimmedName}' not found.");
+            // Write updated lines back to the file
+            File.WriteAllLines(listsFilePath, updatedLines);
+            return Task.FromResult(true);
+        }
     }
 }

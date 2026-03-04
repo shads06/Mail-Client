@@ -9,6 +9,8 @@ using _Form = System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using MailClient.Core;
+using MailClient.DAL.Managers;
+using System.Linq;
 #endregion
 
 namespace Mail_Client.Views
@@ -16,10 +18,11 @@ namespace Mail_Client.Views
     public partial class SendMailForm : Form
     {
         private GmailManager _gmail = new GmailManager();
+        ContactListRepository contactListRepository = new ContactListRepository();
         Form appLoadForm = new Form();
         // Variables to use in form
         bool flag = false;
-        string FileNameBeforeEditing = null;
+        string FileNameAfterEditing = null;
         int Total_Mail_Sent = 0;
         int count;
         public SendMailForm()
@@ -31,9 +34,9 @@ namespace Mail_Client.Views
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            if(!CheckForInternetConnection())   //Check for "system is not connected to the internet" is true
+            if (!CheckForInternetConnection())   //Check for "system is not connected to the internet" is true
             {
-                MessageBox.Show("No Internet Connection. Data will be saved offline.","No Internet",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("No Internet Connection. Data will be saved offline.", "No Internet", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             try
@@ -59,10 +62,8 @@ namespace Mail_Client.Views
             appLoadForm.Close();
 
             // Loading 
-            FileReadWrite.path = MailClient.Core.Main.ContactsListFileMainPath;
-
-            FileReadWrite.LoadDataFromFileInComboBox(comboBox_to);
-
+            var cl = await contactListRepository.GetAllAsync();
+            FileReadWrite.PopulateCombobox(comboBox_to, cl.Select(x => x.Name));
             // Reading Total Mail Sent Quota and storing in variable
             string path1 = MailClient.Core.Main.MailsTotalQuotaFilePath;
 
@@ -73,15 +74,10 @@ namespace Mail_Client.Views
             }
         }
 
-        private void Form1_Main_Window_FormClosing(object sender, FormClosingEventArgs e)
+        private async void Form1_Main_Window_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (flag)
-            {
-                string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\__" + FileNameBeforeEditing + "(Edited).txt";
-
-                if (File.Exists(path))
-                    File.Delete(path);
-            }
+                await contactListRepository.DeleteContactListByNameAsync(FileNameAfterEditing);
         }
 
         /********************************************************* Private Methods Start *********************************************************/
@@ -224,7 +220,7 @@ namespace Mail_Client.Views
 
                 //Sending Mail
                 _gmail.SendMail(mimeMessage.ToString(), "me");
-                
+
             }
             catch (Exception ex)
             {
@@ -276,25 +272,21 @@ namespace Mail_Client.Views
             Close();
         }
 
-        private void button_edit_group_list_Click(object sender, EventArgs e)
+        private async void button_edit_group_list_Click(object sender, EventArgs e)
         {
             try
             {
                 checkedListBox_Edit_Recipients.Items.Clear();
 
                 string GroupName = comboBox_to.SelectedItem.ToString();
-                string FilePath = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + GroupName + ".txt";
+                var contacts = await contactListRepository.GetContactsInListAsync(GroupName);
                 string[] RecipientNames = new string[90];
-                StreamReader sr = File.OpenText(FilePath);
 
-                if (sr.EndOfStream)
-                {
+                if (contacts == null || contacts.Count() == 0)
                     MessageBox.Show("Group has no recipient", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    sr.Close();
-                }
                 else
                 {
-                    Array.Copy(RetrieveDataFromFile(FilePath), RecipientNames, 90);
+                    Array.Copy(contacts.Select(x => x.Email).ToArray(), RecipientNames, 90);
 
                     foreach (string RN in RecipientNames)
                     {
@@ -330,25 +322,18 @@ namespace Mail_Client.Views
             }
         }
 
-        private void comboBox_to_SelectedValueChanged(object sender, EventArgs e)
+        private async void comboBox_to_SelectedValueChanged(object sender, EventArgs e)
         {
-            string path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\" + comboBox_to.SelectedItem.ToString() + ".txt";
-
-            if (checkedListBox_Edit_Recipients.Visible == true & button_Save_Edit_List.Visible == true & button_Close_Editing.Visible == true)
+            if (checkedListBox_Edit_Recipients.Visible & button_Save_Edit_List.Visible & button_Close_Editing.Visible)
             {
                 checkedListBox_Edit_Recipients.Items.Clear();
-
                 try
                 {
-                    //Open the file to read from.
-                    using (StreamReader sr = File.OpenText(path))
+                    var contacts = await contactListRepository.GetContactsInListAsync(comboBox_to.SelectedItem.ToString());
+                    foreach (var contact in contacts)
                     {
-                        string s = "";
-                        while ((s = sr.ReadLine()) != null)
-                        {
-                            checkedListBox_Edit_Recipients.Items.Add(s);
-                            checkedListBox_Edit_Recipients.SetItemChecked(checkedListBox_Edit_Recipients.Items.IndexOf(s), true);
-                        }
+                        checkedListBox_Edit_Recipients.Items.Add(contact.Email);
+                        checkedListBox_Edit_Recipients.SetItemChecked(checkedListBox_Edit_Recipients.Items.IndexOf(contact.Email), true);
                     }
                 }
                 catch (Exception t)
@@ -363,19 +348,16 @@ namespace Mail_Client.Views
             button_Save_Edit_List.Enabled = true;
         }
 
-        private void button_Save_Edit_List_Click(object sender, EventArgs e)
+        private async void button_Save_Edit_List_Click(object sender, EventArgs e)
         {
             flag = true;
-
-            FileNameBeforeEditing = comboBox_to.SelectedItem.ToString();
-
-            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Groups\\__" + comboBox_to.SelectedItem.ToString() + "(Edited).txt";
-
-            FileReadWrite.WriteInFileFromCheckListBox(checkedListBox_Edit_Recipients.CheckedItems);
-
-            comboBox_to.Items.Add("__" + comboBox_to.SelectedItem.ToString() + "(Edited)");
+            FileNameAfterEditing = "__" + comboBox_to.SelectedItem.ToString() + "(Edited)";
+            var checkedEmails = checkedListBox_Edit_Recipients.CheckedItems
+                .OfType<string>()
+                .ToList();
+            await contactListRepository.AddContactsToListAsync(FileNameAfterEditing, checkedEmails);
+            comboBox_to.Items.Add(FileNameAfterEditing);
             comboBox_to.SelectedIndex = 0;
-
             checkedListBox_Edit_Recipients.Visible = false;
             button_Save_Edit_List.Visible = false;
             button_Close_Editing.Visible = false;
@@ -426,17 +408,17 @@ namespace Mail_Client.Views
                         string subject = textBox_subject.Text;
                         string body = richTextBox_content.Text;
                         string senderAddress = textBox_From_Email_ID.Text;
-                        var newSendMailTask = Task.Run( () => SendMail(receipientAddress, subject, body, senderAddress));
+                        var newSendMailTask = Task.Run(() => SendMail(receipientAddress, subject, body, senderAddress));
                         sendMailTasks.Add(newSendMailTask);
                         newSendMailTask.ContinueWith((completedTask) =>
                         {
-                            Invoke(new Action(() => 
+                            Invoke(new Action(() =>
                             {
                                 sent_mails_Count++;
                                 progressBar1.PerformStep();
                                 Message_Sending_Progress.Text = $"Sent {sent_mails_Count}/{count_mail_ids} Emails";
                             }));
-                            
+
                         });
                     }
                     await Task.WhenAll(sendMailTasks);
@@ -474,10 +456,11 @@ namespace Mail_Client.Views
 
         }
 
-        private void comboBox_to_DropDown(object sender, EventArgs e)
+        private async void comboBox_to_DropDown(object sender, EventArgs e)
         {
             comboBox_to.Items.Clear();
-            FileReadWrite.LoadDataFromFileInComboBox(comboBox_to);
+            var cl = await contactListRepository.GetAllAsync();
+            FileReadWrite.PopulateCombobox(comboBox_to, cl.Select(x => x.Name));
         }
 
         public void Reload_ComboBox_Of_Form1()
@@ -493,16 +476,13 @@ namespace Mail_Client.Views
             NewContact.ShowDialog();
         }
 
-        private void add_multiple_contacts_Click(object sender, EventArgs e)
+        private async void add_multiple_contacts_Click(object sender, EventArgs e)
         {
             AddMultipleContactsForm AMC = new AddMultipleContactsForm();
             AMC.ShowDialog();
-
-            // Loading group names in combobox
-            FileReadWrite.path = FileReadWrite.GetCurrentDirectoryPath + "\\Data\\Group Names.txt";
-
+            var cl = await contactListRepository.GetAllAsync();
             comboBox_to.Items.Clear();
-            FileReadWrite.LoadDataFromFileInComboBox(comboBox_to);
+            FileReadWrite.PopulateCombobox(comboBox_to, cl.Select(x => x.Name));
         }
 
         private void about_Click(object sender, EventArgs e)
@@ -544,7 +524,7 @@ namespace Mail_Client.Views
         {
             this.Close();
         }
-        
+
         private void contactsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ContactsForm contactsWindows = new ContactsForm();
@@ -567,7 +547,7 @@ namespace Mail_Client.Views
                 MessageBox.Show("Something went wrong. Mail Servers can't be open");
 
             }
-            
+
         }
     }
 }

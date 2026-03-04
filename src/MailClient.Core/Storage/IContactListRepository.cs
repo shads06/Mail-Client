@@ -6,6 +6,7 @@ namespace MailClient.Core.Storage
 {
     public interface IContactListRepository : IRepository<ContactList>
     {
+        Task<bool> DeleteContactListByNameAsync(string name);
         Task<IEnumerable<Contact>> GetContactsInListAsync(string listName);
         Task<IEnumerable<Contact>> AddContactsToListAsync(string listName, IEnumerable<string> entries);
     }

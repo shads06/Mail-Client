@@ -50,57 +50,6 @@ namespace Mail_Client
                 }
             }
         }
-
-        public static void WriteInFileFromCheckListBox(CheckedListBox.CheckedItemCollection chk)
-        {
-            if (!File.Exists(path))
-            {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    foreach (object itemChecked in chk)
-                    {
-                        sw.WriteLine(itemChecked.ToString());
-                    }
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    foreach (object itemChecked in chk)
-                    {
-                        sw.WriteLine(itemChecked.ToString());
-
-                    }
-                }
-            }
-        }
-        
-        public static void LoadDataFromFileInComboBox(ComboBox cmb)
-        {
-            //Open the file to read from.
-            if (!File.Exists(path))
-                MessageBox.Show("All Groups are deleted externally. No group names are available to show in drop down", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-            {
-                try
-                {
-                    using (StreamReader sr = File.OpenText(path))
-                    {
-                        string s = "";
-                        while ((s = sr.ReadLine()) != null)
-                        {
-                            cmb.Items.Add(s);
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Something went wrong. Contact Developer", "File Can not open", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
         public static void PopulateCombobox(ComboBox cmb, IEnumerable<string> items)
         {
             foreach (var item in items) cmb.Items.Add(item);
